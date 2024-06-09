@@ -1,0 +1,135 @@
+/* global css */
+:root {
+    --color-black: black;
+    --color-white: #fff;
+    --color-bg: antiquewhite;
+    --color-card-heading: brown;
+    --color-status: #26DA72;
+    --color-hover-btn: rgb(170, 132, 132);
+}
+
+html {
+    font-size: 16px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Banner css */
+.banner {
+    background-image: url(../../img/bannerbg.png);
+    background-size: cover;
+    height: 100vh;
+    background-color: var(--color-bg);
+}
+
+.banner__wrapper {
+    max-width: calc(1220px + 2 * 24px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    padding: 104px 24px 200px 24px;
+}
+
+.banner__text {
+    color: var(--color-white);
+    font-size: calc(1rem * 3 + 8px);
+    background-color: var(--color-black);
+}
+
+.banner__name {
+    font-size: 280px;
+    color: var(--color-black);
+    font-weight: 300;
+    font-family: impact;
+}
+
+.banner__text2 {
+    position: absolute;
+    left: 250px;
+    top: 285px;
+    font-size: 23px;
+}
+
+@media (max-width: 770px) {
+
+    .banner__name {
+        font-size: 180px;
+    }
+
+    .banner__text2 {
+        top: 260px;
+        left: 165px;
+    }
+
+    .button_banneradaptive {
+        width: 100%;
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .banner__text {
+        font-size: 42px;
+    }
+
+    .banner__name {
+        font-size: 78px;
+    }
+
+    .banner__text2 {
+        top: 300px;
+        left: 24px;
+    }
+
+    .button_banneradaptive {
+        width: 100%;
+        margin-top: 100px;
+    }
+}
+
+/* buttons css */
+.button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+.button_cursor {
+    cursor: pointer;
+}
+
+.button_main {
+    background-color: var(--color-black);
+    padding: 16px 40px;
+    border-radius: 36px;
+    color: var(--color-white);
+    font-weight: 700;
+}
+
+.button_main:hover {
+    color: var(--color-black);
+    border: 3px solid var(--color-black);
+    background-color: var(--color-white);
+} 
+
+.button_menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
