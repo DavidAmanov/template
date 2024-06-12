@@ -3,9 +3,12 @@
     --color-black: black;
     --color-white: #fff;
     --color-bg: antiquewhite;
+    --colo-bg-banner: #e6e6e6;
     --color-card-heading: brown;
     --color-status: #26DA72;
     --color-hover-btn: rgb(170, 132, 132);
+
+    --color-bg-banner: #1D2533;
 }
 
 html {
@@ -31,7 +34,7 @@ a {
     background-image: url(../../img/bannerbg.png);
     background-size: cover;
     height: 100vh;
-    background-color: var(--color-bg);
+    background-color: var(--color-bg-banner);
 }
 
 .banner__wrapper {
@@ -62,6 +65,7 @@ a {
     left: 250px;
     top: 285px;
     font-size: 23px;
+    color: var(--color-status);
 }
 
 @media (max-width: 770px) {
@@ -120,12 +124,17 @@ a {
     border-radius: 36px;
     color: var(--color-white);
     font-weight: 700;
+    transition: color 0.2s, background-color 0.3s;
 }
 
 .button_main:hover {
     color: var(--color-black);
-    border: 3px solid var(--color-black);
     background-color: var(--color-white);
+} 
+
+.button_main:active {
+    color: var(--color-black);
+    background-color: var(--color-card-heading);
 } 
 
 .button_menu {

@@ -6,6 +6,7 @@
     --color-card-heading: brown;
     --color-status: #26DA72;
     --color-hover-btn: rgb(170, 132, 132);
+    --color-hover-btn1: rgba(170, 159, 159, 1);
 }
 
 html {
@@ -85,6 +86,7 @@ a {
     background: none;
     border: none;
     cursor: pointer;
+    padding: 12px;
 }
 
 .button_cursor {
