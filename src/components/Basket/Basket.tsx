@@ -1,10 +1,10 @@
 import React from 'react'
 import BannerCss from './Basket.module.css'
-import Product8 from '../../src/img/products/8.png'
-import Divider from '../../src/img/ico/Divider.png'
-import Remove from '../../src/img/ico/Add Small.png'
-import Add from '../../src/img/ico/Add Small.png'
-import Trash from '../../src/img/ico/trash.png'
+import Product8 from '../../img/products/8.png'
+import Divider from '../../img/ico/Divider.png'
+import Remove from '../../img/ico/Remove Small.png'
+import Add from '../../img/ico/Add Small.png'
+import Trash from '../../img/ico/trash.png'
 
 
 
@@ -43,7 +43,7 @@ const Basket = () => {
                                 <div className={BannerCss.item__tumbler}>
                                     <button className={`${BannerCss.button} ${BannerCss.button_hover} ${BannerCss.button_cursor}`}><img src={Remove} alt="Remove item" /></button>
                                     <span className={BannerCss.quantity}>1</span>
-                                    <button className="button button_hover button_cursor"><img src={Add} alt="Add item" /></button>
+                                    <button className={`${BannerCss.button} ${BannerCss.button_hover} ${BannerCss.button_cursor}`}><img src={Add} alt="Add item" /></button>
                                 </div>
                                 <div className={BannerCss.item__right}>
                                     <div className={BannerCss.item__price}>Price</div>
