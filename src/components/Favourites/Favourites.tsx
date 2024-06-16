@@ -1,31 +1,51 @@
 import React from 'react'
 import FavouritesCss from './Favourites.module.css'
-import Heart from '../../img/heart_block.png'
-
+import Divider from '../../img/ico/Divider.png'
+import Trash from '../../img/ico/trash.png'
+import Product from '../../img/products/8.png'
 
 
 const Favourites = () => {
     return(
         <>
-        <section className={FavouritesCss.favourites}>
-            <div className={FavouritesCss.favourites__wrapper}>
-                <h1 className={`${FavouritesCss.favourites__h1} ${FavouritesCss.favourites__h1_hidden}`}>Oh...<br /> It seems here is still empty...</h1>
-                <img className={FavouritesCss.img} src={Heart} alt="favourites logo" />
-                <div className={FavouritesCss.favourites__right}>
-                    <h1 className={`${FavouritesCss.favourites__h1} ${FavouritesCss.favourites__h1_adaptive}`}>Oh...<br /> It seems here is still empty...</h1>
-                    <div className={FavouritesCss.favorites__info}>
-                        <div className={FavouritesCss.favourites__text}>
-                            <h2 className={FavouritesCss.favourites__text_h2}>There is nothing in favorites</h2>
-                            <span className={FavouritesCss.favourites__text_little}>We are confident that in our catalog<br />you will find something you like!</span>
+            <section className={FavouritesCss.section}>
+                <div className={FavouritesCss.section__wrapper}>
+                    <nav className={FavouritesCss.nav}>
+                        <span className={FavouritesCss.first}>Home</span>
+                        <img src={Divider} alt='slash' />
+                        <span className={FavouritesCss.second}>Favourites</span>
+                    </nav>
+                    <div className={FavouritesCss.heading}>
+                        <h1 className={FavouritesCss.heading__h1}>My favourites</h1>
+                        <span>1 item</span>
+                    </div>
+                    <div className={FavouritesCss.cart__leftBlock}>
+                        <div className={FavouritesCss.item}>
+                            <div className={FavouritesCss.item__banner}>
+                                <div className={FavouritesCss.forImg}>
+                                    <img className={FavouritesCss.img} src={Product} alt="item to buy" />
+                                </div>
+                                <div className={FavouritesCss.item__info}>
+                                    <span className={FavouritesCss.item__name}>Black T-shirt</span>
+                                    <span className={FavouritesCss.item__size}>Size: M</span>
+                                </div>
+                            </div>
+                            <div className={FavouritesCss.item__total}>
+                                <div className={FavouritesCss.item__left}> 
+                                    <div className={FavouritesCss.item__price}>Price</div>
+                                    <div className={FavouritesCss.item__quantity}>Price for 1 piece.</div>
+                                </div>
+                                <button className={`${FavouritesCss.button} ${FavouritesCss.button_style} ${FavouritesCss.button_cursor}`}>Add to cart</button>
+                                <div className={FavouritesCss.item__right}>
+                                    <div className={FavouritesCss.item__price}>Price</div>
+                                    <button className={`${FavouritesCss.button} ${FavouritesCss.button_cursor}`}><img src={Trash} alt="Trash" /></button>
+                                </div>
+                            </div>
                         </div>
-                        <div className={FavouritesCss.buttons}>
-                            <a href="#"><button className={`${FavouritesCss.button} ${FavouritesCss.button_style} ${FavouritesCss.button_hover}`}>Go to catalog</button></a>
-                            <a href="#"><button className={`${FavouritesCss.button} ${FavouritesCss.button_style} ${FavouritesCss.button_hover}`}>Home page</button></a>
-                        </div>
+
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
         </>
     )
 }
