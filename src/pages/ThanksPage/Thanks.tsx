@@ -1,15 +1,13 @@
 import React from "react";
-import Basket from '../../components/Basket/Basket'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
+import Thanks from "../../components/Thanks/Thanks";
 
-
-const BasketPage = () => {
+const ThanksPage = () => {
     return(<>
         <Header />
-        <Basket />
+        <Thanks />
         <Footer />
     </>)
 }
-
-export default BasketPage;
+export default ThanksPage

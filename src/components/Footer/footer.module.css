@@ -50,6 +50,7 @@ a {
 /* footer css */
 .footerTop {
     background-color: var(--color-black);
+    border-top: 1px solid var(--color-bg-banner);
 }
 
 .footerBottom {

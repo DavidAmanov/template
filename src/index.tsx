@@ -10,6 +10,9 @@ import Catalog from './components/Catalog/Catalog';
 import Order from './pages/Order/Order';
 import Contacts from './pages/Contacts/Contacts';
 import Favourites from './pages/Favourites/Favourites';
+import EmptyBasket from './pages/EmptyBasket/EmptyBasket';
+import EmptyFavourites from './pages/EmptyFavourites/Favourites';
+import ThanksPage from './pages/ThanksPage/Thanks';
 
 const router = createBrowserRouter([{
   path: '/',
@@ -32,6 +35,15 @@ const router = createBrowserRouter([{
 },{
   path: '/Favourites',
   element: <Favourites />
+},{
+  path: '/EmptyBasket',
+  element: <EmptyBasket />
+},{
+  path: '/EmptyFavourites',
+  element: <EmptyFavourites />
+},{
+  path: '/ThanksPage',
+  element: <ThanksPage />
 }
 ])
 const root = ReactDOM.createRoot(

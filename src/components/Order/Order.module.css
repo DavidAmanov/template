@@ -132,6 +132,7 @@ a {
 
 .columns {
     display: flex;
+    color: var(--color-black);
 }
 
 .left__component {
@@ -460,22 +461,22 @@ a {
 }
 
 .button_style {
-    border: 1px solid var(--color-status);
+    border: 1px solid var(--color-card-heading);
     border-radius: 32px;
     padding: 12px 24px;
-    background-color: var(--color-status);
+    background-color: var(--color-card-heading);
     color: var(--color-white);
     transition: 0.5s;
 }
 
 .button_style:hover {
-    box-shadow: 0 0 8px var(--color-status);
+    box-shadow: 0 0 8px var(--color-card-heading);
 }
 
 .button_style:active {
-    box-shadow: 0 0 32px var(--color-status);
-    background-color: var(--color-status);
-    border: 1px solid var(--color-status);
+    box-shadow: 0 0 32px var(--color-active-btn);
+    background-color: var(--color-active-btn);
+    border: 1px solid var(--color-active-btn);
 }
 
 .button_size {
@@ -564,6 +565,7 @@ a {
 }
 
 @media (max-width: 500px) {
+
     html {
         font-size: 12px;
     }

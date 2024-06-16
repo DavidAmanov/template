@@ -71,7 +71,7 @@ const Card = () => {
                                 
                             </div>
                             {/* <!-- delivery html block --> */}
-                            <div className={OrderCss.delivery}>
+                            <div className={`${OrderCss.delivery} ${OrderCss.block}`}>
                                 <div className={OrderCss.name}>
                                     <span>2</span>
                                     <img src={Slash} alt="slash" />
@@ -114,7 +114,7 @@ const Card = () => {
                                 
                             </div>
 
-                            <div className={OrderCss.payment}>
+                            <div className={`${OrderCss.payment} ${OrderCss.block}`}>
                                 <div className={OrderCss.name}>
                                     <span>3</span>
                                     <img src={Slash} alt="slash" />
@@ -230,7 +230,7 @@ const Card = () => {
                                 <button className={`${OrderCss.button} ${OrderCss.button_style} ${OrderCss.button_size}`}type="submit">Order</button>
                                 <div className={OrderCss.checkbox}>
                                     <input type="checkbox" id="button" required />
-                                    <label className="labelText" for="button">By clicking on the <a className={OrderCss.PlaceOrderLink} href="#">“Place an order”</a> button, you consent to the processing of personal data</label>
+                                    <label className={OrderCss.labelText} htmlFor="button">By clicking on the <a className={OrderCss.PlaceOrderLink} href="#">“Place an order”</a> button, you consent to the processing of personal data</label>
                                 </div>
                             </div>
                         </div>
