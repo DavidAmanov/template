@@ -1,34 +1,116 @@
-.header{
-    height: 85px;
-    width: 100%;
-    background-color: black;
+/* global css */
+:root {
+    --color-black: black;
+    --color-white: #fff;
+    --color-bg: antiquewhite;
+    --color-card-heading: brown;
+    --color-status: #26DA72;
+    --color-hover-btn: rgb(170, 132, 132);
+    --color-hover-btn1: rgba(170, 159, 159, 1);
+    --color-bg-banner: #1D2533;
+}
+
+html {
+    font-size: 16px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* header css */
+
+.header {
+    background-color: var(--color-black);
+    height: 80px;
+    border-bottom: 2px solid var(--color-bg-banner);
+}
+
+.header__wrapper {
+    max-width: calc(1220px + 2 * 24px);
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.menu_container{
-    width: 33%;
-    color: aliceblue;
-    font-size: 24px;
-    display: flex;
-    justify-content: center;
+
+.button__menuheader {
+    font-size: calc(1rem + 8px);
 }
 
-.logo_container{
-    display: flex;
-    justify-content: center;
-    width: 33%;
+.header__logo {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-white);
 }
 
-.icons_container{
+.header__rightblock {
     display: flex;
-    justify-content: center;
-    width: 33%;
+    gap: 32px;
 }
 
-.container{
+.rightblock_hidden {
+    display: none;
+}
+
+/* adaptive css */
+
+@media (max-width: 480px) {
+    .header__rightblock {
+        display: none;
+    }
+    
+    .rightblock_hidden {
+        display: flex;
+        gap: 32px;
+    }
+
+    .header__menu {
+        display: none;
+    }
+}
+
+/* buttons css */
+.button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+}
+
+.button_cursor {
+    cursor: pointer;
+}
+
+.button_main {
+    background-color: var(--color-black);
+    padding: 16px 40px;
+    border-radius: 36px;
+    color: var(--color-white);
+    font-weight: 700;
+}
+
+.button_main:hover {
+    color: var(--color-black);
+    border: 3px solid var(--color-black);
+    background-color: var(--color-white);
+} 
+
+.button_menu {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    gap: 12px;
 }
