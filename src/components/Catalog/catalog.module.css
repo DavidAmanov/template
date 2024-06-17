@@ -33,6 +33,7 @@ a {
 }
 
 .section__h2 {
+    color: var(--color-black);
     font-family: Impact;
     font-weight: 700;
     letter-spacing: 1.25px;

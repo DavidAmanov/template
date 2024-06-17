@@ -1,13 +1,13 @@
 import React from "react";
-import Contacts from '../../components/Contacts/Contacts'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
+import Thanks from "../../components/Thanks/Thanks";
 
-const ContactsPage = () => {
+const ThanksPage = () => {
     return(<>
         <Header />
-        <Contacts />
+        <Thanks />
         <Footer />
     </>)
 }
-export default ContactsPage
+export default ThanksPage

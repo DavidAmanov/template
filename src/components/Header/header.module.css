@@ -7,6 +7,7 @@
     --color-status: #26DA72;
     --color-hover-btn: rgb(170, 132, 132);
     --color-hover-btn1: rgba(170, 159, 159, 1);
+    --color-bg-banner: #1D2533;
 }
 
 html {
@@ -32,6 +33,7 @@ a {
 .header {
     background-color: var(--color-black);
     height: 80px;
+    border-bottom: 2px solid var(--color-bg-banner);
 }
 
 .header__wrapper {
