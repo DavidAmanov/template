@@ -4,7 +4,8 @@ import Product8 from '../../src/img/products/8.png'
 import Divider from '../../src/img/ico/Divider.png'
 import Remove from '../../src/img/ico/Add Small.png'
 import Add from '../../src/img/ico/Add Small.png'
-import Trash from '../../src/img/ico/trash.png'
+import Trash from '../img/ico/trash.png'
+
 
 
 
