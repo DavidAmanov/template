@@ -5,7 +5,6 @@ import Footer from '../../components/Footer/Footer'
 
 
 const BasketPage = () => {
-const BasketPage = () => {
     return(<>
         <Header />
         <Basket />
