@@ -5,9 +5,7 @@ import Footer from "../../components/Footer/Footer";
 
 const EmptyBasket = () => {
     return(<>
-        <Header />
         <Basket />
-        <Footer />
     </>)
 }
 export default EmptyBasket

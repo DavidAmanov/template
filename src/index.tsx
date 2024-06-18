@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import Home from './pages/Home/Home'
 import Basket from './pages/Basket/Basket'
 import Menu from './pages/Menu/Menu'
@@ -51,7 +53,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    <Header />
     <RouterProvider router={router}/>
+    <Footer />
   </React.StrictMode>
 );
 

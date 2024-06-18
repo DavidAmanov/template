@@ -5,9 +5,7 @@ import Thanks from "../../components/Thanks/Thanks";
 
 const ThanksPage = () => {
     return(<>
-        <Header />
         <Thanks />
-        <Footer />
     </>)
 }
 export default ThanksPage

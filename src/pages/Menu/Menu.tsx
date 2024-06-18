@@ -1,9 +1,9 @@
 import React from "react";
-import Basket from '../../components/Menu/Menu'
+import Menu from '../../components/Menu/Menu'
 
-const Menu = () => {
+const MenuPage = () => {
     return(<>
         <Menu />
     </>)
 } 
-export default Menu;
+export default MenuPage;

@@ -1,35 +1,3 @@
-/* global css */
-:root {
-    --color-black: black;
-    --color-white: #fff;
-    --color-bg: antiquewhite;
-    --colo-bg-banner: #e6e6e6;
-    --color-card-heading: brown;
-    --color-status: #26DA72;
-    --color-hover-btn: rgb(170, 132, 132);
-
-    --color-bg-banner: #1D2533;
-}
-
-html {
-    font-size: 16px;
-}
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-ul {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-/* Banner css */
 .banner {
     background-image: url(../../img/bannerbg.png);
     background-size: cover;
