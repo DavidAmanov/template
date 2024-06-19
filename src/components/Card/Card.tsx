@@ -6,17 +6,19 @@ import PlaceholderImage from '../../img/image-placeholder.png'
 
 interface CardProps {
     product: Product;
+    sliderFlag: boolean
 }
 
-const Card: React.FC<CardProps> = ({product}) => {
+const Card: React.FC<CardProps> = ({product, sliderFlag}) => {
     const productImage = product.img ? product.img : PlaceholderImage;
     return(
         <article className={CardCss.card}>
-            <div className={CardCss.card__heading}>{product.status}</div>
-            <div className={CardCss.card__top}>
+            {!sliderFlag && (<div className={CardCss.card__heading}>{product.status}</div>)}
+            <div className={CardCss.card__top} style={sliderFlag ? {height: "300px"} : {}}>
                 <img className={CardCss.card__img} src={productImage} alt={product.name} />
             </div>
-            <div className={CardCss.card__bottom}>
+            {sliderFlag && (<div className={CardCss.card__heading}>{product.name}</div>)}
+            {!sliderFlag &&(<div className={CardCss.card__bottom}>
                 <div className={CardCss.card__name}>{product.name}</div>
                 <div className={CardCss.card__info}>
                     <div className={CardCss.card__status}>
@@ -27,7 +29,7 @@ const Card: React.FC<CardProps> = ({product}) => {
                 </div>
                 <div className={CardCss.price}>{product.price}</div>
                 <button className={`${CardCss.button} ${CardCss.button_cart}`}>Add to cart</button>
-            </div>
+            </div>)}
         </article>
     )
 }

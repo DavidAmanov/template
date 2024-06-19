@@ -14,7 +14,7 @@
     flex-direction: column;
     justify-content: flex-start;
     position: relative;
-    padding: 104px 24px 200px 24px;
+    padding: 104px 24px 0px 24px;
 }
 
 .banner__text {

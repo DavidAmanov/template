@@ -10,6 +10,7 @@ const Catalog = () => {
     const [categoryFilter, setCategoryFilter] = useState<number>(0)
     const [priceFilter, setPriceFilter] = useState<string>("Popular")
     const [filteredCatalog, setFilteredCatalog] = useState<Product[]>([]);
+    const sliderFlag = false
 
 
     const handlePriceFilter = (event: React.ChangeEvent<HTMLSelectElement>) =>{
@@ -71,7 +72,7 @@ const Catalog = () => {
                     </select>
                 </div>
                 <div className={catalogCss.catalog}>
-                    {filteredCatalog.map((product)=>((<Card key={product.id} product={product}/>)))}
+                    {filteredCatalog.map((product)=>((<Card key={product.id} product={product} sliderFlag={sliderFlag}/>)))}
                 </div>
             </div>
         </section>

@@ -12,7 +12,7 @@ const MenuPage = () => {
         <main className={MenuCss.page__container}>
             <section className={MenuCss.links}>
                 <CatalogCategory />
-                <Link to="/about">About Us</Link>
+                <Link to="/aboutus">About Us</Link>
                 <Link to="/contacts">Contacts</Link>
             </section>   
             <div className={MenuCss.logo}>

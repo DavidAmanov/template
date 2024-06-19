@@ -12,7 +12,7 @@ const Footer = () => {
             <div className={FooterCss.footerTop__wrapper}>
                 <img className={FooterCss.footer__logo} src={logo} alt="Logo" />
                 <div className={FooterCss.footer__contacts}>
-                    <span className={FooterCss.footer__mobile}>+7 (499) 999-82-83</span>
+                    <span className={FooterCss.footer__mobile}>+1 111 111-11-11</span>
                     <a className={FooterCss.link} href="#"><span className={FooterCss.footer__email}>DavidAmanovIs@gmail.com</span></a>
                 </div>
                 <div className={FooterCss.footer__contacts}>

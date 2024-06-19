@@ -1,9 +1,29 @@
-import React from "react";
-import Contacts from '../../components/Contacts/Contacts'
+import Footer from "../../components/Footer/Footer"
+import Header from "../../components/Header/Header"
+import Map from "../../components/Map/Map"
+import Slider from "../../components/Slider/Slider"
+import ContactsCss from './Contacts.module.css'
 
-const ContactsPage = () => {
+const Contacts = () =>{
     return(<>
-        <Contacts />
+    <Header />
+    <div className={ContactsCss.contacts__container}>
+        <section className={ContactsCss.text}>
+            <span>Phone: +1-111-111-11-11 <br />
+                  Email: DavidAmanovIs@gmail.com <br />
+                  Address: Somewhere in Tokyo <br />
+                  Email for your suggestions: Piece@gmail.com
+            </span>
+        </section>
+        <section className={ContactsCss.map}>
+            <Map />
+        </section>
+    </div>
+    <div className={ContactsCss.slider}>
+        <Slider />
+    </div>
+    <Footer />
     </>)
 }
-export default ContactsPage
+
+export default Contacts
