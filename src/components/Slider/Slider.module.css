@@ -1,5 +1,11 @@
 .slider{
+    gap: 16px;
+    width: 100%;
+}
+
+.card__item{
     display: flex;
     justify-content: center;
-    gap: 16px;
+    width: 300px;
+    margin-bottom: 5vh;
 }
