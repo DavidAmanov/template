@@ -1,9 +1,9 @@
 import React from "react";
-import Basket from '../../components/Favourites/Favourites'
+import Favourites from '../../components/Favourites/Favourites'
 
-const Favourites = () => {
+const FavouritesPage = () => {
     return(<>
     <Favourites />
     </>)
 }
-export default Favourites
+export default FavouritesPage

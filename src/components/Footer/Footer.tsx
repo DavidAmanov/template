@@ -13,7 +13,7 @@ const Footer = () => {
                 <img className={FooterCss.footer__logo} src={logo} alt="Logo" />
                 <div className={FooterCss.footer__contacts}>
                     <span className={FooterCss.footer__mobile}>+7 (499) 999-82-83</span>
-                    <a className={FooterCss.link} href="#"><span className={FooterCss.footer__email}>rostelecom.merc@rt.ru</span></a>
+                    <a className={FooterCss.link} href="#"><span className={FooterCss.footer__email}>DavidAmanovIs@gmail.com</span></a>
                 </div>
                 <div className={FooterCss.footer__contacts}>
                     <a className={FooterCss.link} href="#"><span>vc.ru</span></a>

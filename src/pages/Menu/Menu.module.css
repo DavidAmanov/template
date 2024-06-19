@@ -1,0 +1,46 @@
+.page__container{
+    display: grid;
+    grid-template-columns: 35% 65%;
+    height: 80vh;
+}
+
+.links{
+    font-size: 48px;
+    display: flex;
+    flex-direction: column;
+    margin: 16vh;
+    gap: 12vh;
+    opacity: 0; 
+    transform: translateX(-100%); 
+    animation: slide-in 0.5s forwards;
+}
+
+.links a{
+    color: black !important;
+}
+
+.links button {
+    font-size: 48px;
+    border: none;
+    background-color: transparent;
+}
+
+
+.logo{
+    margin: 22vh;
+    transform: translateX(200%); 
+    animation: slide-in 0.5s forwards;
+}
+
+.logo img{
+width: 100%;
+}
+
+
+
+@keyframes slide-in {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

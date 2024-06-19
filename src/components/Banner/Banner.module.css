@@ -1,40 +1,10 @@
-/* global css */
-:root {
-    --color-black: black;
-    --color-white: #fff;
-    --color-bg: antiquewhite;
-    --colo-bg-banner: #e6e6e6;
-    --color-card-heading: brown;
-    --color-status: #26DA72;
-    --color-hover-btn: rgb(170, 132, 132);
-
-    --color-bg-banner: #1D2533;
-}
-
-html {
-    font-size: 16px;
-}
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-ul {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-/* Banner css */
 .banner {
     background-image: url(../../img/bannerbg.png);
     background-size: cover;
-    height: 100vh;
-    background-color: var(--color-bg-banner);
+    height: 75vh;
+    background-color: whitesmoke;
+    opacity: 0; 
+    animation: fadeIn 2s forwards; 
 }
 
 .banner__wrapper {
@@ -51,6 +21,7 @@ a {
     color: var(--color-white);
     font-size: calc(1rem * 3 + 8px);
     background-color: var(--color-black);
+    max-width: 60%;
 }
 
 .banner__name {
@@ -141,4 +112,11 @@ a {
     display: flex;
     align-items: center;
     gap: 12px;
+}
+
+
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* Конечное состояние: полностью видимо */
+    }
 }

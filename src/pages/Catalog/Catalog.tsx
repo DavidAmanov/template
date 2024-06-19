@@ -1,6 +1,15 @@
 import React from "react";
+import Catalog from "../../components/Catalog/Catalog";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 
-const Catalog = () => {
-    return (<></>)
+const CatalogPage = () => {
+    return (
+        <>
+        <Header />
+        <Catalog/>
+        <Footer />
+        </>
+    )
 } 
-export default Catalog
+export default CatalogPage

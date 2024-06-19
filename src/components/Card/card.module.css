@@ -1,44 +1,14 @@
-/* global css */
-:root {
-    --color-black: black;
-    --color-white: #fff;
-    --color-bg: antiquewhite;
-    --color-card-heading: brown;
-    --color-status: #26DA72;
-    --color-border-card: rgb(134, 91, 91);
-    --color-box-shadow: #A5A8AD;
-    --color-card-bottom: #2A323F;
-    --color-active-btn: red;
-
-    --color-card-text: #A5A8AD;
-}
-
-html {
-    font-size: 16px;
-}
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-ul {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-}
-
 /* card css */
 .card {
-    max-width: 352px;
-    border: 3px solid var(--color-border-card);
+    width: 352px;
+    border: 3px solid rgb(238, 238, 238);
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 0 20px var(--color-box-shadow);
     transition: box-shadow 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s forwards;
 
 }
 
@@ -51,8 +21,8 @@ a {
 }
 
 .card__heading {
-    background-color: var(--color-card-heading);
-    color: var(--color-white);
+    background-color: rgb(248, 246, 246);
+    color: black;
     text-align: center;
     font-size: 16px;
     letter-spacing: 2px;
@@ -84,7 +54,7 @@ a {
     flex-direction: column;
     gap: 16px;
     padding: 16px;
-    background-color: var(--color-card-bottom);
+    background-color: black;
 }
 
 .card__info {
@@ -158,3 +128,11 @@ a {
 
 
 /* button css */
+
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

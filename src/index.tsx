@@ -6,13 +6,15 @@ import reportWebVitals from './reportWebVitals';
 import Home from './pages/Home/Home'
 import Basket from './pages/Basket/Basket'
 import Menu from './pages/Menu/Menu'
-import Catalog from './components/Catalog/Catalog';
+import Catalog from './pages/Catalog/Catalog';
 import Order from './pages/Order/Order';
 import Contacts from './pages/Contacts/Contacts';
 import Favourites from './pages/Favourites/Favourites';
 import EmptyBasket from './pages/EmptyBasket/EmptyBasket';
 import EmptyFavourites from './pages/EmptyFavourites/Favourites';
 import ThanksPage from './pages/ThanksPage/Thanks';
+import { Provider } from 'react-redux';
+import store from './context/store';
 
 const router = createBrowserRouter([{
   path: '/',
@@ -21,28 +23,28 @@ const router = createBrowserRouter([{
   path: '/basket',
   element: <Basket />
 },{
-  path: '/Menu',
+  path: '/menu',
   element: <Menu />
 },{
-  path: '/Catalog',
+  path: '/catalog',
   element: <Catalog />
 },{
-  path: '/Order',
+  path: '/order',
   element: <Order />
 },{
-  path: '/Contacts',
+  path: '/contacts',
   element: <Contacts />
 },{
-  path: '/Favourites',
+  path: '/favourites',
   element: <Favourites />
 },{
-  path: '/EmptyBasket',
+  path: '/emptyBasket',
   element: <EmptyBasket />
 },{
-  path: '/EmptyFavourites',
+  path: '/emptyFavourites',
   element: <EmptyFavourites />
 },{
-  path: '/ThanksPage',
+  path: '/thanksPage',
   element: <ThanksPage />
 }
 ])
@@ -51,7 +53,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <Provider store={store}>
+        <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 

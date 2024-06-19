@@ -1,35 +1,3 @@
-/* global css */
-:root {
-    --color-black: black;
-    --color-white: #fff;
-    --color-bg: antiquewhite;
-    --color-card-heading: brown;
-    --color-status: #26DA72;
-    --color-hover-btn: rgb(170, 132, 132);
-    --color-hover-btn1: rgba(170, 159, 159, 1);
-    --color-bg-banner: #1D2533;
-}
-
-html {
-    font-size: 16px;
-}
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-ul {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-/* header css */
-
 .header {
     background-color: var(--color-black);
     height: 80px;
@@ -41,14 +9,20 @@ a {
     height: 100%;
     margin: 0 auto;
     padding: 0 24px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
     align-items: center;
 }
 
 
 .button__menuheader {
+    color: white;
     font-size: calc(1rem + 8px);
+}
+
+.header__cont{
+    display: flex;
+    justify-content: center;
 }
 
 .header__logo {
@@ -59,6 +33,7 @@ a {
 
 .header__rightblock {
     display: flex;
+    justify-content: end;
     gap: 32px;
 }
 

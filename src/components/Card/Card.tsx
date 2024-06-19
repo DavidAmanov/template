@@ -1,25 +1,31 @@
 import React from 'react'
 import CardCss from './card.module.css'
-import ProductImg from '../../img/products/8.png'
 import StatisIcon from '../../img/ico/Ellipse_green.png'
+import { Product } from '../../context/catalogSlice'
+import PlaceholderImage from '../../img/image-placeholder.png'
 
-const Card = () => {
+interface CardProps {
+    product: Product;
+}
+
+const Card: React.FC<CardProps> = ({product}) => {
+    const productImage = product.img ? product.img : PlaceholderImage;
     return(
         <article className={CardCss.card}>
-            <div className={CardCss.card__heading}>New or not</div>
+            <div className={CardCss.card__heading}>{product.status}</div>
             <div className={CardCss.card__top}>
-                <img className={CardCss.card__img} src={ProductImg} alt="T-shirt black" />
+                <img className={CardCss.card__img} src={productImage} alt={product.name} />
             </div>
             <div className={CardCss.card__bottom}>
-                <div className={CardCss.card__name}>Name of the product</div>
+                <div className={CardCss.card__name}>{product.name}</div>
                 <div className={CardCss.card__info}>
                     <div className={CardCss.card__status}>
                         <img className={CardCss.status__icon} src={StatisIcon} alt="Icon of the product status" />
-                        Status
+                        Available
                     </div>
-                    <div className={CardCss.article}>Article</div>
+                    <div className={CardCss.article}>L M S</div>
                 </div>
-                <div className={CardCss.price}>Price</div>
+                <div className={CardCss.price}>{product.price}</div>
                 <button className={`${CardCss.button} ${CardCss.button_cart}`}>Add to cart</button>
             </div>
         </article>
