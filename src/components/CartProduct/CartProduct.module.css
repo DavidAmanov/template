@@ -1,0 +1,96 @@
+.forImg {
+    max-width: 160px;
+}
+
+.img {
+    width: 100%;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--color-box-shadow);
+    margin-bottom: 40px;
+    gap: 32px;
+}
+
+.item__banner {
+    display: flex;
+    gap: 32px;
+}
+
+.item__info {
+    display: flex;
+    gap: 24px;
+}
+
+.item__name {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+.item__size {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.item__total {
+    display: flex;
+    align-items: start;
+    gap: 32px;
+}
+
+.item__tumbler {
+    background-color: var(--color-card-bottom);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    padding: 12px 16px;
+}
+
+.item__price {
+    font-size: 1rem;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+.item__quantity {
+    color: var(--color-card-heading);
+    font-size: calc(1rem - 4px);
+    font-weight: 400;
+}
+
+.quantity {
+    color: var(--color-white);
+}
+
+.item__right {
+    min-width: 160px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.item__text {
+    color: var(--color-box-shadow);
+    font-size: 1rem;
+}
+
+
+.button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.button_hover:hover {
+    background-color: var(--color-hover-tumbler);
+    border-radius: 20%;
+}
+
+.button_cursor {
+    cursor: pointer;
+}
