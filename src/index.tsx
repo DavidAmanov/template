@@ -4,7 +4,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Home from './pages/Home/Home'
-import Basket from './pages/Basket/Basket'
+import Cart from './pages/Cart/Cart'
 import Menu from './pages/Menu/Menu'
 import Catalog from './pages/Catalog/Catalog';
 import Order from './pages/Order/Order';
@@ -16,13 +16,15 @@ import { Provider } from 'react-redux';
 import store from './context/store';
 import AboutUsPage from './pages/AboutUs/AboutUs';
 import Contacts from './pages/Contacts/Contacts';
+import ProductPage from './pages/Product/Product';
+import Profile from './pages/Profile/Profile';
 
 const router = createBrowserRouter([{
   path: '/',
   element: <Home />
 },{
-  path: '/basket',
-  element: <Basket />
+  path: '/cart',
+  element: <Cart />
 },{
   path: '/menu',
   element: <Menu />
@@ -50,6 +52,12 @@ const router = createBrowserRouter([{
 }, {
   path: '/contacts',
   element : <Contacts/>
+}, {
+  path: '/product/:id',
+  element : <ProductPage /> 
+}, {
+  path: '/profile',
+  element: <Profile />
 }
 ])
 const root = ReactDOM.createRoot(

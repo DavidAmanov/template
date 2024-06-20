@@ -3,6 +3,7 @@ import CardCss from './card.module.css'
 import StatisIcon from '../../img/ico/Ellipse_green.png'
 import { Product } from '../../context/catalogSlice'
 import PlaceholderImage from '../../img/image-placeholder.png'
+import { Link } from 'react-router-dom'
 
 interface CardProps {
     product: Product;
@@ -15,7 +16,7 @@ const Card: React.FC<CardProps> = ({product, sliderFlag}) => {
         <article className={CardCss.card}>
             {!sliderFlag && (<div className={CardCss.card__heading}>{product.status}</div>)}
             <div className={CardCss.card__top} style={sliderFlag ? {height: "300px"} : {}}>
-                <img className={CardCss.card__img} src={productImage} alt={product.name} />
+                <Link to={`/product/${product.id}`}><img className={CardCss.card__img} src={productImage} alt={product.name} /></Link>
             </div>
             {sliderFlag && (<div className={CardCss.card__heading}>{product.name}</div>)}
             {!sliderFlag &&(<div className={CardCss.card__bottom}>

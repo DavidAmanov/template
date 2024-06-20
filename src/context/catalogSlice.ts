@@ -9,11 +9,11 @@ export interface Product {
     categoryId: number;
     img: string;
   }
-
+//31.128.39.49
 export const fetchCatalog = createAsyncThunk<Product[]>(
     'catalog/fetchCatalog',
     async function(){
-        const response = await fetch('http://31.128.39.49:3001/api/product') 
+        const response = await fetch('http://localhost:3001/api/product') 
         const data = await response.json()
         return data;
     }

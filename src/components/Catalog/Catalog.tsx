@@ -27,7 +27,7 @@ const Catalog = () => {
     useEffect(()=>{
         dispatch(fetchCatalog());
       }, [dispatch]);
-    // console.log(catalog)
+ 
 
     useEffect(() => {
         let filteredProducts = [...catalog];

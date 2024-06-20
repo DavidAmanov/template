@@ -27,8 +27,8 @@ const Header = () => {
                     <ul className={HeaderCss.header__rightblock}>
                         <li><button className={HeaderCss.button}><img src={searchIcon} alt="Search" /></button></li>
                         <li><button className={HeaderCss.button}><img src={heartIcon} alt="favourites" /></button></li>
-                        <li><button className={HeaderCss.button}><img src={cartIcon} alt="Cart" /></button></li>
-                        <li><button className={HeaderCss.button}><img src={profileIcon} alt="Profile" /></button></li>
+                        <Link to="/cart"><li><button className={HeaderCss.button}><img src={cartIcon} alt="Cart" /></button></li></Link>
+                        <Link to="/profile"><li><button className={HeaderCss.button}><img src={profileIcon} alt="Profile" /></button></li></Link>
                     </ul>
                 </div>
                 <div className={`${HeaderCss.header__rightblock} ${HeaderCss.rightblock_hidden}`}>
