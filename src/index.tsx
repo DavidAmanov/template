@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
+import { PersistGate } from 'redux-persist/integration/react';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Home from './pages/Home/Home'
@@ -13,7 +14,7 @@ import EmptyBasket from './pages/EmptyBasket/EmptyBasket';
 import EmptyFavourites from './pages/EmptyFavourites/Favourites';
 import ThanksPage from './pages/ThanksPage/Thanks';
 import { Provider } from 'react-redux';
-import store from './context/store';
+import { store, persistor } from './context/store';
 import AboutUsPage from './pages/AboutUs/AboutUs';
 import Contacts from './pages/Contacts/Contacts';
 import ProductPage from './pages/Product/Product';
@@ -66,7 +67,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-        <RouterProvider router={router} />
+      <PersistGate loading={null} persistor={persistor}>
+          <RouterProvider router={router} />
+      </PersistGate>
     </Provider>
   </React.StrictMode>
 );

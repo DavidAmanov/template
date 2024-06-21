@@ -21,7 +21,7 @@ const CartProduct:React.FC<ProductProps> = ({product}) => {
                                         <img className={CartProductCss.img} src={Product8} alt="item to buy" />
                                     </div>
                                     <div className={CartProductCss.item__info}>
-                                        <span className={CartProductCss.item__name}>тфьу</span>
+                                        <span className={CartProductCss.item__name}>{product.name}</span>
                                         <span className={CartProductCss.item__size}>Size: M</span>
                                     </div>
                                 </div>

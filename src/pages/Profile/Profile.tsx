@@ -1,27 +1,26 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { identificate } from '../../context/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { setToken, fetchUserData } from '../../context/userSlice';
+import { RootState, AppDispatch } from '../../context/store';
 import { Link } from 'react-router-dom';
 
 const Profile = () => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
+    const token = useSelector((state:RootState) => state.user.token);
+
+    const getCookieValue = (name:string) => {
+        const cookie = document.cookie.split('; ').find(row => row.startsWith(`${name}=`));
+        return cookie ? cookie.split('=')[1] : null;
+    };
 
     useEffect(() => {
-        const params = new URLSearchParams(window.location.search);
-        const token = params.get('token');
-        const userId = params.get('userId');
-        const email = params.get('email');
-        const name = params.get('name');
-        const photo = params.get('photo');
-        const role = params.get('role') === 'ADMIN' ? 'ADMIN' : 'USER';
-        const favouriteId = parseInt(params.get('favouriteId') as string, 10);
-        const cartId = parseInt(params.get('cartId') as string, 10);
-
-        console.log(token, userId, email, name, photo, role, cartId, favouriteId); 
-
-        dispatch(identificate({ token, userId, email, name, photo, role, cartId, favouriteId }));
+        const token = getCookieValue('token')
+        if (token) {
+            dispatch(setToken({ token }));
+            dispatch(fetchUserData());
+        }
     }, [dispatch]);
-
+    console.log(token)
     return (
         <>
             <Link to="http://localhost:3001/api/user/auth/google">hi bro</Link>

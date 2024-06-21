@@ -26,7 +26,7 @@ const Header = () => {
                 <div>
                     <ul className={HeaderCss.header__rightblock}>
                         <li><button className={HeaderCss.button}><img src={searchIcon} alt="Search" /></button></li>
-                        <li><button className={HeaderCss.button}><img src={heartIcon} alt="favourites" /></button></li>
+                        <Link to="/favourites"><li><button className={HeaderCss.button}><img src={heartIcon} alt="favourites" /></button></li></Link>
                         <Link to="/cart"><li><button className={HeaderCss.button}><img src={cartIcon} alt="Cart" /></button></li></Link>
                         <Link to="/profile"><li><button className={HeaderCss.button}><img src={profileIcon} alt="Profile" /></button></li></Link>
                     </ul>
