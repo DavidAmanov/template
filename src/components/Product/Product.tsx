@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Product } from '../../context/catalogSlice';
 import ProductCss from "./Product.module.css";
-import ButtonRed from '../Button/Button';
+import ButtonRed from '../Button/ButtonRed';
+import ButtonGray from '../Button/ButtonGray';
 import { RootState } from '../../context/store';
 
 interface ProductProps {
@@ -15,6 +16,16 @@ const ProductComp: React.FC<ProductProps> = ({ product }) => {
     const cartId = useSelector((state: RootState) => state.user.cart_id);
     const token = useSelector((state: RootState)=> state.user.token)
     console.log(cartId, token); // Для отладки
+
+    const plus = () => {
+        setCount(count+1)
+    }
+
+    const minus = () =>{
+        if(count>1){
+            setCount(count-1)
+        }
+    }
 
     const addProductToCart = async () => {
         const data = {
@@ -59,11 +70,7 @@ const ProductComp: React.FC<ProductProps> = ({ product }) => {
                 </div>
                 <div className={ProductCss.btn__container}>
                     <ButtonRed onClick={addProductToCart} />
-                    <div className={ProductCss.btn__count__container}>
-                        <button onClick={() => setCount(count - 1)} disabled={count <= 1}>-</button>
-                        <span>{count}</span>
-                        <button onClick={() => setCount(count + 1)}>+</button>
-                    </div>
+                    <ButtonGray quantity={count} onClick1={minus} onClick2={plus}/>
                 </div>
             </section>
         </div>

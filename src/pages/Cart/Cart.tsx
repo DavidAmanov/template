@@ -46,7 +46,7 @@ const CartPage = () => {
                     </div>
                     <div className={CartCss.cart}>
                         <div className={CartCss.cart__leftBlock}>
-                            {productsInCart.map((item)=>((<CartProduct product={item.product}/>)))}
+                            {productsInCart.map((item)=>((<CartProduct product={item.product} key={item.id} quantity={item.quantity}/>)))}
                             <div className={CartCss.promocode}>
                                 <div className={CartCss.promocode__field}>
                                     <input type="text" className={CartCss.promocode__input} placeholder="Promocode" />

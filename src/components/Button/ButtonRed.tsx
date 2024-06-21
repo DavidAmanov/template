@@ -1,4 +1,4 @@
-import ButtonCss from "./Button.module.css"
+import ButtonCss from "./ButtonRed.module.css"
 
 
 const ButtonRed = ({onClick}: any) => {

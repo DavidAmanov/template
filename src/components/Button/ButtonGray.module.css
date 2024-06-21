@@ -1,0 +1,27 @@
+.item__tumbler {
+    background-color: var(--color-card-bottom);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    padding: 12px 16px;
+}
+
+.item__tumbler span{
+    color: white;
+}
+
+.button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.button_hover:hover {
+    background-color: var(--color-hover-tumbler);
+    border-radius: 20%;
+}
+
+.button_cursor {
+    cursor: pointer;
+}
