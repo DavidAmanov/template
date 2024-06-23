@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { RootState, store } from "./store";
+import { RootState } from "./store";
 import { CartProductType } from "../types/types";
 
 
@@ -29,7 +29,8 @@ export const fetchProductsInCart = createAsyncThunk<CartProductType[]>(
                 "Authorization": `Bearer ${token}`,
             }
         })
-        const data: CartProductType[] = await response.json()
+        const data = await response.json()
+        console.log(data, "slice")
         return data
     }
 ) 
@@ -48,11 +49,10 @@ export const counterAmount = createAsyncThunk<number>(
 
 export const changeProductQuantity = createAsyncThunk(
     'cart/changeProductQuantity',
-    async(quantity,thunkAPI)=>{
+    async({quantity, productId}:{quantity: number, productId: number},thunkAPI)=>{
         const state = thunkAPI.getState() as RootState
         const token = state.user.accessToken
         const cartId = state.user.cart_id
-        const productId = state.cart.productId
         const response = await fetch('http://localhost:3001/api/cartProduct/add', {
             method: "POST",
             headers:{
@@ -72,11 +72,61 @@ export const changeProductQuantity = createAsyncThunk(
     }
 )
 
+export const removeProduct = createAsyncThunk(
+    'cart/removeProduct',
+    async({quantity, productId}:{quantity: number, productId: number},thunkAPI)=>{
+        const state = thunkAPI.getState() as RootState
+        const token = state.user.accessToken
+        const cartId = state.user.cart_id
+        const response = await fetch('http://localhost:3001/api/cartProduct/remove', {
+            method: "DELETE",
+            headers:{
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "cart_id": cartId,
+                "product_id": productId,
+                "quantity": quantity
+            })
+        })
+        const result = await response.json();
+        thunkAPI.dispatch(fetchProductsInCart())
+        return result
+    }   
+)
+
+export const addProduct = createAsyncThunk(
+    'cart/addProduct',
+    async({quantity, productId}:{quantity: number, productId: number},thunkAPI)=>{
+        const state = thunkAPI.getState() as RootState
+        const token = state.user.accessToken
+        const cartId = state.user.cart_id
+        const response = await fetch("http://localhost:3001/api/cartProduct/add", {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${token}`, 
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "cart_id": cartId,
+                "product_id": productId,
+                "quantity": quantity
+            })
+        });
+        thunkAPI.dispatch(fetchProductsInCart())
+        return await response.json();
+    }
+)
 
 const cartSlice = createSlice({
     name: 'cart',
     initialState,
-    reducers:{},
+    reducers:{
+        setProductId(state, action){
+            state.productId = action.payload
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(fetchProductsInCart.fulfilled, (state, action)=>{
             state.cartProducts = action.payload
@@ -89,5 +139,5 @@ const cartSlice = createSlice({
 
 })
 
-
+export const {setProductId} = cartSlice.actions
 export default cartSlice.reducer;

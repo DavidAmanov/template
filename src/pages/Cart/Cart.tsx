@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import CartCss from './Cart.module.css'
@@ -6,45 +6,24 @@ import Divider from '../../img/ico/Divider.png'
 import { Link } from "react-router-dom";
 import CartProduct from "../../components/CartProduct/CartProduct";
 import { useSelector } from 'react-redux';
-import { RootState } from "../../context/store";
-import { CartProductType } from "../../types/types";
+import { AppDispatch, RootState } from "../../context/store";
 import MakeOrder from "../../components/MakeOrder/MakeOrder";
+import { useDispatch } from "react-redux";
+import { counterAmount, fetchProductsInCart } from "../../context/cartSlice";
 
 
 
 const CartPage = () => {
-    const [productsInCart, setProductsInCart] = useState<CartProductType[]>([])
-    const [total, setTotal] = useState<number>(0)
-    const token = useSelector((state: RootState)=>state.user.accessToken)
-    const cartId = useSelector((state: RootState)=>state.user.cart_id)
-    
+    const dispatch = useDispatch<AppDispatch>()
 
     useEffect(()=>{
-        const fetchData = async () => {
-            const response = await fetch(`http://localhost:3001/api/cartProduct/${cartId}`,{
-                method: "GET",
-                headers:{
-                    "Authorization": `Bearer ${token}`,
-                }
-            })
-            const data = await response.json()
-            setProductsInCart(data)
-            console.log(data)
-        } 
-        fetchData()
-    },[cartId, token])
+        dispatch(fetchProductsInCart())
+        dispatch(counterAmount())
+    }, [dispatch])
 
-    const updateTotal = () => {
-        let price = 0;
-        for (let i = 0; i < productsInCart.length; i++) {
-            price += productsInCart[i].product.price * productsInCart[i].quantity;
-        }
-        setTotal(price);
-    };
-    useEffect(()=>{
-        updateTotal()
-        console.log(token, cartId)
-    }, [productsInCart])
+    const productsInCart = useSelector((state: RootState)=>state.cart.cartProducts)
+    const totalAmount = useSelector((state: RootState)=>state.cart.totalAmount)
+    console.log(totalAmount)
 
     return(<>
     <Header />
@@ -62,7 +41,7 @@ const CartPage = () => {
                     {productsInCart.length > 0 &&(<div className={CartCss.cart}>
                         <div className={CartCss.cart__leftBlock}>
                             {productsInCart.map((item)=>((
-                                <CartProduct updateTotal={updateTotal} product={item.product} key={item.id} quantity={item.quantity}/>
+                                <CartProduct product={item.product} key={item.product.id} quantity={item.quantity}/>
                             )))}
                             <div className={CartCss.promocode}>
                                 <div className={CartCss.promocode__field}>
@@ -73,7 +52,7 @@ const CartPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <MakeOrder amount={total} />
+                        <MakeOrder amount={totalAmount} />
                     </div>)}
                 </div>
             </section>
