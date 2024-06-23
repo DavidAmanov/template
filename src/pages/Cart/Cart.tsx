@@ -8,13 +8,16 @@ import CartProduct from "../../components/CartProduct/CartProduct";
 import { useSelector } from 'react-redux';
 import { RootState } from "../../context/store";
 import { CartProductType } from "../../types/types";
+import MakeOrder from "../../components/MakeOrder/MakeOrder";
 
 
 
 const CartPage = () => {
     const [productsInCart, setProductsInCart] = useState<CartProductType[]>([])
-    const token = useSelector((state: RootState)=>state.user.token)
+    const [total, setTotal] = useState<number>(0)
+    const token = useSelector((state: RootState)=>state.user.accessToken)
     const cartId = useSelector((state: RootState)=>state.user.cart_id)
+    
 
     useEffect(()=>{
         const fetchData = async () => {
@@ -29,7 +32,19 @@ const CartPage = () => {
             console.log(data)
         } 
         fetchData()
-    },[])
+    },[cartId, token])
+
+    const updateTotal = () => {
+        let price = 0;
+        for (let i = 0; i < productsInCart.length; i++) {
+            price += productsInCart[i].product.price * productsInCart[i].quantity;
+        }
+        setTotal(price);
+    };
+    useEffect(()=>{
+        updateTotal()
+        console.log(token, cartId)
+    }, [productsInCart])
 
     return(<>
     <Header />
@@ -44,9 +59,11 @@ const CartPage = () => {
                         <h1 className={CartCss.heading__h1}>Cart</h1>
                         <span>1 item</span>  
                     </div>
-                    <div className={CartCss.cart}>
+                    {productsInCart.length > 0 &&(<div className={CartCss.cart}>
                         <div className={CartCss.cart__leftBlock}>
-                            {productsInCart.map((item)=>((<CartProduct product={item.product} key={item.id} quantity={item.quantity}/>)))}
+                            {productsInCart.map((item)=>((
+                                <CartProduct updateTotal={updateTotal} product={item.product} key={item.id} quantity={item.quantity}/>
+                            )))}
                             <div className={CartCss.promocode}>
                                 <div className={CartCss.promocode__field}>
                                     <input type="text" className={CartCss.promocode__input} placeholder="Promocode" />
@@ -56,31 +73,8 @@ const CartPage = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className={CartCss.cart__rightBlock}>
-                            <div className={CartCss.cartTop}>
-                                <div className={CartCss.cartTop__line}>
-                                    <span className={CartCss.item__text}>1 item worth:</span>
-                                    <span className={`${CartCss.item__price} ${CartCss.price_style}`}>Price</span>
-                                </div>
-                                <div className={CartCss.cartTop__line}>
-                                    <span className={CartCss.item__text}>Amount with discounts:</span>
-                                    <span className={`${CartCss.item__price} ${CartCss.price_style}`}>Price</span>
-                                </div>
-                            </div>
-                            <div className={CartCss.cartTotal}>
-                                <div className={CartCss.totalText}>Total:</div>
-                                <div className={`${CartCss.item__price} ${CartCss.price_total}`}>Price</div>
-                            </div>
-                            <form action="#" className={CartCss.cartBottom}>
-                                <button className={`${CartCss.button} ${CartCss.button_cursor} ${CartCss.button_order}`}>Make an order</button>
-                                <div className={CartCss.checkbox}>
-                                    <input type="checkbox" id="checkbox" name="agree" required />
-                                    <span id='checkbox' className={CartCss.checkbox__text}>By clicking on the <a href="#">“Place an order”</a> button, you consent to the processing of personal data</span>
-                                </div>
-                            </form>
-                        </div>
-
-                    </div>
+                        <MakeOrder amount={total} />
+                    </div>)}
                 </div>
             </section>
     <Footer />

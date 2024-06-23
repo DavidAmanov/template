@@ -14,7 +14,7 @@ interface ProductProps {
 const ProductComp: React.FC<ProductProps> = ({ product }) => {
     const [count, setCount] = useState<number>(1);
     const cartId = useSelector((state: RootState) => state.user.cart_id);
-    const token = useSelector((state: RootState)=> state.user.token)
+    const token = useSelector((state: RootState)=> state.user.accessToken)
     console.log(cartId, token); // Для отладки
 
     const plus = () => {

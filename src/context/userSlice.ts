@@ -1,8 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { createTransform } from "redux-persist";
+import { RootState } from "./store";
 
 interface User {
-    token: string,
+    accessToken: string,
+    refreshToken: string,
     user: {
         username: string,
         email: string,
@@ -14,7 +16,8 @@ interface User {
 }
 
 const initialState: User = {
-    token: "",
+    accessToken: "",
+    refreshToken: "",
     user: {
         username: "",
         email: "",
@@ -34,27 +37,39 @@ interface UserPayload {
     favouriteId: number
 }
 
+
 export const fetchUserData = createAsyncThunk<UserPayload>(
     'user/fetchUserData',
-    async (_, {getState})=>{
-        const state = getState() as {user: User}
-        const response = await fetch('http://localhost:3001/api/user/get',{
-            method: "GET",
-            credentials: "include"
-        })
-        const data = await response.json()
-        return data;
+    async (_, { getState }) => {
+        const state = getState() as RootState; 
+        const token = state.user.accessToken; 
+        console.log(state.user)
+        try {
+            const response = await fetch('http://localhost:3001/api/user/getUser', {
+                method: 'GET',
+                credentials: 'include',
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch user data');
+            }
+
+            const data = await response.json();
+            console.log('Received user data:', data);
+            return data;
+        } catch (error:any) {
+            throw new Error(error.message);
+        }
     }
-)
-
-
+);
 
 const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
         setToken(state, action){
-            state.token = action.payload.token
+            state.accessToken = action.payload.accessToken
+            state.refreshToken = action.payload.refreshToken
         }
     },
     extraReducers: (builder) => {
@@ -72,12 +87,14 @@ const userSlice = createSlice({
 
 })
 
+export const selectAccessToken = (state: RootState) => state.user.accessToken;
+export const selectCartId = (state: RootState) => state.user.cart_id;
 export const { setToken } = userSlice.actions;
 export default userSlice.reducer;
 
 export const tokenTransform = createTransform(
     (inboundState: User) => ({
-        token: inboundState.token
+        token: inboundState.accessToken
     }),
     (outboundState: { token: string }) => ({
         ...initialState,

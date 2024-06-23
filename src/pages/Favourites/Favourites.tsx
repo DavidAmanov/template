@@ -8,7 +8,7 @@ import { CartProductType } from "../../types/types";
 
 const FavouritesPage = () => {
     const [productsInFavourite, setProductsInFavourite] = useState<CartProductType[]>([])
-    const token = useSelector((state: RootState)=>state.user.token)
+    const token = useSelector((state: RootState)=>state.user.accessToken)
     const favouriteId = useSelector((state: RootState)=>state.user.favourite_id)
 
     useEffect(()=>{
