@@ -1,16 +1,14 @@
 :root {
     --color-bg: #1D2533;
-    --color-bg2: rgb(0, 0, 0);
+    --color-bg2: black;
     --color-text-h1: #F1F3F5;
 
     --color-text: #E8E9EA;
 
     --color-status: #26DA72;
 
-    --color-active-button: red;
     --color-hover-button: brown;
-
-    --color-bg-banner: #1D2533;
+    --color-active-button: red;
 }
 
 html {
@@ -29,6 +27,8 @@ a {
 
 .favourites {
     background-color: var(--color-bg2);
+    opacity: 0;
+    animation: appear 1s forwards;
 }
 
 .favourites__wrapper {
@@ -169,5 +169,11 @@ a {
 
     .button {
         width: 100%;
+    }
+}
+
+@keyframes appear{
+    to{
+        opacity: 1;
     }
 }

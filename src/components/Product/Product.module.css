@@ -3,6 +3,8 @@
     grid-template-columns: 50% 50%;
     height: 100vh;
     padding: 2vh;
+    transform: translateX(-100%); 
+    animation: slide-in 0.5s forwards;
 }
 
 .picture{
@@ -17,6 +19,20 @@
 .description__container{
     height: 60vh;
     display: grid;
+}
+
+.description__head{
+    height: 20vh;
+}
+
+.description__head div{
+    display: flex;
+    align-items: center;
+}
+
+.description__head div img{
+    height: 5vh;
+    margin-left: 2vw;
 }
 
 .description__head h2{
@@ -45,4 +61,11 @@
 .btn__container button{
     height: 100%;
     margin-right: 5%;
+}
+
+@keyframes slide-in {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }

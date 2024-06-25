@@ -10,8 +10,6 @@ import Menu from './pages/Menu/Menu'
 import Catalog from './pages/Catalog/Catalog';
 import Order from './pages/Order/Order';
 import Favourites from './pages/Favourites/Favourites';
-import EmptyBasket from './pages/EmptyBasket/EmptyBasket';
-import EmptyFavourites from './pages/EmptyFavourites/Favourites';
 import ThanksPage from './pages/ThanksPage/Thanks';
 import { Provider } from 'react-redux';
 import { store, persistor } from './context/store';
@@ -41,12 +39,6 @@ const router = createBrowserRouter([{
 },{
   path: '/favourites',
   element: <Favourites />
-},{
-  path: '/emptybasket',
-  element: <EmptyBasket />
-},{
-  path: '/emptyfavourites',
-  element: <EmptyFavourites />
 },{
   path: '/thanksPage',
   element: <ThanksPage />

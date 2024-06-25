@@ -1,14 +1,16 @@
 :root {
     --color-bg: #1D2533;
-    --color-bg2: black;
+    --color-bg2: rgb(0, 0, 0);
     --color-text-h1: #F1F3F5;
 
     --color-text: #E8E9EA;
 
     --color-status: #26DA72;
 
-    --color-hover-button: brown;
     --color-active-button: red;
+    --color-hover-button: brown;
+
+    --color-bg-banner: #1D2533;
 }
 
 html {
@@ -36,6 +38,8 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 108px 24px;
+    opacity: 0;
+    animation: appear 1s forwards;
 }
 
 .favourites__right {
@@ -167,5 +171,11 @@ a {
 
     .button {
         width: 100%;
+    }
+}
+
+@keyframes appear{
+    to{
+        opacity: 1;
     }
 }

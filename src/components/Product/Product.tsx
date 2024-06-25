@@ -7,6 +7,8 @@ import ButtonGray from '../Button/ButtonGray';
 import { AppDispatch } from '../../context/store';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../../context/cartSlice';
+import { addProductToFavourite } from '../../context/favouriteSlice';
+import ButtonFavourite from '../Button/ButtonFavourite';
 
 interface ProductProps {
     product: Product;
@@ -30,6 +32,10 @@ const ProductComp: React.FC<ProductProps> = ({ product }) => {
         dispatch(addProduct({quantity: count, productId: product.id}))
     }
 
+    const addProductToFav = async () => {
+        dispatch(addProductToFavourite({productId: product.id}))
+    }
+
     return (
         <div className={ProductCss.container}>
             <section className={ProductCss.picture}>
@@ -37,7 +43,10 @@ const ProductComp: React.FC<ProductProps> = ({ product }) => {
             </section>
             <section className={ProductCss.description__container}>
                 <div className={ProductCss.description__head}>
-                    <h2>{product.name}</h2>
+                    <div>
+                        <h2>{product.name}</h2>
+                        <ButtonFavourite onClick={addProductToFav}/>
+                    </div>
                     <span>Available</span>
                 </div>
                 <div className={ProductCss.description__text__block}>

@@ -60,6 +60,7 @@ a {
 .block__wrapper {
     padding: 0 24px;
     border-bottom: 1px solid var(--color-card-bottom);
+    height: 60vh;
 }
 
 .block__wrapper_padding {
@@ -305,12 +306,6 @@ a {
     color: var(--color-black);
 }
 
-.map {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 /* delivery block css */
 
 .delivery {
@@ -359,6 +354,7 @@ a {
 
 .delivery__right {
     width: 100%;
+    height: 50%;
 }
 
 .town {

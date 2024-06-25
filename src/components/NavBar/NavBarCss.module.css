@@ -1,0 +1,33 @@
+.nav {
+    display: flex;
+    gap: 8px;
+}
+
+.first {
+    font-size: calc(1rem - 3px);
+    font-weight: 500;
+    line-height: 20px;
+    color: var(--color-black);
+}
+
+.second {
+    font-size: calc(1rem - 3px);
+    font-weight: 500;
+    line-height: 20px;
+    color: var(--color-box-shadow);
+}
+
+.heading {
+    display: flex;
+    gap: 16px;
+    margin: 40px 0;
+}
+
+.heading__h1 {
+    color: var(--color-black);
+    font-family: impact;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: calc(1rem * 3);
+    line-height: 44px;
+}

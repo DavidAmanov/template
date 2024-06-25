@@ -16,7 +16,7 @@ const Contacts = () =>{
             </span>
         </section>
         <section className={ContactsCss.map}>
-            <Map />
+            <Map orderPage={false}/>
         </section>
     </div>
     <div className={ContactsCss.slider}>

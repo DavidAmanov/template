@@ -4,6 +4,12 @@ import StatisIcon from '../../img/ico/Ellipse_green.png'
 import { Product } from '../../context/catalogSlice'
 import PlaceholderImage from '../../img/image-placeholder.png'
 import { Link } from 'react-router-dom'
+import ButtonFavourite from '../Button/ButtonFavourite'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../../context/store'
+import { addProductToFavourite } from '../../context/favouriteSlice'
+import { addProduct } from '../../context/cartSlice'
+import ButtonRed from '../Button/ButtonRed'
 
 interface CardProps {
     product: Product;
@@ -11,6 +17,15 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({product, sliderFlag}) => {
+    const dispatch = useDispatch<AppDispatch>()
+
+    const addToFavourite = () => {
+        dispatch(addProductToFavourite({productId: product.id}))
+    }
+
+    const addToCart = () => {
+        dispatch(addProduct({productId: product.id, quantity: 1}))
+    }
     const productImage = product.img ? product.img : PlaceholderImage;
     return(
         <article className={CardCss.card}>
@@ -20,7 +35,9 @@ const Card: React.FC<CardProps> = ({product, sliderFlag}) => {
             </div>
             {sliderFlag && (<div className={CardCss.card__heading}>{product.name}</div>)}
             {!sliderFlag &&(<div className={CardCss.card__bottom}>
-                <div className={CardCss.card__name}>{product.name}</div>
+                <div className={CardCss.card__name}>{product.name}
+                    <ButtonFavourite onClick={addToFavourite}/>
+                </div>
                 <div className={CardCss.card__info}>
                     <div className={CardCss.card__status}>
                         <img className={CardCss.status__icon} src={StatisIcon} alt="Icon of the product status" />
@@ -29,7 +46,7 @@ const Card: React.FC<CardProps> = ({product, sliderFlag}) => {
                     <div className={CardCss.article}>L M S</div>
                 </div>
                 <div className={CardCss.price}>{product.price}</div>
-                <button className={`${CardCss.button} ${CardCss.button_cart}`}>Add to cart</button>
+                <ButtonRed onClick={addToCart}/>
             </div>)}
         </article>
     )

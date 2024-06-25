@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 import { CartProductType } from "../types/types";
 
@@ -129,7 +129,8 @@ const cartSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(fetchProductsInCart.fulfilled, (state, action)=>{
-            state.cartProducts = action.payload
+
+            state.cartProducts = action.payload.sort((a,b)=>a.id-b.id)
         })
         builder.addCase(counterAmount.fulfilled, (state, action)=>{
             state.totalAmount = action.payload

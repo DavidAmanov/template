@@ -4,6 +4,8 @@
     background-color: #fff;
     padding-top: 24px;
     padding-bottom: 214px;
+    opacity: 0;
+    animation: appear 1s forwards;
 }
 /* nav css */
 .section__wrapper {
@@ -395,3 +397,8 @@
     }
 }
 
+@keyframes appear {
+    to{
+        opacity: 1;
+    }
+}

@@ -5,12 +5,14 @@ import catalogReducer from './catalogSlice';
 import categoryReducer from './categorySlice';
 import userReducer from './userSlice';
 import cartReducer from './cartSlice'
+import favouriteReducer from './favouriteSlice'
 
 const rootReducer = combineReducers({
     catalog: catalogReducer,
     category: categoryReducer,
     user: userReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    favourite: favouriteReducer
 });
 
 const persistConfig = {
