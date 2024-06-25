@@ -69,6 +69,14 @@ a {
     padding: 24px;
 }
 
+.submit__button{
+    width: 100%;
+    border: none;
+    border-radius: 24px;
+    height: 5vh;
+    background-color: var(--color-status);
+    font-size: 24px;
+}
 
 .nav {
     display: flex;

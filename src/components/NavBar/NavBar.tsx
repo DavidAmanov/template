@@ -11,13 +11,13 @@ const NavBar:React.FC<NavBarProp> = ({linksArray, header}) => {
     console.log(linksArray)
     return(<>
         <nav className={NavBarCss.nav}>    
-            {linksArray.map((link)=>(
-                <>
+            {linksArray.map((link, index)=>(
+                <div key={index}>
                     <Link to={`/${link.toLocaleLowerCase()}`}>
                         <span className={NavBarCss.first}>{link}</span>
                     </Link>
                     <img src={Divider} alt="/" />
-                </>
+                </div>
             ))}    
         </nav>
         <div className={NavBarCss.heading}>  

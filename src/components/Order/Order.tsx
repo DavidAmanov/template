@@ -18,15 +18,17 @@ const Order = () => {
             <section className={OrderCss.section}>
                 <div className={OrderCss.section__wrapper}>
                     <NavBar linksArray={navBarLinks} header='Order'/>
-                    <form className={OrderCss.order}>
+                    <section className={OrderCss.order}>
                         <div className={OrderCss.order__left}>
                             <OrderProducts products={products}/>
                             <Delivery />
                             <Payment />
                             <RecipientDetails />
                         </div>
-                        <MakeOrder amount={totalAmount} orderPage={true}/>
-                    </form>
+                        <div className={OrderCss.order__right}>
+                            <MakeOrder amount={totalAmount} orderPage={true}/>
+                        </div>
+                    </section>
                 </div>
             </section>
         </>

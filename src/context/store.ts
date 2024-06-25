@@ -6,13 +6,15 @@ import categoryReducer from './categorySlice';
 import userReducer from './userSlice';
 import cartReducer from './cartSlice'
 import favouriteReducer from './favouriteSlice'
+import orderReducer from './orderSice'
 
 const rootReducer = combineReducers({
     catalog: catalogReducer,
     category: categoryReducer,
     user: userReducer,
     cart: cartReducer,
-    favourite: favouriteReducer
+    favourite: favouriteReducer,
+    order: orderReducer
 });
 
 const persistConfig = {
