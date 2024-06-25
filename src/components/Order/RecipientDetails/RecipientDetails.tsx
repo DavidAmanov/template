@@ -32,7 +32,7 @@ const RecipientDetails = () => {
             </div>
             <div className={`${RecipientDetailsCss.block__wrapper} ${RecipientDetailsCss.block__wrapper_padding}`}>
                 <div>Enter the details of the order recipient</div>
-                <form onSubmit={handleSubmit(addRecipient)}>
+                <form className={RecipientDetailsCss.FormWrapper} onSubmit={handleSubmit(addRecipient)}>
                     <div className={RecipientDetailsCss.Recipient__details}>
                         <div className={RecipientDetailsCss.Recipient__initials}>
                             <div className={RecipientDetailsCss.Recipient__field}>
@@ -77,7 +77,9 @@ const RecipientDetails = () => {
                             </textarea>
                         </div>
                     </div>
-                    <button className={RecipientDetailsCss.submit__button} type="submit">Save</button>
+                    <div className={RecipientDetailsCss.submitButtonField}>
+                        <button className={RecipientDetailsCss.submit__button} type="submit">Save</button>
+                    </div>
                 </form>
             </div>
         </div>

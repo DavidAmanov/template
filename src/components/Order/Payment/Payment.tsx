@@ -12,14 +12,14 @@ interface Payments{
 
 const Payment = () => {
     const [paymentMethod, setPaymentMethod] = useState<Payments[]>([])
-    const fetchPayment = async () =>{
-        const response = await fetch('http://localhost:3001/api/paymentMethod/getAll')
-        const data = await response.json()
-        setPaymentMethod(data)
-    }
-    useEffect(()=> {
-        fetchPayment()
-    }, [])
+    // const fetchPayment = async () =>{
+    //     const response = await fetch('http://localhost:3001/api/paymentMethod/getAll')
+    //     const data = await response.json()
+    //     setPaymentMethod(data)
+    // }
+    // useEffect(()=> {
+    //     fetchPayment()
+    // }, [])
 
     return(<>
         <div className={`${PaymentCss.payment} ${PaymentCss.block}`}>

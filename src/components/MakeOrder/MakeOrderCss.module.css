@@ -199,6 +199,7 @@ a {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    position: fixed;
 }
 
 .block {
