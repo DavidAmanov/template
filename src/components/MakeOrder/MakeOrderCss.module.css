@@ -191,7 +191,7 @@ a {
 
 /* форма заказа css */
 .form {
-    max-width: 300px;
+    max-width: 350px;
     max-height: 440px;
     background-color: var(--color-card-bottom);
     padding: 24px;
@@ -200,6 +200,7 @@ a {
     flex-direction: column;
     gap: 24px;
     position: fixed;
+    box-shadow: 0 0 32px var(--color-card-bottom);
 }
 
 .block {

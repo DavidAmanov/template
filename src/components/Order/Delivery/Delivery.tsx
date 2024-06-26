@@ -4,9 +4,9 @@ import Slash from '../../../img/ico/slash__block.png'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { AppDispatch, RootState } from '../../../context/store'
-import { setAddress, setMethodDelivery } from '../../../context/orderSice'
+import { resetAddress, setAddress, setMethodDelivery } from '../../../context/orderSice'
 import { useForm, SubmitHandler } from 'react-hook-form'
-import { useSelector } from 'react-redux'
+
 
 interface Data {
     street:string,
@@ -21,17 +21,14 @@ const Delivery = () => {
     const {register, handleSubmit} = useForm<Data>();
 
     const dispatch = useDispatch<AppDispatch>()
-    const address = useSelector((state: RootState)=>(state.order.address))
-    console.log(address, "ay")
 
     useEffect(()=>{
-        dispatch(setMethodDelivery({deliveryMethod: methodDelivery}))
+        dispatch(setMethodDelivery(methodDelivery))
+        dispatch(resetAddress())
     },[methodDelivery])
-    console.log(methodDelivery)
 
     const addAddress: SubmitHandler<Data> = (data) => {
-        dispatch(setAddress({address: data}))
-        console.log(data)
+        if(methodDelivery === "Courier") dispatch(setAddress({address: data}))
     }
 
     return(<>

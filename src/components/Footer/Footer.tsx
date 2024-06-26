@@ -16,13 +16,13 @@ const Footer = () => {
                     <a className={FooterCss.link} href="#"><span className={FooterCss.footer__email}>DavidAmanovIs@gmail.com</span></a>
                 </div>
                 <div className={FooterCss.footer__contacts}>
-                    <a className={FooterCss.link} href="#"><span>vc.ru</span></a>
-                    <a className={FooterCss.link} href="#"><span>habr.com</span></a>
+                    <a className={FooterCss.link} href="https://github.com/DavidAmanov"><span>GitHub</span></a>
+                    <a className={FooterCss.link} href="https://www.linkedin.com/in/david-amanov/"><span>Linkedin</span></a>
                 </div>
                 <div className={FooterCss.footer__socials}>
                     <a className={FooterCss.social} href="#"><img src={telegram} alt="telegram" /></a>
-                    <a className={FooterCss.social} href="#"><img src={vk} alt="Vkontakete" /></a>
-                    <a className={FooterCss.social} href="#"><img src={youtube} alt="youtube" /></a>
+                    {/* <a className={FooterCss.social} href="#"><img src={vk} alt="Vkontakete" /></a>
+                    <a className={FooterCss.social} href="#"><img src={youtube} alt="youtube" /></a> */}
                 </div>
             </div>
         </footer>

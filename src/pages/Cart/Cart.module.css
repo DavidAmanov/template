@@ -53,9 +53,9 @@
 /* cart css */
 
 .cart {
-    display: flex;
-    justify-content: space-between;
-    gap: 32px;
+    display: grid;
+    grid-template-columns: 65% 35%;
+    gap: 150px;
 }
 
 .cart__leftBlock {
@@ -146,7 +146,7 @@
 
 .cart__rightBlock {
     max-width: 352px;
-    max-height: 295px;
+    min-height: 395px;
     padding: 24px;
     background-color: var(--color-card-bottom);
     border-radius: 24px;

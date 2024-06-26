@@ -3,6 +3,11 @@ import { useDispatch } from 'react-redux';
 import { setToken, fetchUserData } from '../../context/userSlice';
 import { AppDispatch } from '../../context/store';
 import { Link } from 'react-router-dom';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import Slider from '../../components/Slider/Slider';
+import Google from '../../img/ico/google.png'
+import ProfileCss from './Profile.module.css'
 
 const Profile = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -15,7 +20,6 @@ const Profile = () => {
     useEffect(() => {
         const token = getTokenValue('accessToken')
         const refreshToken = getTokenValue('refreshToken')
-        console.log(token, "ay")
         if (token) {
             dispatch(setToken({ accessToken: token, refreshToken: refreshToken }));
             dispatch(fetchUserData());
@@ -23,8 +27,26 @@ const Profile = () => {
     }, [dispatch]);
     return (
         <>
-            <a href="http://localhost:3001/api/user/auth/google">hi bro</a>
-            <Link to="/product/8">put here</Link>
+            <Header />
+            <div className={ProfileCss.links__container}>
+                <span>The profile page is still working, but you can use your Google account to add items to your <br/>cart
+                and favorites, as well as to place trial orders</span>
+                <a href="http://localhost:3001/api/user/auth/google" className={ProfileCss.google}>
+                    <div>
+                        <img src={Google} alt='google icon'/>
+                        <span>Google</span>
+                    </div>
+                </a>
+                <Link to='/catalog'>
+                    <button className={`${ProfileCss.button} 
+                        ${ProfileCss.button_style} 
+                        ${ProfileCss.button_hover}`}
+                        >Go to catalog
+                    </button>
+                </Link>
+            </div>
+            <Slider />
+            <Footer />
         </>
     );
 }

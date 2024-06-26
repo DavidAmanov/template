@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import MakeOrderCss from './MakeOrderCss.module.css'
+import { RootState } from '../../context/store'
+import { useSelector } from 'react-redux'
 
 interface amountProp{
     amount: number
@@ -7,6 +9,8 @@ interface amountProp{
 }
 
 const MakeOrder: React.FC<amountProp> = ({amount, orderPage}) => {
+    const deliveryMethod = useSelector((state: RootState)=>(state.order.deliveryMethod))
+    const paymentMethod = useSelector((state: RootState)=>(state.order.paymentMethod))
     return(<>
         <div className={MakeOrderCss.form}>
             <div className={MakeOrderCss.form__info}>
@@ -20,11 +24,11 @@ const MakeOrder: React.FC<amountProp> = ({amount, orderPage}) => {
                 </div>
                 {orderPage &&(<><div className={MakeOrderCss.form__line}>
                     <span className={MakeOrderCss.line}>Delivery:</span>
-                    <span className={MakeOrderCss.lineRight}>Free (Pickup)</span>
+                    <span className={MakeOrderCss.lineRight}>{deliveryMethod}</span>
                 </div>
                 <div className={MakeOrderCss.form__line}>
                     <span className={MakeOrderCss.line}>Payment method:</span>
-                    <span className={MakeOrderCss.lineRight}>Debit Card</span>
+                    <span className={MakeOrderCss.lineRight}>{paymentMethod}</span>
                 </div></>)}
             </div>
             <div className={MakeOrderCss.form__total}>
@@ -32,11 +36,11 @@ const MakeOrder: React.FC<amountProp> = ({amount, orderPage}) => {
                 <div className={MakeOrderCss.totalPrice}>{amount}</div>
             </div>
             <form action="#" className={MakeOrderCss.form__submit}>
-                <Link to='/order'>
+                <Link to={orderPage ? '/thanksPage' : '/order' }>
                     <button className={`${MakeOrderCss.button} 
                         ${MakeOrderCss.button_style} 
                         ${MakeOrderCss.button_size}`}>
-                            Make an order
+                            {orderPage ? "Go to Payment" : "Make an order"}
                     </button>
                 </Link>
                 <div className={MakeOrderCss.checkbox}>

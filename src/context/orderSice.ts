@@ -41,11 +41,11 @@ const initialState: Order = {
     deliveryMethod: "Courier",
     paymentMethod: "Credit Card",
     address: {
-        street:"",
-        city:"",
-        state:"",
-        zipCode:"",
-        country:""
+        street: "Somewhere",
+        city: "Tokyo",
+        state: "Tokyo",
+        zipCode:"285000",
+        country: "Japan"
     },
     recipient: {
         name: "",
@@ -76,8 +76,14 @@ const orderSlice = createSlice({
         setAddress(state, action){
             state.address = action.payload
         },
+        resetAddress(state) {
+            state.address = initialState.address;
+        },
         setRecipient(state, action){
             state.recipient = action.payload
+        },
+        resetRecipient(state){
+            state.recipient = initialState.recipient
         },
         setOrderProducts(state, action){
             state.orderProducts = action.payload
@@ -88,5 +94,5 @@ const orderSlice = createSlice({
     }
 })
 
-export const {setAddress, setMethodDelivery, setOrderProducts, setPaymentMethod, setRecipient, setTotalAmount}  = orderSlice.actions
+export const {setAddress, setMethodDelivery, setOrderProducts, setPaymentMethod, setRecipient, setTotalAmount, resetAddress, resetRecipient}  = orderSlice.actions
 export default orderSlice.reducer

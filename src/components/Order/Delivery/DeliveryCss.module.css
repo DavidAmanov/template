@@ -361,6 +361,7 @@ a {
 }
 
 .address__form{
+    width: 67%;
     display: grid;
     gap: 2vh;
 }

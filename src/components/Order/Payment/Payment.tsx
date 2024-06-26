@@ -1,9 +1,9 @@
 import PaymentCss from './PaymentCss.module.css'
-import Mir from '../../../img/ico/mir.png'
-import SPB from '../../../img/ico/spb.png'
-import SberPay from '../../../img/ico/sberpay.png'
 import Slash from '../../../img/ico/slash__block.png'
 import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../../../context/store'
+import { setPaymentMethod } from '../../../context/orderSice'
 
 interface Payments{
     id: number
@@ -11,15 +11,21 @@ interface Payments{
 }
 
 const Payment = () => {
-    const [paymentMethod, setPaymentMethod] = useState<Payments[]>([])
-    // const fetchPayment = async () =>{
-    //     const response = await fetch('http://localhost:3001/api/paymentMethod/getAll')
-    //     const data = await response.json()
-    //     setPaymentMethod(data)
-    // }
-    // useEffect(()=> {
-    //     fetchPayment()
-    // }, [])
+    const [paymentMethod, setPaymentMet] = useState<Payments[]>([])
+    const fetchPayment = async () =>{
+        const response = await fetch('http://localhost:3001/api/paymentMethod/getAll')
+        const data = await response.json()
+        setPaymentMet(data)
+    }
+    useEffect(()=> {
+        fetchPayment()
+    }, [])
+
+    const dispatch = useDispatch<AppDispatch>()
+
+    const changeMethod = (name: string) => {
+        dispatch(setPaymentMethod(name))
+    }
 
     return(<>
         <div className={`${PaymentCss.payment} ${PaymentCss.block}`}>
@@ -34,7 +40,7 @@ const Payment = () => {
                     <div className={PaymentCss.payment__choose}>
                         {paymentMethod.map((payment, index)=>(
                             <div key={index} className={PaymentCss.payment__variant}>
-                                <input className={PaymentCss.payment__raido} type="radio" name="radio-method" required />
+                                <input className={PaymentCss.payment__raido} type="radio" name="radio-method" required onClick={()=>changeMethod(payment.name)}/>
                                 <div className={PaymentCss.payment__field}>
                                     {/* <img className={PaymentCss.payment__ico} src={Mir} alt="mir credit card payment method" /> */}
                                     <div>{payment.name}</div>

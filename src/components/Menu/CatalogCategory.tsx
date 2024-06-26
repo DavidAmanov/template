@@ -22,7 +22,10 @@ const CatalogCategory = () => {
                 </div>
                 {showCategory && (
                     <div className={CatalogCategoryCss.catalog__items} onMouseLeave={()=>setShowCategory(false)}>
-                        {category.map((item)=>(<Link to={item.name}><span>{item.name}</span></Link>))}
+                        {category.map((item)=>(
+                            <Link to={`/catalog`} state={item.name}>
+                                <span>{item.name}</span>
+                            </Link>))}
                     </div>
                 )}
             </section>

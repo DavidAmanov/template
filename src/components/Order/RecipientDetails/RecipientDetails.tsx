@@ -1,9 +1,10 @@
 import RecipientDetailsCss from './RecipientDetailsCss.module.css'
 import Slash from '../../../img/ico/slash__block.png'
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../../context/store';
-import { setRecipient } from '../../../context/orderSice';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../../context/store';
+import { resetRecipient, setRecipient } from '../../../context/orderSice';
+import { useEffect } from 'react';
 
 interface Recipient{
     name: string,
@@ -18,11 +19,16 @@ const RecipientDetails = () => {
 
     const dispatch = useDispatch<AppDispatch>()
 
+    useEffect(()=>{
+        dispatch(resetRecipient())
+    },[])
+
     const addRecipient: SubmitHandler<Recipient> = (data) => {
         dispatch(setRecipient({recipient: data}))
         console.log(data)
     }
-
+    const allData = useSelector((state: RootState)=>(state.order))
+    console.log("alldata", allData)
     return(<>
         <div className={`${RecipientDetailsCss.block} ${RecipientDetailsCss.Recipient}`}>
             <div className={RecipientDetailsCss.name}>

@@ -42,7 +42,8 @@ const CartPage = () => {
                     <h1 className={CartCss.heading__h1}>Cart</h1>
                     <span>{items} item</span>  
                 </div>
-                {productsInCart.length > 0 &&(<div className={CartCss.cart}>
+                {productsInCart.length > 0 &&(
+                <div className={CartCss.cart}>
                     <div className={CartCss.cart__leftBlock}>
                         {productsInCart.map((item, index)=>((
                             <CartProduct 
@@ -55,7 +56,9 @@ const CartPage = () => {
                         )))}
                         <PromocodeField />
                     </div>
-                    <MakeOrder amount={totalAmount} orderPage={false}/>
+                    <div>
+                        <MakeOrder amount={totalAmount} orderPage={false}/>
+                    </div>
                 </div>)}
             </div>
         </section>)}

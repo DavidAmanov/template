@@ -5,13 +5,29 @@ import catalogCss from './catalog.module.css'
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from '../../context/store';
 import { Product } from '../../context/catalogSlice'
+import { useLocation } from "react-router-dom";
 
 const Catalog = () => {
     const [categoryFilter, setCategoryFilter] = useState<number>(0)
     const [priceFilter, setPriceFilter] = useState<string>("Popular")
     const [filteredCatalog, setFilteredCatalog] = useState<Product[]>([]);
     const sliderFlag = false
+    let {state} = useLocation()
+    console.log(state)
 
+    const catalog: Product[] = useSelector((state: RootState) => state.catalog.items);
+    const dispatch = useDispatch<AppDispatch>();
+
+    useEffect(()=>{
+        dispatch(fetchCatalog());
+        if(state === "cap") setCategoryFilter(2)
+        else if(state === "sweatshirt") setCategoryFilter(4)
+        else if(state === "t-shirt") setCategoryFilter(3)
+        else if(state === "pants") setCategoryFilter(5)
+        else if(state === "jacket") setCategoryFilter(6)
+        else if(state === "hoodie") setCategoryFilter(1)
+        else if (state === null) setCategoryFilter(0)
+      }, [dispatch]);
 
     const handlePriceFilter = (event: React.ChangeEvent<HTMLSelectElement>) =>{
         setPriceFilter(event.target.value)
@@ -20,14 +36,6 @@ const Catalog = () => {
     const handleCategoryFilter = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setCategoryFilter(Number(event.target.value));
     };
-
-    const catalog: Product[] = useSelector((state: RootState) => state.catalog.items);
-    const dispatch = useDispatch<AppDispatch>();
-
-    useEffect(()=>{
-        dispatch(fetchCatalog());
-      }, [dispatch]);
- 
 
     useEffect(() => {
         let filteredProducts = [...catalog];

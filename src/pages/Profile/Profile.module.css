@@ -1,0 +1,49 @@
+.links__container{
+    display: grid;
+    margin: 1vh;
+    height: 40vh;
+}
+
+.links__container span{
+    font-size: 24px
+}
+
+.google div{
+    height: 5vh;
+    color: black;
+    display: flex;
+    align-items: center;
+    border: solid 2px var(--color-hover-button);;
+    border-radius: 50px;
+    width: 10%;
+}
+
+.google img {
+    height: 4vh;
+    width: 3vw;
+}
+
+
+.button {
+    width: 10%;
+    border: none;
+    background: none;
+    color: black;
+}
+
+.button_style {
+    padding: 16px 35px;
+    border: 2px solid var(--color-hover-button);
+    border-radius: 50px;
+    transition: background-color 0.5s, box-shadow 0.5s;
+}
+
+.button_hover:hover {
+    background-color: var(--color-hover-button);
+    box-shadow: 0 0 16px var(--color-hover-button);
+}
+
+.button_hover:active {
+    background-color: var(--color-active-button);
+    box-shadow: 0 0 64px var(--color-active-button);
+}
