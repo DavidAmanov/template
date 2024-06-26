@@ -43,7 +43,6 @@ export const fetchUserData = createAsyncThunk<UserPayload>(
     async (_, { getState }) => {
         const state = getState() as RootState; 
         const token = state.user.accessToken; 
-        console.log(state.user)
         try {
             const response = await fetch('http://localhost:3001/api/user/getUser', {
                 method: 'GET',

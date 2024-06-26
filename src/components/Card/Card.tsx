@@ -6,10 +6,11 @@ import PlaceholderImage from '../../img/image-placeholder.png'
 import { Link } from 'react-router-dom'
 import ButtonFavourite from '../Button/ButtonFavourite'
 import { useDispatch } from 'react-redux'
-import { AppDispatch } from '../../context/store'
+import { AppDispatch, RootState } from '../../context/store'
 import { addProductToFavourite } from '../../context/favouriteSlice'
 import { addProduct } from '../../context/cartSlice'
 import ButtonRed from '../Button/ButtonRed'
+import { useSelector } from 'react-redux'
 
 interface CardProps {
     product: Product;
@@ -18,13 +19,22 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({product, sliderFlag}) => {
     const dispatch = useDispatch<AppDispatch>()
+    const cartId = useSelector((state: RootState)=>(state.user.cart_id))
 
     const addToFavourite = () => {
-        dispatch(addProductToFavourite({productId: product.id}))
+        if(cartId === 0 || cartId === undefined){
+            alert('You need to log in to add an item to your favorites')
+        } else {
+            dispatch(addProductToFavourite({productId: product.id}))
+        }
     }
 
     const addToCart = () => {
-        dispatch(addProduct({productId: product.id, quantity: 1}))
+        if(cartId === 0 || cartId === undefined){
+            alert('You need to log in to add an item to your cart')
+        } else {
+            dispatch(addProduct({productId: product.id, quantity: 1}))
+        }
     }
     const productImage = product.img ? product.img : PlaceholderImage;
     return(

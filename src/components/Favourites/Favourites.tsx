@@ -14,10 +14,12 @@ const Favourites = () => {
 
     useEffect(()=>{
         let count = 0
-        favouriteProducts.forEach((item)=>{
-            count +=1
-        })
-        setItems(count)
+        if(favouriteProducts.length > 0){
+            favouriteProducts.forEach((item)=>{
+                count +=1
+            })
+            setItems(count)
+        }
     }, [favouriteProducts])
     return(
         <>
