@@ -3,7 +3,7 @@ import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import ProductComp from "../../components/Product/Product";
 import { useParams } from "react-router-dom";
-import { Product } from '../../context/catalogSlice';
+import { Product } from "../../types/types";
 
 //31.128.39.49:3001
 const ProductPage = () => {

@@ -1,15 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 import { CartProductType } from "../types/types";
-
-
-
-export interface Cart {
-    cartProducts: CartProductType[],
-    totalAmount: number,
-    productId: number
-}
-
+import { Cart } from "../types/types";
 
 const initialState: Cart = {
     cartProducts: [],

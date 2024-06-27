@@ -1,14 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
-export interface Product {
-    id: number;
-    name: string;
-    price: number;
-    status: string;
-    description: string;
-    categoryId: number;
-    img: string;
-  }
+import { Product } from "../types/types";
+import { CatalogState } from "../types/types";
 //31.128.39.49
 export const fetchCatalog = createAsyncThunk<Product[]>(
     'catalog/fetchCatalog',
@@ -19,13 +11,7 @@ export const fetchCatalog = createAsyncThunk<Product[]>(
     }
 )
 
-interface catalogState {
-    items: Product[]
-    status: 'idle' | 'pending' | 'succeeded' | 'failed'
-    error: string | undefined
-}
-
-const initialState: catalogState = {
+const initialState: CatalogState = {
     items: [],
     status: 'idle',
     error: ''

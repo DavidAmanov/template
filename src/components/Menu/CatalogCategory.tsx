@@ -3,7 +3,7 @@ import CatalogCategoryCss from './CatalogCategory.module.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState, AppDispatch } from '../../context/store'
 import { fetchCategory } from '../../context/categorySlice'
-import {Category} from '../../context/categorySlice'
+import { Category } from '../../types/types'
 import { Link } from 'react-router-dom'
 
 

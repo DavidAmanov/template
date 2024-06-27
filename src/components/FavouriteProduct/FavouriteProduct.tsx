@@ -1,6 +1,6 @@
 import FavouriteProductCss from './FavouriteProductCss.module.css'
 import Trash from '../../img/ico/trash.png'
-import { Product } from '../../context/catalogSlice'
+import { Product } from '../../types/types'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../../context/store'
 import { removeProductFromFavourite } from '../../context/favouriteSlice'

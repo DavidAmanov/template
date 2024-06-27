@@ -4,7 +4,7 @@ import Card from "../Card/Card";
 import catalogCss from './catalog.module.css'
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from '../../context/store';
-import { Product } from '../../context/catalogSlice'
+import { Product } from "../../types/types";
 import { useLocation } from "react-router-dom";
 
 const Catalog = () => {

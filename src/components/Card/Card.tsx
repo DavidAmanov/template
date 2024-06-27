@@ -1,7 +1,7 @@
 import React from 'react'
 import CardCss from './card.module.css'
 import StatisIcon from '../../img/ico/Ellipse_green.png'
-import { Product } from '../../context/catalogSlice'
+import { Product } from '../../types/types'
 import PlaceholderImage from '../../img/image-placeholder.png'
 import { Link } from 'react-router-dom'
 import ButtonFavourite from '../Button/ButtonFavourite'

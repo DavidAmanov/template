@@ -1,10 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 import { CartProductType } from "../types/types";
-
-export interface Favourites {
-    favouriteProduct: CartProductType[]
-}
+import { Favourites } from "../types/types";
 
 const initialState: Favourites = {
     favouriteProduct: []

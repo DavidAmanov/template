@@ -1,9 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
-export interface Category{
-    id: number,
-    name: string
-}
+import { Category } from "../types/types";
+import { CategoryState } from "../types/types";
 
 export const fetchCategory = createAsyncThunk<Category[]>(
     'category/fetchCatagory',
@@ -14,13 +11,7 @@ export const fetchCategory = createAsyncThunk<Category[]>(
     }
 )
 
-interface InitialState {
-    items: Category[],
-    status: 'idle' | 'pending' | 'succeeded' | 'failed',
-    error: string | undefined;
-}
-
-const initialState: InitialState = {
+const initialState: CategoryState = {
     items: [],
     status: "idle",
     error: ''

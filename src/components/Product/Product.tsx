@@ -1,6 +1,6 @@
 //31.128.39.49
 import React, { useState } from 'react';
-import { Product } from '../../context/catalogSlice';
+import { Product } from '../../types/types';
 import ProductCss from "./Product.module.css";
 import ButtonRed from '../Button/ButtonRed';
 import ButtonGray from '../Button/ButtonGray';

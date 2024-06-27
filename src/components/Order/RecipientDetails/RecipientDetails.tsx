@@ -1,18 +1,11 @@
 import RecipientDetailsCss from './RecipientDetailsCss.module.css'
 import Slash from '../../../img/ico/slash__block.png'
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../../../context/store';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../../context/store';
 import { resetRecipient, setRecipient } from '../../../context/orderSice';
 import { useEffect } from 'react';
-
-interface Recipient{
-    name: string,
-    lastName: string,
-    mobilePhone: string,
-    email: string,
-    comment: string
-}
+import { Recipient } from '../../../types/types';
 
 const RecipientDetails = () => {
     const {register, handleSubmit} = useForm<Recipient>();

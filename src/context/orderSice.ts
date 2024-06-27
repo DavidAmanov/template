@@ -1,49 +1,6 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import { RootState } from "./store"; 
-import { Product } from "../types/types";
-
-interface Order{
-    status: string
-}
-interface Payment {
-    method:string,
-    status: string,
-    amount: number,
-}
-
-interface OrderItem {
-    productId: number,
-    quantity: number,
-    price: number
-}
-
-interface Address {
-    street:string,
-    city:string,
-    state:string,
-    zipCode:string,
-    country:string
-}
-
-interface Recipient {
-    name: string,
-    lastName: string,
-    mobilePhone: string,
-    email: string,
-    comment: string
-}
-
-interface OrderFetch {
-    userId: string,
-    addressData: Address,
-    orderData: Order,
-    paymentData: Payment,
-    orderItems: OrderItem[],
-    recipientData:Recipient,
-    deliveryMethod: string,
-    orderId: number
-}
-
+import {OrderFetch} from '../types/types' 
 
 const initialState: OrderFetch = {
     userId: "",

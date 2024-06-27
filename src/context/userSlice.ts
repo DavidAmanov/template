@@ -1,20 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { createTransform } from "redux-persist";
 import { RootState } from "./store";
-
-interface User {
-    accessToken: string,
-    refreshToken: string,
-    user: {
-        userId: string;
-        username: string,
-        email: string,
-        photo: string,
-        role: "ADMIN" | "USER"
-    },
-    cart_id: number,
-    favourite_id: number,
-}
+import {User} from '../types/types'
 
 const initialState: User = {
     accessToken: "",
@@ -44,8 +31,6 @@ interface UserPayload {
 export const fetchUserData = createAsyncThunk<UserPayload>(
     'user/fetchUserData',
     async (_, { getState }) => {
-        const state = getState() as RootState; 
-        const token = state.user.accessToken; 
         try {
             const response = await fetch('http://31.128.39.49:3001/api/user/getUser', {
                 method: 'GET',
@@ -55,7 +40,6 @@ export const fetchUserData = createAsyncThunk<UserPayload>(
             if (!response.ok) {
                 throw new Error('Failed to fetch user data');
             }
-
             const data = await response.json();
             return data;
         } catch (error:any) {

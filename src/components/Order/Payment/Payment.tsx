@@ -4,11 +4,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../../../context/store'
 import { resetPaymentMethod, setPaymentMethod } from '../../../context/orderSice'
-
-interface Payments{
-    id: number
-    name:string
-}
+import { Payments } from '../../../types/types'
 
 const Payment = () => {
     const [paymentMethod, setPaymentMet] = useState<Payments[]>([])

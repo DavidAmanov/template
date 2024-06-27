@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState, AppDispatch } from "../../context/store";
-import {Product} from '../../context/catalogSlice'
+import { Product } from "../../types/types";
 import { fetchCatalog } from "../../context/catalogSlice";
 import Card from "../Card/Card";
 import SliderCss from "./Slider.module.css"

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import CartProductCss from './CartProduct.module.css'
 import Trash from '../../img/ico/trash.png'
-import { Product } from '../../context/catalogSlice'
+import { Product } from '../../types/types'
 import ButtonGray from '../Button/ButtonGray';
 import { AppDispatch } from '../../context/store';
 import { useDispatch } from 'react-redux';
