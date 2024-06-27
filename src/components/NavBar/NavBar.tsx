@@ -8,7 +8,6 @@ interface NavBarProp{
 }
 
 const NavBar:React.FC<NavBarProp> = ({linksArray, header}) => {
-    console.log(linksArray)
     return(<>
         <nav className={NavBarCss.nav}>    
             {linksArray.map((link, index)=>(

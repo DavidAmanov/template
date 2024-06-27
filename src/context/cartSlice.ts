@@ -30,7 +30,6 @@ export const fetchProductsInCart = createAsyncThunk<CartProductType[]>(
             }
         })
         const data = await response.json()
-        console.log(data, "slice")
         return data
     }
 ) 

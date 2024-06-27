@@ -13,7 +13,7 @@ const Catalog = () => {
     const [filteredCatalog, setFilteredCatalog] = useState<Product[]>([]);
     const sliderFlag = false
     let {state} = useLocation()
-    console.log(state)
+
 
     const catalog: Product[] = useSelector((state: RootState) => state.catalog.items);
     const dispatch = useDispatch<AppDispatch>();

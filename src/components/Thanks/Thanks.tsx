@@ -5,7 +5,8 @@ import { RootState } from '../../context/store'
 import { Link } from 'react-router-dom'
 
 const Thanks = () => {
-    const amount = useSelector((state: RootState)=>(state.order.totalAmount))
+    const amount = useSelector((state: RootState)=>(state.order.paymentData.amount))
+    const numberOfOrder = useSelector((state: RootState)=> (state.order.orderId))
     return(
        <>
         <section className={ThanksCss.section}>
@@ -14,7 +15,7 @@ const Thanks = () => {
                     <h1 className={ThanksCss.thanks__h1}>Thank you for the order!</h1>
                     <div className={ThanksCss.thanks__body}>
                         <div className={ThanksCss.thanks__text}>
-                            <p className={ThanksCss.thanks__h2}>Your order №08306 for the amount {amount} paid and accepted for assembly.</p>
+                            <p className={ThanksCss.thanks__h2}>Your order №{numberOfOrder} for the amount {amount} paid and accepted for assembly.</p>
                             <span>You can find out more about the status of your order<br /> by email or in 
                                 <Link to='/profile' className={ThanksCss.link}>your personal account</Link> in the store.
                             </span>

@@ -21,7 +21,6 @@ const FavouritesPage = () => {
             })
             const data = await response.json()
             setProductsInFavourite(data)
-            console.log(data)
         } 
         fetchData()
     },[])

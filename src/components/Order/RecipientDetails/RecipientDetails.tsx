@@ -24,11 +24,10 @@ const RecipientDetails = () => {
     },[])
 
     const addRecipient: SubmitHandler<Recipient> = (data) => {
-        dispatch(setRecipient({recipient: data}))
-        console.log(data)
+        dispatch(setRecipient(data))
     }
-    const allData = useSelector((state: RootState)=>(state.order))
-    console.log("alldata", allData)
+
+
     return(<>
         <div className={`${RecipientDetailsCss.block} ${RecipientDetailsCss.Recipient}`}>
             <div className={RecipientDetailsCss.name}>
@@ -77,7 +76,7 @@ const RecipientDetails = () => {
                     </div>
                     <div className={RecipientDetailsCss.Recipient__details}>
                         <div className={RecipientDetailsCss.textarea}>
-                            <textarea {...register("comment", {required: true })} 
+                            <textarea {...register("comment", {required: false })} 
                                 className={RecipientDetailsCss.textarea__comment} 
                                 placeholder="Comment">    
                             </textarea>

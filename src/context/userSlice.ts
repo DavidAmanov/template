@@ -6,6 +6,7 @@ interface User {
     accessToken: string,
     refreshToken: string,
     user: {
+        userId: string;
         username: string,
         email: string,
         photo: string,
@@ -19,6 +20,7 @@ const initialState: User = {
     accessToken: "",
     refreshToken: "",
     user: {
+        userId: "",
         username: "",
         email: "",
         photo: "",
@@ -29,6 +31,7 @@ const initialState: User = {
 } 
 
 interface UserPayload {
+    googleId: string,
     username: string,
     email: string,
     photo: string,
@@ -54,7 +57,6 @@ export const fetchUserData = createAsyncThunk<UserPayload>(
             }
 
             const data = await response.json();
-            console.log('Received user data:', data);
             return data;
         } catch (error:any) {
             throw new Error(error.message);
@@ -74,6 +76,7 @@ const userSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(fetchUserData.fulfilled, (state, action)=>{
             state.user = {
+                userId: action.payload.googleId,
                 username: action.payload.username,
                 email: action.payload.email,
                 photo: action.payload.photo,

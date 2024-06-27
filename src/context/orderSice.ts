@@ -2,6 +2,21 @@ import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import { RootState } from "./store"; 
 import { Product } from "../types/types";
 
+interface Order{
+    status: string
+}
+interface Payment {
+    method:string,
+    status: string,
+    amount: number,
+}
+
+interface OrderItem {
+    productId: number,
+    quantity: number,
+    price: number
+}
+
 interface Address {
     street:string,
     city:string,
@@ -18,81 +33,123 @@ interface Recipient {
     comment: string
 }
 
-interface OrderProduct {
-    id: number,
-    quantity: number,
-    orderId: number,
-    productId: number,
-    product: Product
+interface OrderFetch {
+    userId: string,
+    addressData: Address,
+    orderData: Order,
+    paymentData: Payment,
+    orderItems: OrderItem[],
+    recipientData:Recipient,
+    deliveryMethod: string,
+    orderId: number
 }
 
-export interface Order {
-    orderProducts: OrderProduct[]
-    totalAmount: number
-    deliveryMethod: string
-    paymentMethod: string
-    address: Address
-    recipient: Recipient
-}
 
-const initialState: Order = {
-    orderProducts: [],
-    totalAmount: 0,
-    deliveryMethod: "Courier",
-    paymentMethod: "Credit Card",
-    address: {
+const initialState: OrderFetch = {
+    userId: "",
+    orderData: {
+        status: ""
+    },
+    orderItems: [],
+    paymentData: {
+        method: "",
+        status: "paid",
+        amount: 0
+    },
+    addressData: {
         street: "Somewhere",
         city: "Tokyo",
         state: "Tokyo",
         zipCode:"285000",
         country: "Japan"
     },
-    recipient: {
+    recipientData: {
         name: "",
         lastName: "",
         mobilePhone: "",
         email: "",
         comment: ""
-    }
-
+    },
+    deliveryMethod: "PickUp",
+    orderId: 0
 }
 
-// export const postOrder = createAsyncThunk<OrderProduct[]>(
-//     'order/fetchOrderProducts',
-//     async(_,thunkAPI)=>{}
-//     //todo заказ должен принимать массив продуктов адрес средство оплаты и адрес
-// ) 
+export const postOrder = createAsyncThunk(
+    'order/fetchOrderProducts',
+    async(_, thunkAPI)=>{
+        const state = thunkAPI.getState() as RootState
+        const token = state.user.accessToken
+        const response = await fetch('http://localhost:3001/api/orders/create', {
+            method: 'POST',
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({ order: state.order })
+        })
+        console.log(response, "res")
+        const order =  await response.json()
+        thunkAPI.dispatch(setOrderId(order.id))
+        return order
+    }
+    
+) 
 
 const orderSlice = createSlice({
     name: 'order',
     initialState,
     reducers: {
-        setMethodDelivery(state, action){
+        setUserId(state, action){
+            state.userId = action.payload
+        },
+        setOrderData(state, action){
+            state.orderData = action.payload
+        },
+        setDeliveryMethod(state, action){
             state.deliveryMethod = action.payload
         },
         setPaymentMethod(state, action){
-            state.paymentMethod = action.payload
+            state.paymentData.method= action.payload
+        },
+        resetPaymentMethod(state){
+            state.paymentData.method = initialState.paymentData.method
         },
         setAddress(state, action){
-            state.address = action.payload
+            state.addressData = action.payload
         },
         resetAddress(state) {
-            state.address = initialState.address;
+            state.addressData = initialState.addressData;
         },
         setRecipient(state, action){
-            state.recipient = action.payload
+            state.recipientData = action.payload
         },
         resetRecipient(state){
-            state.recipient = initialState.recipient
+            state.recipientData = initialState.recipientData
         },
         setOrderProducts(state, action){
-            state.orderProducts = action.payload
+            state.orderItems = action.payload
         },
         setTotalAmount(state, action){
-            state.totalAmount = action.payload
+            state.paymentData.amount = action.payload
+        },
+        setOrderId(state, action){
+            state.orderId = action.payload
         }
     }
 })
 
-export const {setAddress, setMethodDelivery, setOrderProducts, setPaymentMethod, setRecipient, setTotalAmount, resetAddress, resetRecipient}  = orderSlice.actions
+export const {
+    setUserId,
+    setOrderData,
+    setAddress, 
+    setOrderProducts, 
+    setDeliveryMethod, 
+    setPaymentMethod, 
+    setRecipient, 
+    setTotalAmount, 
+    resetAddress, 
+    resetRecipient,
+    resetPaymentMethod,
+    setOrderId
+}  = orderSlice.actions
 export default orderSlice.reducer

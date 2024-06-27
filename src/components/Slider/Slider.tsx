@@ -21,7 +21,7 @@ const Slider = () =>{
         <section className={SliderCss.slider}>
             <Swiper slidesPerView={3}  pagination={{clickable: true,}} modules={[Pagination]}>
                 {catalog.map((product)=>(
-                    <SwiperSlide className={SliderCss.card__item}>
+                    <SwiperSlide className={SliderCss.card__item} key={product.id}>
                         <Card key={product.id} product={product} sliderFlag={sliderFlag}/>
                     </SwiperSlide>))}
             </Swiper>

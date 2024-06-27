@@ -18,7 +18,6 @@ const CartPage = () => {
     const [items, setItems] = useState(0)
     const productsInCart = useSelector((state: RootState)=>state.cart.cartProducts)
     const totalAmount = useSelector((state: RootState)=>state.cart.totalAmount)
-    console.log(totalAmount)
 
     useEffect(()=>{
         let items = 0 

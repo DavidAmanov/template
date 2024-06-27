@@ -3,7 +3,7 @@ import Slash from '../../../img/ico/slash__block.png'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../../../context/store'
-import { setPaymentMethod } from '../../../context/orderSice'
+import { resetPaymentMethod, setPaymentMethod } from '../../../context/orderSice'
 
 interface Payments{
     id: number
@@ -18,6 +18,7 @@ const Payment = () => {
         setPaymentMet(data)
     }
     useEffect(()=> {
+        dispatch(resetPaymentMethod())
         fetchPayment()
     }, [])
 
