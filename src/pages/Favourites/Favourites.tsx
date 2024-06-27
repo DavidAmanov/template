@@ -13,7 +13,7 @@ const FavouritesPage = () => {
 
     useEffect(()=>{
         const fetchData = async () => {
-            const response = await fetch(`http://localhost:3001/api/favouriteProduct/${favouriteId}`,{
+            const response = await fetch(`http://31.128.39.49:3001/api/favouriteProduct/${favouriteId}`,{
                 method: "GET",
                 headers:{
                     "Authorization": `Bearer ${token}`,

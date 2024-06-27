@@ -16,7 +16,7 @@ const ProductPage = () => {
         setLoading(true);
         setError(null);
 
-        fetch(`http://localhost:3001/api/product/${id}`)
+        fetch(`http://31.128.39.49:3001/api/product/${id}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Network response was not ok");

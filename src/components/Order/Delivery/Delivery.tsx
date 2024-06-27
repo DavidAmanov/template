@@ -26,7 +26,7 @@ const Delivery = () => {
     const dispatch = useDispatch<AppDispatch>()
 
     // const fetchAddress = async (address:Data) =>{
-    //     const response = await fetch('http://localhost:3001/api/address/add', {
+    //     const response = await fetch('http://31.128.39.49:3001/api/address/add', {
     //         method: "POST",
     //         headers: {
     //             "Authorization": `Bearer ${token}`,

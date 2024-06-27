@@ -47,7 +47,7 @@ export const fetchUserData = createAsyncThunk<UserPayload>(
         const state = getState() as RootState; 
         const token = state.user.accessToken; 
         try {
-            const response = await fetch('http://localhost:3001/api/user/getUser', {
+            const response = await fetch('http://31.128.39.49:3001/api/user/getUser', {
                 method: 'GET',
                 credentials: 'include',
             });
