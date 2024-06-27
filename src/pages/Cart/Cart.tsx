@@ -6,10 +6,12 @@ import Divider from '../../img/ico/Divider.png'
 import { Link } from "react-router-dom";
 import CartProduct from "../../components/CartProduct/CartProduct";
 import { useSelector } from 'react-redux';
-import { RootState } from "../../context/store";
+import { AppDispatch, RootState } from "../../context/store";
 import MakeOrder from "../../components/MakeOrder/MakeOrder";
 import PromocodeField from "../../components/PromocodField/PromocodeField";
 import EmptyCart from "../../components/EmptyCart/EmptyCart";
+import { useDispatch } from "react-redux";
+import { fetchProductsInCart } from "../../context/cartSlice";
 
 
 
@@ -18,8 +20,10 @@ const CartPage = () => {
     const [items, setItems] = useState(0)
     const productsInCart = useSelector((state: RootState)=>state.cart.cartProducts)
     const totalAmount = useSelector((state: RootState)=>state.cart.totalAmount)
+    const dispatch = useDispatch<AppDispatch>()
 
     useEffect(()=>{
+        // dispatch(fetchProductsInCart())
         let items = 0 
         productsInCart.forEach((product)=>{
             items +=1

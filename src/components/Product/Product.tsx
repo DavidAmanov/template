@@ -4,8 +4,8 @@ import { Product } from '../../context/catalogSlice';
 import ProductCss from "./Product.module.css";
 import ButtonRed from '../Button/ButtonRed';
 import ButtonGray from '../Button/ButtonGray';
-import { AppDispatch } from '../../context/store';
-import { useDispatch } from 'react-redux';
+import { AppDispatch, RootState } from '../../context/store';
+import { useDispatch, useSelector } from 'react-redux';
 import { addProduct } from '../../context/cartSlice';
 import { addProductToFavourite } from '../../context/favouriteSlice';
 import ButtonFavourite from '../Button/ButtonFavourite';
@@ -17,6 +17,7 @@ interface ProductProps {
 const ProductComp: React.FC<ProductProps> = ({ product }) => {
     const [count, setCount] = useState<number>(1);
     const dispatch = useDispatch<AppDispatch>()
+    const cartId = useSelector((state: RootState)=>(state.user.cart_id))
 
     const plus = () => {
         setCount(count+1)
@@ -29,11 +30,19 @@ const ProductComp: React.FC<ProductProps> = ({ product }) => {
     }
 
     const addProductToCart = async () => {
-        dispatch(addProduct({quantity: count, productId: product.id}))
+        if(cartId === 0 || cartId === undefined){
+            alert('You need to log in to add an item to your cart')
+        } else {
+            dispatch(addProduct({productId: product.id, quantity: count}))
+        }
     }
 
     const addProductToFav = async () => {
-        dispatch(addProductToFavourite({productId: product.id}))
+        if(cartId === 0 || cartId === undefined){
+            alert('You need to log in to add an item to your favorites')
+        } else {
+            dispatch(addProductToFavourite({productId: product.id}))
+        }
     }
 
     return (

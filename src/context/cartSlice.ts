@@ -114,6 +114,7 @@ export const addProduct = createAsyncThunk(
             })
         });
         thunkAPI.dispatch(fetchProductsInCart())
+        console.log(response)
         return await response.json();
     }
 )
@@ -128,7 +129,6 @@ const cartSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(fetchProductsInCart.fulfilled, (state, action)=>{
-
             state.cartProducts = action.payload.sort((a,b)=>a.id-b.id)
         })
         builder.addCase(counterAmount.fulfilled, (state, action)=>{
