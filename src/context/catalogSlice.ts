@@ -5,7 +5,7 @@ import { CatalogState } from "../types/types";
 export const fetchCatalog = createAsyncThunk<Product[]>(
     'catalog/fetchCatalog',
     async function(){
-        const response = await fetch('http://31.128.39.49:3001/api/product') 
+        const response = await fetch('http://31.128.39.49:80/api/product') 
         const data = await response.json()
         return data;
     }

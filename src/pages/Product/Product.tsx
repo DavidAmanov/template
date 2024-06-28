@@ -5,7 +5,7 @@ import ProductComp from "../../components/Product/Product";
 import { useParams } from "react-router-dom";
 import { Product } from "../../types/types";
 
-//31.128.39.49:3001
+//31.128.39.49:80
 const ProductPage = () => {
     const { id } = useParams();
     const [product, setProduct] = useState<Product | null>(null);
@@ -16,7 +16,7 @@ const ProductPage = () => {
         setLoading(true);
         setError(null);
 
-        fetch(`http://31.128.39.49:3001/api/product/${id}`)
+        fetch(`http://31.128.39.49:80/api/product/${id}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Network response was not ok");

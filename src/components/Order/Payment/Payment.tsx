@@ -9,7 +9,7 @@ import { Payments } from '../../../types/types'
 const Payment = () => {
     const [paymentMethod, setPaymentMet] = useState<Payments[]>([])
     const fetchPayment = async () =>{
-        const response = await fetch('http://31.128.39.49:3001/api/paymentMethod/getAll')
+        const response = await fetch('http://31.128.39.49:80/api/paymentMethod/getAll')
         const data = await response.json()
         setPaymentMet(data)
     }

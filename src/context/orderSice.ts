@@ -36,7 +36,7 @@ export const postOrder = createAsyncThunk(
     async(_, thunkAPI)=>{
         const state = thunkAPI.getState() as RootState
         const token = state.user.accessToken
-        const response = await fetch('http://31.128.39.49:3001/api/orders/create', {
+        const response = await fetch('http://31.128.39.49:80/api/orders/create', {
             method: 'POST',
             headers: {
                 "Authorization": `Bearer ${token}`,

@@ -31,7 +31,7 @@ const Profile = () => {
             <div className={ProfileCss.links__container}>
                 <span>The profile page is still working, but you can use your Google account to add items to your <br/>cart
                 and favorites, as well as to place trial orders</span>
-                <a href="http://31.128.39.49:3001/api/user/auth/google" className={ProfileCss.google}>
+                <a href="http://31.128.39.49:80/api/user/auth/google" className={ProfileCss.google}>
                     <div>
                         <img src={Google} alt='google icon'/>
                         <span>Google</span>

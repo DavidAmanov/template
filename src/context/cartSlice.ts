@@ -15,7 +15,7 @@ export const fetchProductsInCart = createAsyncThunk<CartProductType[]>(
         const state = thunkAPI.getState() as RootState
         const token = state.user.accessToken
         const cartId = state.user.cart_id
-        const response = await fetch(`http://31.128.39.49:3001/api/cartProduct/${cartId}`,{
+        const response = await fetch(`http://31.128.39.49:80/api/cartProduct/${cartId}`,{
             method: "GET",
             headers:{
                 "Authorization": `Bearer ${token}`,
@@ -44,7 +44,7 @@ export const changeProductQuantity = createAsyncThunk(
         const state = thunkAPI.getState() as RootState
         const token = state.user.accessToken
         const cartId = state.user.cart_id
-        const response = await fetch('http://31.128.39.49:3001/api/cartProduct/add', {
+        const response = await fetch('http://31.128.39.49:80/api/cartProduct/add', {
             method: "POST",
             headers:{
                 "Authorization": `Bearer ${token}`,
@@ -69,7 +69,7 @@ export const removeProduct = createAsyncThunk(
         const state = thunkAPI.getState() as RootState
         const token = state.user.accessToken
         const cartId = state.user.cart_id
-        const response = await fetch('http://31.128.39.49:3001/api/cartProduct/remove', {
+        const response = await fetch('http://31.128.39.49:80/api/cartProduct/remove', {
             method: "DELETE",
             headers:{
                 "Authorization": `Bearer ${token}`,
@@ -93,7 +93,7 @@ export const addProduct = createAsyncThunk(
         const state = thunkAPI.getState() as RootState
         const token = state.user.accessToken
         const cartId = state.user.cart_id
-        const response = await fetch("http://31.128.39.49:3001/api/cartProduct/add", {
+        const response = await fetch("http://31.128.39.49:80/api/cartProduct/add", {
             method: "POST",
             headers: {
                 "Authorization": `Bearer ${token}`, 
