@@ -26,14 +26,15 @@ const Header = () => {
                 </div>
                 <div>
                     <ul className={HeaderCss.header__rightblock}>
-                        <li><Search /></li>
+                        <li><button className={HeaderCss.button}><Search /></button></li>
                         <Link to="/favourites"><li><button className={HeaderCss.button}><img src={heartIcon} alt="favourites" /></button></li></Link>
                         <Link to="/cart"><li><button className={HeaderCss.button}><img src={cartIcon} alt="Cart" /></button></li></Link>
                         <Link to="/profile"><li><button className={HeaderCss.button}><img src={profileIcon} alt="Profile" /></button></li></Link>
                     </ul>
                 </div>
                 <div className={`${HeaderCss.header__rightblock} ${HeaderCss.rightblock_hidden}`}>
-                    <li><img src={searchIcon} alt="Search" /></li>
+                    <li><button className={HeaderCss.button}><Search /></button></li>
+                    {/* <li><img src={searchIcon} alt="Search" /></li> */}
                     <li><img src={profileIcon} alt="Profile" /></li>
                 </div>
             </div>

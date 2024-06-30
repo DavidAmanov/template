@@ -1,7 +1,7 @@
 .banner {
     background-image: url(../../img/bannerbg.png);
     background-size: cover;
-    height: 75vh;
+    height: 100vh;
     background-color: whitesmoke;
     opacity: 0; 
     animation: fadeIn 2s forwards; 
@@ -20,8 +20,10 @@
 .banner__text {
     color: var(--color-white);
     font-size: calc(1rem * 3 + 8px);
+}
+
+.text {
     background-color: var(--color-black);
-    max-width: 60%;
 }
 
 .banner__name {
@@ -40,6 +42,9 @@
 }
 
 @media (max-width: 770px) {
+    .banner__text {
+        font-size: 48px;
+    }
 
     .banner__name {
         font-size: 180px;

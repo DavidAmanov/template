@@ -64,20 +64,23 @@ const Catalog = () => {
             <div className={catalogCss.section__wrapper}>
                 <div className={catalogCss.filter__section}>
                     <h2 className={catalogCss.section__h2}>Catalog</h2>
-                    <select name="price" id="price" value={priceFilter} onChange={handlePriceFilter}>
-                        <option value="popular">Popular</option>
-                        <option value="low">From Low to High</option>
-                        <option value="high">From High to Low</option>
-                    </select>
-                    <select name="category" id="category" value={categoryFilter} onChange={handleCategoryFilter}>
-                        <option value={0}>All</option>
-                        <option value={2}>Cap</option>
-                        <option value={1}>Hoodie</option>
-                        <option value={4}>Sweatshirt</option>
-                        <option value={3}>T-shirt</option>
-                        <option value={5}>Pants</option>
-                        <option value={6}>Jacket</option>
-                    </select>
+                    <div className={catalogCss.section__div}>
+                        <select name="price" id="price" value={priceFilter} onChange={handlePriceFilter}>
+                            <option value="popular">Popular</option>
+                            <option value="low">From Low to High</option>
+                            <option value="high">From High to Low</option>
+                        </select>
+                        <select name="category" id="category" value={categoryFilter} onChange={handleCategoryFilter}>
+                            <option value={0}>All</option>
+                            <option value={2}>Cap</option>
+                            <option value={1}>Hoodie</option>
+                            <option value={4}>Sweatshirt</option>
+                            <option value={3}>T-shirt</option>
+                            <option value={5}>Pants</option>
+                            <option value={6}>Jacket</option>
+                        </select>
+                    </div>
+                    
                 </div>
                 <div className={catalogCss.catalog}>
                     {filteredCatalog.map((product)=>((<Card key={product.id} product={product} sliderFlag={sliderFlag}/>)))}

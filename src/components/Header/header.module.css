@@ -9,8 +9,15 @@
     height: 100%;
     margin: 0 auto;
     padding: 0 24px;
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
+
+    display: flex;
+    justify-content: space-between;
+
+    /* из-за грида адаптив едет, смещаются оси*/
+    /* display: grid;
+    grid-template-columns: 33% 33% 33%; */
+
+
     align-items: center;
 }
 
@@ -33,7 +40,9 @@
 
 .header__rightblock {
     display: flex;
-    justify-content: end;
+    align-items: center;
+    /* если грида нет строчка не нужна */
+    /* justify-content: end; */
     gap: 32px;
 }
 
@@ -43,7 +52,7 @@
 
 /* adaptive css */
 
-@media (max-width: 480px) {
+@media (max-width: 694px) {
     .header__rightblock {
         display: none;
     }
@@ -55,6 +64,13 @@
 
     .header__menu {
         display: none;
+    }
+}
+
+@media (max-width: 410px) { 
+    .rightblock_hidden {
+        display: flex;
+        gap: 18px;
     }
 }
 

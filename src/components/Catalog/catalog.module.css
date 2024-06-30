@@ -9,13 +9,16 @@
     max-width: calc(1220px + 48px);
     padding: 0 24px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(352px, 1fr));
+    display: flex;
+
+    /* вроде нахуй не нужон грид здесь */
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(352px, 1fr)); */
+
     align-items: center;
     gap: 16px;
     transform: translateX(-100%); 
     animation: slide-in 0.5s forwards;
-
 }
 
 .filter__section select{
@@ -30,6 +33,10 @@
 
 .filter__section select option{
     font-size: 24px;
+}
+
+.section__div {
+    display: flex;
 }
 
 
@@ -61,5 +68,18 @@
     to {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+@media (max-width: 800px) {
+    .filter__section{
+       flex-direction: column;
+    }
+
+    .section__div {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding-bottom: 40px;
     }
 }

@@ -9,7 +9,7 @@ const Banner = () => {
         <div className={BannerCss.banner}>
             <div className={BannerCss.banner__wrapper}>
                 <div className={BannerCss.banner__text}>
-                    <span>Winter, fashion<br/>
+                    <span className={BannerCss.text}>Winter, fashion<br/>
                     and technologies</span>
                 </div>    
                 <div className={BannerCss.banner__text2}>[new collection]</div>
