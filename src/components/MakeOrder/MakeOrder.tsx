@@ -12,8 +12,10 @@ interface amountProp{
 
 
 const MakeOrder: React.FC<amountProp> = ({amount, orderPage, onClick}) => {
-    const deliveryMethod = useSelector((state: RootState)=>(state.order.deliveryMethod))
-    const paymentMethod = useSelector((state: RootState) => state.order.paymentData.method);
+    const deliveryMethod = useSelector((state: RootState) => state.order.deliveryMethod ?? 'No delivery method selected');
+    const paymentMethod = useSelector((state: RootState) => state.order.paymentData?.method ?? 'No payment method selected');
+    console.log(deliveryMethod, paymentMethod);
+    console.log(deliveryMethod, paymentMethod)
     const navigate = useNavigate();
 
     const handleClick = () => {
@@ -55,7 +57,9 @@ const MakeOrder: React.FC<amountProp> = ({amount, orderPage, onClick}) => {
                 </button>
                 <div className={MakeOrderCss.checkbox}>
                     <input type="checkbox" id="button" required />
-                    <label className={MakeOrderCss.labelText} htmlFor="button">By clicking on the <a className={MakeOrderCss.PlaceOrderLink} href="#">“Place an order”</a> button, you consent to the processing of personal data</label>
+                    <label className={MakeOrderCss.labelText} htmlFor="button">By clicking on the 
+                        <a className={MakeOrderCss.PlaceOrderLink} href="#">“Place an order”
+                            </a> button, you consent to the processing of personal data</label>
                 </div>
             </form>
         </div>
