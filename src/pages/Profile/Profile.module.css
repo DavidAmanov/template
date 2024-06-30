@@ -1,3 +1,31 @@
+.profile__container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.user{
+    display: flex;
+    flex-direction: column;
+    margin: 1vh;
+}
+
+.user img {
+    max-width: 200px;
+}
+
+.user__bottom{
+    display: grid;
+    grid-template-columns: 400px 400px;
+}
+
+.user__data{
+    display: grid;
+}
+
+.order__data{
+    display: grid;
+}
+
 .links__container{
     display: grid;
     margin: 1vh;
@@ -15,7 +43,7 @@
     align-items: center;
     border: solid 2px var(--color-hover-button);;
     border-radius: 50px;
-    width: 10%;
+    width: 200px;
 }
 
 .google img {
@@ -25,7 +53,7 @@
 
 
 .button {
-    width: 10%;
+    width: 200px;
     border: none;
     background: none;
     color: black;
