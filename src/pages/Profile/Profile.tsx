@@ -9,23 +9,22 @@ import Slider from '../../components/Slider/Slider';
 import Google from '../../img/ico/google.png'
 import ProfileCss from './Profile.module.css'
 
+
 const Profile = () => {
     const dispatch = useDispatch<AppDispatch>();
-    
-    const getTokenValue = (name:string) => {
-        const cookie = document.cookie.split('; ').find(row => row.startsWith(`${name}=`));
-        return cookie ? cookie.split('=')[1] : null;
-    };
-    
+
     useEffect(() => {
-        const token = getTokenValue('accessToken')
-        const refreshToken = getTokenValue('refreshToken')
-        dispatch(fetchUserData());
-        if (token) {
-            dispatch(setToken({ accessToken: token, refreshToken: refreshToken }));
-            dispatch(fetchUserData());
+        const urlParams = new URLSearchParams(window.location.search);
+        const accessToken = urlParams.get('accessToken');
+        const refreshToken = urlParams.get('refreshToken');
+        console.log('accessToken:', accessToken);
+        console.log('refreshToken:', refreshToken);
+        if(accessToken){
+            dispatch(setToken({ accessToken: accessToken, refreshToken: refreshToken }));
+            dispatch(fetchUserData())
         }
     }, []);
+    
     return (
         <>
             <Header />

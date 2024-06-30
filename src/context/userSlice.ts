@@ -30,11 +30,16 @@ interface UserPayload {
 
 export const fetchUserData = createAsyncThunk<UserPayload>(
     'user/fetchUserData',
-    async (_, { getState }) => {
+    async (_, thankAPI) => {
         try {
+            const state = thankAPI.getState() as RootState
+            const token = state.user.accessToken
             const response = await fetch('http://31.128.39.49/api/user/getUser', {
                 method: 'GET',
                 credentials: 'include',
+                headers:{
+                    "Authorization": `Bearer ${token}`
+                }
             });
 
             if (!response.ok) {
