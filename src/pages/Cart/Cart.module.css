@@ -2,6 +2,7 @@
 /* cart css */
 .section {
     background-color: #fff;
+    min-height: 70vh;
     padding-top: 24px;
     padding-bottom: 214px;
     opacity: 0;

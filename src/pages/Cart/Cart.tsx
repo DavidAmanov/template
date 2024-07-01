@@ -23,7 +23,7 @@ const CartPage = () => {
     const dispatch = useDispatch<AppDispatch>()
 
     useEffect(()=>{
-        // dispatch(fetchProductsInCart())
+        dispatch(fetchProductsInCart())
         let items = 0 
         productsInCart.forEach((product)=>{
             items +=1
@@ -34,7 +34,8 @@ const CartPage = () => {
     return(<>
     <Header />
         {productsInCart.length ===0 && (<EmptyCart/>)}
-        {productsInCart.length !==0 &&(<section className={CartCss.section}>
+        {productsInCart.length !==0 &&(
+        <section className={CartCss.section}>
             <div className={CartCss.section__wrapper}>
                 <nav className={CartCss.nav}>
                     <Link to='/'><span className={CartCss.first}>Home</span></Link>

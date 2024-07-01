@@ -20,7 +20,7 @@ const Contacts = () =>{
         </section>
     </div>
     <div className={ContactsCss.slider}>
-        <Slider />
+        <Slider numberOfProduct={5}/>
     </div>
     <Footer />
     </>)

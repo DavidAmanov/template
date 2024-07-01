@@ -47,6 +47,7 @@ a {
 /* favourites css */
 .section__wrapper {
     max-width: calc(1220px + 48px);
+    min-height: 70vh;
     padding: 0 24px;
     margin: 0 auto;
 }

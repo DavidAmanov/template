@@ -67,16 +67,19 @@ export interface OrderFetch {
     deliveryMethod: string,
     orderId: number
 }
+
+export interface UserFromServer {
+    userId: string;
+    username: string,
+    email: string,
+    photo: string,
+    role: "ADMIN" | "USER"
+
+}
 export interface User {
     accessToken: string,
     refreshToken: string,
-    user: {
-        userId: string;
-        username: string,
-        email: string,
-        photo: string,
-        role: "ADMIN" | "USER"
-    },
+    user: UserFromServer,
     cart_id: number,
     favourite_id: number,
 }
@@ -96,4 +99,13 @@ export interface CategoryState {
     items: Category[],
     status: 'idle' | 'pending' | 'succeeded' | 'failed',
     error: string | undefined;
+}
+
+
+export interface OrderFromServer {
+    status: string
+    id: number
+    createdAt: any
+    updatedAt: any
+    userId: string
 }
