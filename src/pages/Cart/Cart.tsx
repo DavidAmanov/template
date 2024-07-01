@@ -36,8 +36,7 @@ const CartPage = () => {
 
     return(<>
     <Header />
-        {productsInCart.length ===0 && (<EmptyCart/>)}
-        {productsInCart.length !==0 &&(
+        {productsInCart.length !==0 ? (
         <section className={CartCss.section}>
             <div className={CartCss.section__wrapper}>
                 <nav className={CartCss.nav}>
@@ -68,7 +67,8 @@ const CartPage = () => {
                     </div>
                 </div>)}
             </div>
-        </section>)}
+        </section>)
+        : <EmptyCart/>}
     <Footer />
     </>)
 }

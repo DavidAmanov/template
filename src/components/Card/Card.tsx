@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({product, sliderFlag}) => {
     const cartId = useSelector((state: RootState)=>(state.user.cart_id))
 
     const addToFavourite = () => {
-        if(cartId === 0 || cartId === undefined){
+        if(!cartId){
             alert('You need to log in to add an item to your favorites')
         } else {
             dispatch(addProductToFavourite({productId: product.id}))
@@ -30,7 +30,7 @@ const Card: React.FC<CardProps> = ({product, sliderFlag}) => {
     }
 
     const addToCart = () => {
-        if(cartId === 0 || cartId === undefined){
+        if(!cartId){
             alert('You need to log in to add an item to your cart')
         } else {
             dispatch(addProduct({productId: product.id, quantity: 1}))

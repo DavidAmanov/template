@@ -1,32 +1,3 @@
-:root {
-    --color-bg: #1D2533;
-    --color-bg2: rgb(0, 0, 0);
-    --color-text-h1: #F1F3F5;
-
-    --color-text: #E8E9EA;
-
-    --color-status: #26DA72;
-
-    --color-active-button: red;
-    --color-hover-button: brown;
-
-    --color-bg-banner: #1D2533;
-}
-
-html {
-    font-size: 16px;
-}
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-a {
-    text-decoration: none;
-}
-
 .favourites {
     background-color: var(--color-bg2);
 }

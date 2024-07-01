@@ -30,7 +30,7 @@ const ProductComp: React.FC<ProductProps> = ({ product }) => {
     }
 
     const addProductToCart = async () => {
-        if(cartId === 0 || cartId === undefined){
+        if(!cartId){
             alert('You need to log in to add an item to your cart')
         } else {
             dispatch(addProduct({productId: product.id, quantity: count}))
@@ -38,7 +38,7 @@ const ProductComp: React.FC<ProductProps> = ({ product }) => {
     }
 
     const addProductToFav = async () => {
-        if(cartId === 0 || cartId === undefined){
+        if(!cartId){
             alert('You need to log in to add an item to your favorites')
         } else {
             dispatch(addProductToFavourite({productId: product.id}))

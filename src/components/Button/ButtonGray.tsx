@@ -5,8 +5,8 @@ import Add from '../../img/ico/Add Small.png'
 
 interface ButtonProps{
     quantity: number
-    onClick1: any
-    onClick2: any
+    onClick1: ()=>void
+    onClick2: ()=>void
 }
 
 const ButtonGray:React.FC<ButtonProps> = ({quantity, onClick1, onClick2}) => {

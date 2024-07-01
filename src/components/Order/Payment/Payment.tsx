@@ -1,30 +1,34 @@
-import PaymentCss from './PaymentCss.module.css'
-import Slash from '../../../img/ico/slash__block.png'
-import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { AppDispatch } from '../../../context/store'
-import { resetPaymentMethod, setPaymentMethod } from '../../../context/orderSice'
-import { Payments } from '../../../types/types'
+import PaymentCss from './PaymentCss.module.css';
+import Slash from '../../../img/ico/slash__block.png';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../../context/store';
+import { resetPaymentMethod, setPaymentMethod } from '../../../context/orderSice';
+import { Payments } from '../../../types/types';
+import { fetchPaymentMethods } from '../../../context/paymentSlice';
+import { Link } from 'react-router-dom';
 
 const Payment = () => {
-    const [paymentMethod, setPaymentMet] = useState<Payments[]>([])
-    const fetchPayment = async () =>{
-        const response = await fetch('http://31.128.39.49:80/api/paymentMethod/getAll')
-        const data = await response.json()
-        setPaymentMet(data)
-    }
-    useEffect(()=> {
-        dispatch(resetPaymentMethod())
-        fetchPayment()
-    }, [])
+    const [paymentMethods, setPaymentMethods] = useState<Payments[]>([]);
+    const [selectedMethod, setSelectedMethod] = useState<string>('');
+    const payments = useSelector((state: RootState) => state.payment);
+    const dispatch = useDispatch<AppDispatch>();
 
-    const dispatch = useDispatch<AppDispatch>()
+    useEffect(() => {
+        dispatch(resetPaymentMethod());
+        dispatch(fetchPaymentMethods());
+    }, [dispatch]);
+
+    useEffect(() => {
+        setPaymentMethods(payments);
+    }, [payments]);
 
     const changeMethod = (name: string) => {
-        dispatch(setPaymentMethod(name))
-    }
+        setSelectedMethod(name);
+        dispatch(setPaymentMethod(name));
+    };
 
-    return(<>
+    return (
         <div className={`${PaymentCss.payment} ${PaymentCss.block}`}>
             <div className={PaymentCss.name}>
                 <span>3</span>
@@ -33,13 +37,21 @@ const Payment = () => {
             </div>
             <div className={`${PaymentCss.block__wrapper} ${PaymentCss.block__wrapper_padding} ${PaymentCss.block__wrapper_hidden}`}>
                 <div id="online-payment" className={`${PaymentCss.payment__bottom} ${PaymentCss.payment__bottom_online} ${PaymentCss.payment__bottom_hidden}`}>
-                    <div className={PaymentCss.payment__text}>Select a payment method online or link your card to <a className={PaymentCss.PlaceOrderLink} href="#">personal account</a></div>
+                    <div className={PaymentCss.payment__text}>
+                        Select a payment method online or link your card to <Link to='/profile' className={PaymentCss.PlaceOrderLink}>personal account</Link>
+                    </div>
                     <div className={PaymentCss.payment__choose}>
-                        {paymentMethod.map((payment, index)=>(
+                        {paymentMethods.map((payment, index) => (
                             <div key={index} className={PaymentCss.payment__variant}>
-                                <input className={PaymentCss.payment__raido} type="radio" name="radio-method" required onClick={()=>changeMethod(payment.name)}/>
-                                <div className={PaymentCss.payment__field}>
-                                    {/* <img className={PaymentCss.payment__ico} src={Mir} alt="mir credit card payment method" /> */}
+                                <div className={PaymentCss.payment__field} onClick={() => changeMethod(payment.name)}>
+                                    <input 
+                                        className={PaymentCss.payment__radio} 
+                                        type="radio" 
+                                        name="radio-method" 
+                                        required 
+                                        checked={selectedMethod === payment.name}
+                                        onChange={() => changeMethod(payment.name)} 
+                                    />
                                     <div>{payment.name}</div>
                                 </div>
                             </div>
@@ -48,7 +60,7 @@ const Payment = () => {
                 </div>
             </div>
         </div>
-    </>)
-}
+    );
+};
 
-export default Payment 
+export default Payment;

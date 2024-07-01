@@ -1,29 +1,23 @@
-
-/* catalog css */
-
 .section {
     padding: 40px 0;
+    display: grid;
+    width: 100%;
 }
 
 .filter__section{
-    max-width: calc(1220px + 48px);
-    padding: 0 24px;
-    margin: 0 auto;
-    display: flex;
-
-    /* вроде нахуй не нужон грид здесь */
-    /* display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(352px, 1fr)); */
-
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom:1%;
     align-items: center;
-    gap: 16px;
     transform: translateX(-100%); 
     animation: slide-in 0.5s forwards;
 }
 
 .filter__section select{
     color: var(--color-status);;
-    margin-left: 1vw;
+    margin-left: 2.5vw;
     width: 70%;
     font-family: Impact;
     font-size: 42px;
@@ -47,18 +41,15 @@
     letter-spacing: 1.25px;
     font-size: 42px;
     line-height: 44px;
-    /* max-width: calc(1220px + 48px); */
-    padding: 40px 24px;
-    margin: 0;
-
+    margin-left: 2.5vw;
 }
 
 .catalog {
-    max-width: calc(1220px + 48px);
     padding: 0 24px;
-    margin: 0 auto;
+    margin-left: 15%;
+    margin-right: 15%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(352px, 1fr));
+    grid-template-columns: repeat(3, 33%);
     justify-content: center;
     justify-items: center;
     gap: 16px;
@@ -71,15 +62,3 @@
     }
 }
 
-@media (max-width: 800px) {
-    .filter__section{
-       flex-direction: column;
-    }
-
-    .section__div {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        padding-bottom: 40px;
-    }
-}

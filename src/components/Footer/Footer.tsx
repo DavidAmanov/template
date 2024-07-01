@@ -16,8 +16,8 @@ const Footer = () => {
                     <a className={FooterCss.link} href="#"><span className={FooterCss.footer__email}>DavidAmanovIs@gmail.com</span></a>
                 </div>
                 <div className={FooterCss.footer__contacts}>
-                    <a className={FooterCss.link} href="https://github.com/DavidAmanov"><span>GitHub</span></a>
-                    <a className={FooterCss.link} href="https://www.linkedin.com/in/david-amanov/"><span>Linkedin</span></a>
+                    <a className={FooterCss.link} href="https://github.com/DavidAmanov">GitHub</a>
+                    <a className={FooterCss.link} href="https://www.linkedin.com/in/david-amaLinkedin">Linkedin</a>
                 </div>
                 <div className={FooterCss.footer__socials}>
                     <a className={FooterCss.social} href="#"><img src={telegram} alt="telegram" /></a>
@@ -32,14 +32,14 @@ const Footer = () => {
                     &copy;&nbsp;2024&nbsp;MerchShop
                 </div>
                 <div className={FooterCss.footerBottom__politics}>
-                    <a className={FooterCss.link} href="#"><span>Data processing policy</span></a>
-                    <a className={FooterCss.link} href="#"><span>Privacy Policy</span></a>
+                    <a className={FooterCss.link} href="#">Data processing policy</a>
+                    <a className={FooterCss.link} href="#">Privacy Policy</a>
                 </div>
                 <div className={FooterCss.footerBottom__mobileVersion}>
-                    <a className={FooterCss.link} href="#"><span>Mobile version</span></a>
+                    <a className={FooterCss.link} href="#">Mobile version</a>
                 </div>
                 <div className={FooterCss.footerBottom__PCVersion}>
-                    <a className={FooterCss.link} href="#"><span>Full version</span></a>
+                    <a className={FooterCss.link} href="#">Full version</a>
                 </div>
             </div>
         </footer>
