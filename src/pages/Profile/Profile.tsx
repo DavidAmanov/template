@@ -32,7 +32,9 @@ const Profile = () => {
     }
     
     useEffect(() => {
-        fetchOrders()
+        if(userId !== ''){
+            fetchOrders()
+        }
         const urlParams = new URLSearchParams(window.location.search);
         const accessToken = urlParams.get('accessToken');
         const refreshToken = urlParams.get('refreshToken');

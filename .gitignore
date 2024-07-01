@@ -4,6 +4,7 @@
 /node_modules
 /certificate
 /.pnp
+/.vscode
 .pnp.js
 
 .env

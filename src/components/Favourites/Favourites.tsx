@@ -16,7 +16,7 @@ const Favourites = () => {
     const dispatch = useDispatch<AppDispatch>()
 
     useEffect(()=>{
-        dispatch(fetchFavouriteProducts())
+        // dispatch(fetchFavouriteProducts())
         let count = 0
         if(favouriteProducts.length > 0){
             favouriteProducts.forEach((item)=>{

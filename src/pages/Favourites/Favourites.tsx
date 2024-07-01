@@ -11,18 +11,20 @@ const FavouritesPage = () => {
     const token = useSelector((state: RootState)=>state.user.accessToken)
     const favouriteId = useSelector((state: RootState)=>state.user.favourite_id)
 
+    const fetchData = async () => {
+        const response = await fetch(`http://31.128.39.49:80/api/favouriteProduct/${favouriteId}`,{
+            method: "GET",
+            headers:{
+                "Authorization": `Bearer ${token}`,
+            }
+        })
+        const data = await response.json()
+        setProductsInFavourite(data)
+    } 
     useEffect(()=>{
-        const fetchData = async () => {
-            const response = await fetch(`http://31.128.39.49:80/api/favouriteProduct/${favouriteId}`,{
-                method: "GET",
-                headers:{
-                    "Authorization": `Bearer ${token}`,
-                }
-            })
-            const data = await response.json()
-            setProductsInFavourite(data)
-        } 
-        fetchData()
+        if(favouriteId){
+            fetchData()
+        }
     },[])
 
     return(<>

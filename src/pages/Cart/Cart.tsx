@@ -18,12 +18,15 @@ import { fetchProductsInCart } from "../../context/cartSlice";
 
 const CartPage = () => {
     const [items, setItems] = useState(0)
+    const user = useSelector((state: RootState)=>state.user)
     const productsInCart = useSelector((state: RootState)=>state.cart.cartProducts)
     const totalAmount = useSelector((state: RootState)=>state.cart.totalAmount)
     const dispatch = useDispatch<AppDispatch>()
 
     useEffect(()=>{
-        dispatch(fetchProductsInCart())
+        if(user.user.userId !== ''){
+            dispatch(fetchProductsInCart())
+        }
         let items = 0 
         productsInCart.forEach((product)=>{
             items +=1
