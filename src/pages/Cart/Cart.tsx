@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import CartCss from './Cart.module.css'
@@ -17,21 +17,15 @@ import { fetchProductsInCart } from "../../context/cartSlice";
 
 
 const CartPage = () => {
-    const [items, setItems] = useState(0)
     const user = useSelector((state: RootState)=>state.user)
     const productsInCart = useSelector((state: RootState)=>state.cart.cartProducts)
     const totalAmount = useSelector((state: RootState)=>state.cart.totalAmount)
     const dispatch = useDispatch<AppDispatch>()
 
     useEffect(()=>{
-        if(user.user.userId !== ''){
+        if(!user.user.userId){
             dispatch(fetchProductsInCart())
         }
-        let items = 0 
-        productsInCart.forEach((product)=>{
-            items +=1
-        })
-        setItems(items)
     },[])
 
     return(<>
@@ -46,7 +40,7 @@ const CartPage = () => {
                 </nav>
                 <div className={CartCss.heading}>
                     <h1 className={CartCss.heading__h1}>Cart</h1>
-                    <span>{items} item</span>  
+                    <span>{productsInCart.length} item</span>  
                 </div>
                 {productsInCart.length > 0 &&(
                 <div className={CartCss.cart}>

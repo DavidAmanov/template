@@ -5,15 +5,10 @@
 }
 
 .header__wrapper {
-    max-width: calc(1220px + 2 * 24px);
+    max-width: calc(1320px + 2 * 24px);
     height: 100%;
     margin: 0 auto;
     padding: 0 24px;
-/* 
-    display: flex;
-    justify-content: space-between; */
-
-    /* из-за грида адаптив едет, смещаются оси*/
     display: grid;
     grid-template-columns: 33% 33% 33%;
     align-items: center;
@@ -39,36 +34,37 @@
 .header__rightblock {
     display: flex;
     align-items: center;
-    /* если грида нет строчка не нужна */
     justify-content: end;
     gap: 32px;
 }
 
-.rightblock_hidden {
+.profile__mobile{
     display: none;
 }
-
 /* adaptive css */
 
-@media (max-width: 694px) {
-    .header__rightblock {
+@media (max-width: 650px) {
+    .header__cont{
         display: none;
     }
-    
-    .rightblock_hidden {
+    .header__wrapper{
         display: flex;
-        gap: 32px;
-    }
-
-    .header__menu {
-        display: none;
+        align-items: center;
+        justify-content: space-between;
     }
 }
 
 @media (max-width: 410px) { 
-    .rightblock_hidden {
+    .header__wrapper{
+        width: 100%;
         display: flex;
-        gap: 18px;
+        align-items: center;
+    }
+    .header__rightblock{
+        display:none;
+    }
+    .profile__mobile{
+        display: block;
     }
 }
 

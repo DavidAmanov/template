@@ -3,7 +3,6 @@ import HeaderCss from './header.module.css'
 import menuIcon from '../../img/ico/menu.png'
 import logoIcon from '../../img/ico/logo.png'
 import profileIcon from '../../img/ico/Profile.png'
-import searchIcon from '../../img/ico/Search.png'
 import heartIcon from '../../img/ico/Heart.png'
 import cartIcon from '../../img/ico/Cart.png'
 import { Link } from 'react-router-dom'
@@ -27,15 +26,27 @@ const Header = () => {
                 <div>
                     <ul className={HeaderCss.header__rightblock}>
                         <li><Search /></li>
-                        <Link to="/favourites"><li><button className={HeaderCss.button}><img src={heartIcon} alt="favourites" /></button></li></Link>
-                        <Link to="/cart"><li><button className={HeaderCss.button}><img src={cartIcon} alt="Cart" /></button></li></Link>
-                        <Link to="/profile"><li><button className={HeaderCss.button}><img src={profileIcon} alt="Profile" /></button></li></Link>
+                        <li>
+                            <Link to="/favourites" className={HeaderCss.button}>
+                                <img src={heartIcon} alt="favourites" />
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/cart" className={HeaderCss.button}>
+                                <img src={cartIcon} alt="Cart" />
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/profile" className={HeaderCss.button}>
+                                <img src={profileIcon} alt="Profile" />
+                            </Link>
+                        </li>
                     </ul>
-                </div>
-                <div className={`${HeaderCss.header__rightblock} ${HeaderCss.rightblock_hidden}`}>
-                    <li><button className={HeaderCss.button}><Search /></button></li>
-                    {/* <li><img src={searchIcon} alt="Search" /></li> */}
-                    <li><img src={profileIcon} alt="Profile" /></li>
+                    <div className={HeaderCss.profile__mobile}>
+                        <Link to="/profile" className={HeaderCss.button}>
+                            <img src={profileIcon} alt="Profile" />
+                        </Link>
+                    </div>
                 </div>
             </div>
         </header>

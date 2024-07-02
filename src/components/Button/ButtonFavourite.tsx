@@ -1,7 +1,11 @@
 import Heart from '../../img/Heart.svg'
 import ButtonCss from './ButtonFavouriteCss.module.css'
 
-const ButtonFavourite = ({onClick}: any) => {
+interface ButtonProp {
+    onClick: ()=>void
+}
+
+const ButtonFavourite: React.FC<ButtonProp> = ({onClick}) => {
     return(
         <>
             <button onClick={onClick} className={ButtonCss.button}>

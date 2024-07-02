@@ -10,7 +10,11 @@ import { Pagination } from 'swiper/modules';
 import 'swiper/css/pagination';
 import 'swiper/css';
 
-const Slider = ({numberOfProduct}: any) =>{
+interface SliderProp {
+    numberOfProduct: number
+}
+
+const Slider: React.FC<SliderProp> = ({numberOfProduct}) =>{
     const sliderFlag = true
     const catalog: Product[] = useSelector((state: RootState)=>state.catalog.items)
     const dispatch = useDispatch<AppDispatch>()

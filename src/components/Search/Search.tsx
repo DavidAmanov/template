@@ -12,14 +12,14 @@ const Search = () => {
     const [filtredItems, setFiltredItems] = useState<Product[]>([])
 
     console.log(query)
-    const handleSearch = useCallback((e: any) => {
+    const handleSearch = useCallback((e:  React.ChangeEvent<HTMLInputElement>) => {
         setQuery(e.target.value)
     }, [])
 
     useEffect(()=>{
-        if(query!==''){
+        if(query){
             setFiltredItems(catalogItems.filter((item) => item.name.toLowerCase().includes(query.toLowerCase())));
-        } else if(query==='') {
+        } else if(!query) {
             setFiltredItems([])
         }
     },[query])
@@ -39,8 +39,8 @@ const Search = () => {
                     </div>
                     {filtredItems.length >0 && (
                         <div className={SearchCss.catalog}>{filtredItems.map((item)=>(
-                            <Link to={`/product/${item.id}`}>
-                                <div key={item.id} className={SearchCss.catalog__items}>
+                            <Link to={`/product/${item.id}`} key={item.id}>
+                                <div className={SearchCss.catalog__items}>
                                     <img src={item.img} alt="item img" />
                                     <span>{item.name}</span>
                                 </div>

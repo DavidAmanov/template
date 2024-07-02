@@ -84,7 +84,9 @@ const Catalog = () => {
                     </div>
                 </div>
                 <div className={catalogCss.catalog}>
-                    {filteredCatalog.map((product)=>((<Card key={product.id} product={product} sliderFlag={sliderFlag}/>)))}
+                    {filteredCatalog.map((product)=>((
+                        <Card key={product.id} product={product} sliderFlag={sliderFlag}/>
+                    )))}
                 </div>
         </section>
     )
