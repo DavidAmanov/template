@@ -1,10 +1,14 @@
 import ButtonCss from "./ButtonRed.module.css"
 
+interface ButtonRedProp{
+    onClick: ()=>void,
+    text: string
+}
 
-const ButtonRed = ({onClick}: any) => {
+const ButtonRed:React.FC<ButtonRedProp> = ({onClick, text}) => {
     return(
     <button className={`${ButtonCss.button} ${ButtonCss.button_cart}`} onClick={onClick}>
-        Add to cart
+        {text}
     </button>)
 }
 

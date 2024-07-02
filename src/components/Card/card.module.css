@@ -48,8 +48,8 @@
     align-items: center;
     justify-content: space-between;
     font-size: calc(1rem + 4px);
-    font-weight: 700;
-    color: var(--color-card-text);
+    font-weight: 400;
+    color: white;
 }
 
 .card__bottom {

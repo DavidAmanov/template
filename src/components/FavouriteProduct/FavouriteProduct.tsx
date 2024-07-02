@@ -6,12 +6,14 @@ import { AppDispatch } from '../../context/store'
 import { removeProductFromFavourite } from '../../context/favouriteSlice'
 import ButtonRed from '../Button/ButtonRed'
 import { addProduct } from '../../context/cartSlice'
+import { useState } from 'react'
 
 interface FavouriteProductProp {
     product: Product
 }
 
 const FavouriteProduct: React.FC<FavouriteProductProp> = ({product}) => {
+    const [textToButton, setText] = useState<string>('Add to cart')
     const dispatch = useDispatch<AppDispatch>()
 
     const handleRemove = () =>{
@@ -20,6 +22,7 @@ const FavouriteProduct: React.FC<FavouriteProductProp> = ({product}) => {
 
     const addToCart = () => {
         dispatch(addProduct({productId: product.id, quantity: 1}))
+        setText('Thank you!')
     }
     return(<>
         <div className={FavouriteProductCss.cart__leftBlock}>
@@ -38,7 +41,7 @@ const FavouriteProduct: React.FC<FavouriteProductProp> = ({product}) => {
                         <div className={FavouriteProductCss.item__price}>Price {product.price}</div>
                         <div className={FavouriteProductCss.item__quantity}>Price for 1 piece.</div>
                     </div>
-                    <ButtonRed onClick={addToCart}/>
+                    <ButtonRed onClick={addToCart} text={textToButton}/>
                     <div className={FavouriteProductCss.item__right}>
                         <button onClick={handleRemove}
                             className={`${FavouriteProductCss.button} 

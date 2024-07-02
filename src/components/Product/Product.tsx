@@ -15,6 +15,7 @@ interface ProductProps {
 }
 
 const ProductComp: React.FC<ProductProps> = ({ product }) => {
+    const [textToButton, setText] = useState<string>('Add to cart')
     const [count, setCount] = useState<number>(1);
     const dispatch = useDispatch<AppDispatch>()
     const cartId = useSelector((state: RootState)=>(state.user.cart_id))
@@ -34,6 +35,7 @@ const ProductComp: React.FC<ProductProps> = ({ product }) => {
             alert('You need to log in to add an item to your cart')
         } else {
             dispatch(addProduct({productId: product.id, quantity: count}))
+            setText('Thank you!')
         }
     }
 
@@ -67,7 +69,7 @@ const ProductComp: React.FC<ProductProps> = ({ product }) => {
                     <span>{product.price}</span>
                 </div>
                 <div className={ProductCss.btn__container}>
-                    <ButtonRed onClick={addProductToCart} />
+                    <ButtonRed onClick={addProductToCart} text={textToButton}/>
                     <ButtonGray quantity={count} onClick1={minus} onClick2={plus}/>
                 </div>
             </section>

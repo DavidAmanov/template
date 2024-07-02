@@ -31,14 +31,14 @@
 
 .first {
     font-size: calc(1rem - 3px);
-    font-weight: 500;
+    font-weight: 400;
     line-height: 20px;
     color: var(--color-black);
 }
 
 .second {
     font-size: calc(1rem - 3px);
-    font-weight: 500;
+    font-weight: 400;
     line-height: 20px;
     color: var(--color-box-shadow);
 }
@@ -52,7 +52,7 @@
 .heading__h1 {
     color: var(--color-black);
     font-family: impact;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 1px;
     font-size: calc(1rem * 3);
     line-height: 44px;
@@ -177,7 +177,6 @@
     color: var(--color-price);
     font-size: calc(1rem - 2px);
     line-height: 20px;
-    font-weight: 500;
 }
 
 .line {
@@ -196,14 +195,14 @@
 .totalText {
     color: var(--color-total);
     font-size: calc(1rem + 6px);
-    font-weight: 700;
+    font-weight: 400;
     line-height: 24px;
 }
 
 .totalPrice {
     color: var(--color-status);
     font-size: calc(1rem + 6px);
-    font-weight: 500;
+
     line-height: 32px;
 }
 

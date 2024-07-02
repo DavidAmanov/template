@@ -10,6 +10,11 @@
     align-items: start;
 }
 
+.btn__container button{
+    font-family: Impact;
+    font-weight: 400 !important;
+}
+
 .catalog__items{
     font-size: 36px;
     display: grid;

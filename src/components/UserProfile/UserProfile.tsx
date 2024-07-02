@@ -18,7 +18,7 @@ const UserProfile: React.FC<UserProfileProp> = ({user, orders}) => {
             </div>
             <a href="http://merchserver.org/api/user/auth/google">
                 <div className={UserProfileCss.google}>
-                    <span>Log in/Log out</span>
+                    <span>{user?.username  ? 'Log out' : 'Log in'}</span>
                 </div>
             </a>
         </div>

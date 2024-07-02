@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CardCss from './card.module.css'
 import StatisIcon from '../../img/ico/Ellipse_green.png'
 import { Product } from '../../types/types'
@@ -18,6 +18,7 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({product, sliderFlag}) => {
+    const [textToButton, setText] = useState<string>('Add to cart')
     const dispatch = useDispatch<AppDispatch>()
     const cartId = useSelector((state: RootState)=>(state.user.cart_id))
 
@@ -34,6 +35,7 @@ const Card: React.FC<CardProps> = ({product, sliderFlag}) => {
             alert('You need to log in to add an item to your cart')
         } else {
             dispatch(addProduct({productId: product.id, quantity: 1}))
+            setText('Thank you!')
         }
     }
     const productImage = product.img ? product.img : PlaceholderImage;
@@ -47,7 +49,7 @@ const Card: React.FC<CardProps> = ({product, sliderFlag}) => {
             </div>
             {sliderFlag && (<div className={CardCss.card__heading}>{product.name}</div>)}
             {!sliderFlag &&(<div className={CardCss.card__bottom}>
-                <div className={CardCss.card__name}>{product.name}
+                <div className={CardCss.card__name}>{product.name} 
                     <ButtonFavourite onClick={addToFavourite}/>
                 </div>
                 <div className={CardCss.card__info}>
@@ -58,7 +60,7 @@ const Card: React.FC<CardProps> = ({product, sliderFlag}) => {
                     <div className={CardCss.article}>L M S</div>
                 </div>
                 <div className={CardCss.price}>{product.price}</div>
-                <ButtonRed onClick={addToCart}/>
+                <ButtonRed onClick={addToCart} text={textToButton}/>
             </div>)}
         </article>
     )

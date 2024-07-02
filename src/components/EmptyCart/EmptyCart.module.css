@@ -23,7 +23,6 @@
     color: var(--color-text-h1);
     font-size: calc(1rem * 3 - 4px);
     text-align: center;
-    font-weight: 700;
     line-height: 44px;
 }
 
@@ -31,12 +30,13 @@
     color: var(--color-text);
     font-size: calc(1rem + 6px);
     text-align: center;
-    font-weight: 700;
+
 }
 
 .favourites__text_h2 {
     font-size: calc(1rem + 6px);
     line-height: 44px;
+    font-weight: 400;
 }
 
 .favourites__text_little {

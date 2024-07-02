@@ -54,11 +54,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: blue;
+    color: var(--color-status);
     width: 20px !important;
     height: 20px;
-    background-color: white;
+    background-color: black;
+    border: 1px white solid;
     border-radius: 10px;
+    font-size: 10px;
 }
 
 .profile__mobile{
