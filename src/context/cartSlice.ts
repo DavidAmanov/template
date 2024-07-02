@@ -121,7 +121,11 @@ const cartSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(fetchProductsInCart.fulfilled, (state, action)=>{
-            state.cartProducts = action.payload.sort((a,b)=>a.id-b.id)
+            if(Array.isArray(action.payload)){
+                state.cartProducts = action.payload.sort((a,b)=>a.id-b.id)
+        } else {
+            console.error('fetchProductsInCart fulfilled payload is not an array:', action.payload);
+        }
         })
         builder.addCase(counterAmount.fulfilled, (state, action)=>{
             state.totalAmount = action.payload

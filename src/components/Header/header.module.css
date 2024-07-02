@@ -38,6 +38,29 @@
     gap: 32px;
 }
 
+.cartItem {
+    position: relative;
+}
+
+.cart{
+    display: block;
+    padding: 0;
+}
+
+.count__cart{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: blue;
+    width: 20px !important;
+    height: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
 .profile__mobile{
     display: none;
 }

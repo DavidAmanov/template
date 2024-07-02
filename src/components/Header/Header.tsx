@@ -7,8 +7,11 @@ import heartIcon from '../../img/ico/Heart.png'
 import cartIcon from '../../img/ico/Cart.png'
 import { Link } from 'react-router-dom'
 import Search from '../Search/Search'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../context/store'
 
 const Header = () => {
+    const countInCart = useSelector((state:RootState)=> state.cart.cartProducts)
     return(
         <header className={HeaderCss.header}>
             <div className={HeaderCss.header__wrapper}>
@@ -31,8 +34,9 @@ const Header = () => {
                                 <img src={heartIcon} alt="favourites" />
                             </Link>
                         </li>
-                        <li>
-                            <Link to="/cart" className={HeaderCss.button}>
+                        <li className={HeaderCss.cartItem}>
+                            <span className={HeaderCss.count__cart}>{countInCart.length}</span>
+                            <Link to="/cart" className={`${HeaderCss.button} ${HeaderCss.cart}`}>
                                 <img src={cartIcon} alt="Cart" />
                             </Link>
                         </li>
