@@ -15,12 +15,15 @@ const ProductPage = () => {
     const product = useSelector((state: RootState)=>state.product)
     const [productProp, setProduct] = useState<Product>(product);
 
-    useEffect(()=>{
-        if(id){
-            dispatch(fetchProductById({id}))
-            setProduct(product)
+    useEffect(() => {
+        if (id) {
+            dispatch(fetchProductById({ id }));
         }
-    }, [])
+    }, [id, dispatch]);
+
+    useEffect(() => {
+        setProduct(product);
+    }, [product]);
 
     return (
         <>

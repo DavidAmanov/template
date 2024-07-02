@@ -41,7 +41,9 @@ const Card: React.FC<CardProps> = ({product, sliderFlag}) => {
         <article className={CardCss.card}>
             {!sliderFlag && (<div className={CardCss.card__heading}>{product.status}</div>)}
             <div className={CardCss.card__top} style={sliderFlag ? {height: "300px"} : {}}>
-                <Link to={`/product/${product.id}`}><img className={CardCss.card__img} src={productImage} alt={product.name} /></Link>
+                <Link to={`/product/${product.id}`}>
+                    <img className={CardCss.card__img} src={productImage} alt={product.name} />
+                </Link>
             </div>
             {sliderFlag && (<div className={CardCss.card__heading}>{product.name}</div>)}
             {!sliderFlag &&(<div className={CardCss.card__bottom}>
