@@ -62,7 +62,7 @@ const userSlice = createSlice({
             state.refreshToken = action.payload.refreshToken
         },
         logOut(state){
-            state = initialState
+            return initialState
         }
     },
     extraReducers: (builder) => {
