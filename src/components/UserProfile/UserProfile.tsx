@@ -1,12 +1,26 @@
 import { OrderFromServer, UserFromServer } from '../../types/types'
 import UserProfileCss from './UserProfileCss.module.css'
 import stub from '../../img/image-placeholder.png'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../../context/store'
+import { useState } from 'react'
+import { logOut } from '../../context/userSlice'
+import ButtonRed from '../Button/ButtonRed'
 interface UserProfileProp {
     user?: UserFromServer
     orders?: OrderFromServer[]
 }
 
 const UserProfile: React.FC<UserProfileProp> = ({user, orders}) => {
+    const [text, setText] = useState('Log in')
+    const dispatch = useDispatch<AppDispatch>()
+    const handleLogOut = () =>{
+        dispatch(logOut())
+    }
+    const handleLogIn = () => {
+        window.location.href = "http://merchserver.org/api/user/auth/google"
+        setText('Log out')
+    }
     return(
     <div className={UserProfileCss.user}>
         <div className={UserProfileCss.user__data}>
@@ -16,11 +30,12 @@ const UserProfile: React.FC<UserProfileProp> = ({user, orders}) => {
                 <span>{user?.username  ? user.username :  "Pls authoraize to see your name"}</span>
                 <span>{user?.email ? user.email:"Pls authoraize to see your email"}</span>
             </div>
-            <a href="http://merchserver.org/api/user/auth/google">
+            <ButtonRed text={text} onClick={text === 'Log in' ? handleLogIn : handleLogOut}/>
+            {/* <a href="http://merchserver.org/api/user/auth/google">
                 <div className={UserProfileCss.google}>
                     <span>{user?.username  ? 'Log out' : 'Log in'}</span>
                 </div>
-            </a>
+            </a> */}
         </div>
         <div className={UserProfileCss.order}>
             <div className={UserProfileCss.order__title}>Your orders</div>

@@ -60,6 +60,9 @@ const userSlice = createSlice({
         setToken(state, action){
             state.accessToken = action.payload.accessToken
             state.refreshToken = action.payload.refreshToken
+        },
+        logOut(state){
+            state = initialState
         }
     },
     extraReducers: (builder) => {
@@ -80,7 +83,7 @@ const userSlice = createSlice({
 
 export const selectAccessToken = (state: RootState) => state.user.accessToken;
 export const selectCartId = (state: RootState) => state.user.cart_id;
-export const { setToken } = userSlice.actions;
+export const { setToken, logOut } = userSlice.actions;
 export default userSlice.reducer;
 
 export const tokenTransform = createTransform(

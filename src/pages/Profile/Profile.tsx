@@ -23,7 +23,6 @@ const Profile = () => {
     const dispatch = useDispatch<AppDispatch>();
     const user = useSelector((state: RootState)=>(state.user.user))
     const userId = user.userId
-    console.log(orders, userId)
     
     const fetchOrders = async () => {
         const response = await fetch(`http://31.128.39.49:80/api/orders/getOrders/${userId}`)
@@ -32,7 +31,7 @@ const Profile = () => {
     }
     
     useEffect(() => {
-        if(userId !== ''){
+        if(userId){
             fetchOrders()
         }
         const urlParams = new URLSearchParams(window.location.search);
