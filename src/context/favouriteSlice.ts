@@ -73,7 +73,11 @@ export const removeProductFromFavourite = createAsyncThunk(
 const favouriteSlice = createSlice({
     name: 'favourite',
     initialState,
-    reducers:{},
+    reducers:{
+        refreshFavouritesState(state){
+            return initialState
+        }
+    },
     extraReducers: (builder)=>{
         builder.addCase(fetchFavouriteProducts.fulfilled, (state, action)=>{
             state.favouriteProduct = action.payload
@@ -81,4 +85,5 @@ const favouriteSlice = createSlice({
     }
 })
 
+export const {refreshFavouritesState} = favouriteSlice.actions
 export default favouriteSlice.reducer

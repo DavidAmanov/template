@@ -9,6 +9,7 @@ import favouriteReducer from './favouriteSlice'
 import orderReducer from './orderSice'
 import productReducer from './productSlice'
 import paymentMethodsReducer from './paymentSlice'
+import orderListReducer from './orderListSlice'
 
 const rootReducer = combineReducers({
     catalog: catalogReducer,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
     cart: cartReducer,
     favourite: favouriteReducer,
     order: orderReducer,
+    orderList: orderListReducer,
     product: productReducer,
     payment: paymentMethodsReducer
 });

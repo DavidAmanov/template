@@ -5,7 +5,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Home from './pages/Home/Home'
-import Cart from './pages/Cart/Cart'
+import CartPage from './pages/Cart/CartPage'
 import Menu from './pages/Menu/Menu'
 import Catalog from './pages/Catalog/Catalog';
 import Order from './pages/Order/Order';
@@ -23,7 +23,7 @@ const router = createBrowserRouter([{
   element: <Home />
 },{
   path: '/cart',
-  element: <Cart />
+  element: <CartPage />
 },{
   path: '/menu',
   element: <Menu />

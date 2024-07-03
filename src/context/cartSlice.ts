@@ -117,6 +117,9 @@ const cartSlice = createSlice({
     reducers:{
         setProductId(state, action){
             state.productId = action.payload
+        }, 
+        refreshCartState(state){
+            return initialState
         }
     },
     extraReducers: (builder) => {
@@ -135,5 +138,5 @@ const cartSlice = createSlice({
 
 })
 
-export const {setProductId} = cartSlice.actions
+export const {setProductId, refreshCartState} = cartSlice.actions
 export default cartSlice.reducer;
