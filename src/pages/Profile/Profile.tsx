@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setToken, fetchUserData } from '../../context/userSlice';
+import { setToken, fetchUserData, logOut } from '../../context/userSlice';
 import { AppDispatch, RootState } from '../../context/store';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header/Header';
@@ -30,7 +30,21 @@ const Profile = () => {
         setOrders(data)
     }
     
+    const checkAndLogOut = () => {
+        const lastLoginTime = localStorage.getItem('loginTime')
+        if(lastLoginTime){
+            const now = new Date().getTime()
+            const timeDiff = now - parseInt(lastLoginTime, 10)
+            if(timeDiff > 24 * 60 * 60 * 1000){
+                dispatch(logOut())
+                localStorage.removeItem('loginTime')
+            }
+        }
+    }
+
     useEffect(() => {
+        checkAndLogOut();
+
         if(userId){
             fetchOrders()
         }
@@ -42,6 +56,7 @@ const Profile = () => {
         if(accessToken){
             dispatch(setToken({ accessToken: accessToken, refreshToken: refreshToken }));
             dispatch(fetchUserData())
+            localStorage.setItem('loginTime', new Date().getTime().toString())
         }
     }, []);
     

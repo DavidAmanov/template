@@ -3,7 +3,7 @@ import UserProfileCss from './UserProfileCss.module.css'
 import stub from '../../img/image-placeholder.png'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../../context/store'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { logOut } from '../../context/userSlice'
 import ButtonRed from '../Button/ButtonRed'
 interface UserProfileProp {
@@ -19,8 +19,13 @@ const UserProfile: React.FC<UserProfileProp> = ({user, orders}) => {
     }
     const handleLogIn = () => {
         window.location.href = "http://merchserver.org/api/user/auth/google"
-        setText('Log out')
     }
+    useEffect(()=>{
+        if(user?.userId){
+            setText('Log out')
+        }
+    }, [])
+
     return(
     <div className={UserProfileCss.user}>
         <div className={UserProfileCss.user__data}>
