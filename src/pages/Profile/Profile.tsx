@@ -44,10 +44,6 @@ const Profile = () => {
 
     useEffect(() => {
         checkAndLogOut();
-
-        if(userId){
-            fetchOrders()
-        }
         const urlParams = new URLSearchParams(window.location.search);
         const accessToken = urlParams.get('accessToken');
         const refreshToken = urlParams.get('refreshToken');
@@ -57,8 +53,11 @@ const Profile = () => {
             dispatch(setToken({ accessToken: accessToken, refreshToken: refreshToken }));
             dispatch(fetchUserData())
             localStorage.setItem('loginTime', new Date().getTime().toString())
+            if(userId){
+                fetchOrders()
+            }
         }
-    }, []);
+    }, [dispatch, userId]);
     
     return (
         <>

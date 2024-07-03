@@ -23,6 +23,8 @@ const UserProfile: React.FC<UserProfileProp> = ({user, orders}) => {
     useEffect(()=>{
         if(user?.userId){
             setText('Log out')
+        } else {
+            setText('Log in')
         }
     }, [])
 
