@@ -139,3 +139,14 @@
         transform: translateY(0);
     }
 }
+
+@media (max-width: 375px) {
+    .card {
+        width: 322px;
+    }
+
+    .card__top {
+        overflow: hidden;
+        height: 318px;
+    }
+}

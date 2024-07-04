@@ -44,3 +44,31 @@ width: 100%;
         transform: translateX(0);
     }
 }
+
+@media(max-width: 375px){
+    .page__container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        overflow-y: scroll;
+    }
+    
+    .links{
+        font-size: 48px;
+        display: flex;
+        flex-direction: column;
+        margin: 2vh;
+        gap: 6vh;
+        opacity: 0; 
+        transform: translateX(-100%); 
+        animation: slide-in 0.5s forwards;
+    }
+    .logo{
+        display: none;
+    }
+    
+    .logo img{
+        display: none;
+    }
+    
+}

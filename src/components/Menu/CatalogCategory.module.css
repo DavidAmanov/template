@@ -35,3 +35,12 @@
         transform: translateX(0);
     }
 }
+
+@media (max-width: 375px) {
+    .catalog{
+        display: flex;
+        flex-direction: column;
+        gap:15vw;
+    }
+    
+}
