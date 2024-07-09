@@ -47,6 +47,12 @@ const Header = () => {
                         </li>
                     </ul>
                     <div className={HeaderCss.profile__mobile}>
+                        <Link to="/favourites" className={HeaderCss.button}>
+                                <img src={heartIcon} alt="favourites" />
+                        </Link>
+                        <Link to="/cart" className={`${HeaderCss.button} ${HeaderCss.cart}`}>
+                                <img src={cartIcon} alt="Cart" />
+                        </Link>
                         <Link to="/profile" className={HeaderCss.button}>
                             <img src={profileIcon} alt="Profile" />
                         </Link>

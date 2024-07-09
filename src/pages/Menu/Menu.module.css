@@ -54,6 +54,7 @@ width: 100%;
     }
     
     .links{
+        width: 345px;
         font-size: 48px;
         display: flex;
         flex-direction: column;

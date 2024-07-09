@@ -4,13 +4,16 @@ import logo from '../../img/logo.png'
 import telegram from '../../img/ico/telegram.png'
 import vk from '../../img/ico/vk.png'
 import youtube from '../../img/ico/youtube.png'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
     return(
         <>
         <footer className={FooterCss.footerTop}>
             <div className={FooterCss.footerTop__wrapper}>
-                <img className={FooterCss.footer__logo} src={logo} alt="Logo" />
+                <Link to='/'>
+                    <img className={FooterCss.footer__logo} src={logo} alt="Logo" />
+                </Link>
                 <div className={FooterCss.footer__contacts}>
                     <span className={FooterCss.footer__mobile}>+1 111 111-11-11</span>
                     <a className={FooterCss.link} href="#"><span className={FooterCss.footer__email}>DavidAmanovIs@gmail.com</span></a>

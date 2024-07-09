@@ -3,6 +3,7 @@
     grid-template-columns:  20vw 30vw;
     margin-left: 15vh;
     margin-top: 5vh;
+    animation: appear 1s forwards;
 }
 
 .user__data{
@@ -61,4 +62,24 @@
     border-radius: 50px;
     margin-bottom: 2vh;
     padding: 1vh;
+}
+
+@keyframes appear{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@media (max-width:375px){
+    .user{
+        display: flex;
+        flex-direction: column;
+        margin: 5vh;
+    }
+    .order{
+        margin-top: 5vh;
+    }
 }

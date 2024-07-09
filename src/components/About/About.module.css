@@ -80,7 +80,7 @@
 
 @media (max-width: 990px) {
     .section__wrapper {
-        height: 100vh;
+        height: 112vh;
         display: flex;
         flex-direction: column-reverse;
         gap: 25px;
@@ -94,6 +94,10 @@
 }
 
 @media (max-width: 625px) {
+    .section__wrapper{
+        display: flex;
+    }
+
     .text{
         font-size: 18px;
     }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setToken, fetchUserData, logOut } from '../../context/userSlice';
 import { AppDispatch } from '../../context/store';
@@ -12,6 +12,7 @@ import UserProfile from '../../components/UserProfile/UserProfile';
 
 
 const Profile = () => {
+    const [width, setWidth] = useState(window.innerWidth)
     const dispatch = useDispatch<AppDispatch>();
     const checkAndLogOut = () => {
         const lastLoginTime = localStorage.getItem('loginTime')
@@ -50,7 +51,7 @@ const Profile = () => {
                 fontSize: "24px"
                 }}>You will like</div>
             <div className={ProfileCss.slider}>
-                <Slider  numberOfProduct={4}/>
+                <Slider  numberOfProduct={width> 1000 ? 4: 1}/>
             </div>
             <Link to='/catalog' className={ProfileCss.to__catalog}>
                 <button className={`${ProfileCss.button} 

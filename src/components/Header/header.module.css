@@ -89,7 +89,7 @@
         display:none;
     }
     .profile__mobile{
-        display: block;
+        display: flex;
     }
 }
 

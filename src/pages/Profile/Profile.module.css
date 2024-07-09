@@ -35,3 +35,11 @@
     background-color: var(--color-active-button);
     box-shadow: 0 0 64px var(--color-active-button);
 }
+
+
+@media(max-width: 375px){
+    .slider{
+        margin: 5vh;
+    }
+    
+}
