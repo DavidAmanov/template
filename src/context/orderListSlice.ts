@@ -16,7 +16,7 @@ export const fetchOrderList = createAsyncThunk(
     async(_, thunkAPI)=>{
         const state = thunkAPI.getState() as RootState
         const userId = state.user.user.userId
-        const response = await fetch(`http://31.128.39.49:80/api/orders/getOrders/${userId}`)
+        const response = await fetch(`http://merchserver.org/api/orders/getOrders/${userId}`)
         const data = await response.json()
         return data
     }

@@ -13,7 +13,7 @@ export const fetchFavouriteProducts = createAsyncThunk<CartProductType[]>(
         const state = thunkAPI.getState() as RootState
         const token = state.user.accessToken
         const favouriteId = state.user.favourite_id
-        const response = await fetch(`http://31.128.39.49:80/api/favouriteProduct/${favouriteId}`,{
+        const response = await fetch(`http://merchserver.org/api/favouriteProduct/${favouriteId}`,{
             method: "GET",
             headers:{
                 "Authorization": `Bearer ${token}`,
@@ -30,7 +30,7 @@ export const addProductToFavourite = createAsyncThunk(
         const state = thunkAPI.getState() as RootState
         const token = state.user.accessToken
         const favouriteId = state.user.favourite_id
-        const response = await fetch('http://31.128.39.49:80/api/favouriteProduct/add', {
+        const response = await fetch('http://merchserver.org/api/favouriteProduct/add', {
             method: 'POST',
             headers:{
                 "Authorization": `Bearer ${token}`,
@@ -53,7 +53,7 @@ export const removeProductFromFavourite = createAsyncThunk(
         const state = thunkAPI.getState() as RootState
         const token = state.user.accessToken
         const favouriteId = state.user.favourite_id
-        const response = await fetch('http://31.128.39.49:80/api/favouriteProduct/remove', {
+        const response = await fetch('http://merchserver.org/api/favouriteProduct/remove', {
             method: 'DELETE',
             headers:{
                 "Authorization": `Bearer ${token}`,

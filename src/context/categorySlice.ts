@@ -5,7 +5,7 @@ import { CategoryState } from "../types/types";
 export const fetchCategory = createAsyncThunk<Category[]>(
     'category/fetchCatagory',
     async function () {
-        const response = await fetch("http://31.128.39.49:80/api/category/getAllCategory")
+        const response = await fetch("http://merchserver.org/api/category/getAllCategory")
         const data = await response.json()
         return data
     }

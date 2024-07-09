@@ -10,7 +10,7 @@ const initialState: Payment[] = []
 export const fetchPaymentMethods = createAsyncThunk(
     'payment/fetchPaymentMethods',
     async ()=>{
-        const response = await fetch('http://31.128.39.49:80/api/paymentMethod/getAll')
+        const response = await fetch('http://merchserver.org/api/paymentMethod/getAll')
         const data = await response.json()
         return data
     }

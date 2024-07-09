@@ -14,6 +14,7 @@ const CartPage = () => {
     const dispatch = useDispatch<AppDispatch>()
     const cartId = useSelector((state: RootState)=>state.user.cart_id)
     useEffect(()=>{
+        console.log(cartId)
         if(cartId){
             dispatch(fetchProductsInCart())
         }

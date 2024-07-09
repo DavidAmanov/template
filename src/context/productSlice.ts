@@ -15,7 +15,7 @@ const initialState: Product = {
 export const fetchProductById = createAsyncThunk<Product, {id:string}>(
     'product/fetchProduct',
     async ({id})=>{
-        const response = await fetch(`http://31.128.39.49:80/api/product/${id}`)
+        const response = await fetch(`http://merchserver.org/api/product/${id}`)
         const data:Product = await response.json()
         return data
     }
