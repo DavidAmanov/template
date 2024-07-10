@@ -44,14 +44,11 @@ const Profile = () => {
         <>
             <Header />
             <UserProfile />
-            <div style={{
-                marginLeft: "15vh", 
-                marginTop: "3vh", 
-                marginBottom: "3vh",
-                fontSize: "24px"
-                }}>You will like</div>
+            <div className={ProfileCss.you__will}>
+                You will like
+            </div>
             <div className={ProfileCss.slider}>
-                <Slider  numberOfProduct={width> 1000 ? 4: 1}/>
+                <Slider  numberOfProduct={width > 1000 ? 4: 1}/>
             </div>
             <Link to='/catalog' className={ProfileCss.to__catalog}>
                 <button className={`${ProfileCss.button} 

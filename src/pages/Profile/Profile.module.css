@@ -1,9 +1,14 @@
 .slider{
     margin-left: 15vh;
     margin-right: 15vh;
+    animation: slideIn 1s forwards;
 }
-
-
+.you__will{
+    margin-left: 15vh; 
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    font-size: 24px;
+}
 
 .to__catalog{
     width: 100%;
@@ -41,5 +46,17 @@
     .slider{
         margin: 5vh;
     }
+    .you__will{
+        margin: 5vh;
+    }
     
+}
+
+@keyframes slideIn{
+    from{
+        transform: translateX(-100%);
+    }
+    to{
+        transform: translateX(0%);
+    }
 }

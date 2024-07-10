@@ -3,7 +3,7 @@
     grid-template-columns:  20vw 30vw;
     margin-left: 15vh;
     margin-top: 5vh;
-    animation: appear 1s forwards;
+    animation: appear 1.5s forwards;
 }
 
 .user__data{
