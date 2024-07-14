@@ -1,4 +1,3 @@
-
 import { useSelector } from "react-redux";
 import EmptyCart from "../../components/EmptyCart/EmptyCart";
 import MakeOrder from "../../components/MakeOrder/MakeOrder";
@@ -6,26 +5,22 @@ import PromocodeField from "../../components/PromocodField/PromocodeField";
 import CartCss from './Cart.module.css'
 import { RootState } from "../../context/store";
 import CartProduct from "../CartProduct/CartProduct";
-import { Link } from "react-router-dom";
-import Divider from '../../img/ico/Divider.png'
+import NavBar from "../NavBar/NavBar";
+import { useMemo } from "react";
 
 const Cart = () => {
+    const linksArray = ['Home', 'Catalog']
+    const header = 'Cart'
     const productsInCart = useSelector((state:RootState)=>state.cart.cartProducts)
     const totalAmount = useSelector((state: RootState)=>state.cart.totalAmount)
+    const isEmpty = useMemo(() => productsInCart.length === 0, [productsInCart.length]);
     return(
         <>     
-        {productsInCart.length > 0 ? (
-            <section className={CartCss.section}>
+        {isEmpty ? 
+            <EmptyCart/> :
+            (<section className={CartCss.section}>
                 <div className={CartCss.section__wrapper}>
-                    <nav className={CartCss.nav}>
-                        <Link to='/'><span className={CartCss.first}>Home</span></Link>
-                        <img src={Divider} alt="/" />
-                        <Link to='/catalog'><span className={CartCss.second}>Catalog</span></Link>
-                    </nav>
-                    <div className={CartCss.heading}>
-                        <h1 className={CartCss.heading__h1}>Cart</h1>
-                        <span>{productsInCart.length} item</span>  
-                    </div>
+                    <NavBar linksArray={linksArray} header={header}/>
                     {productsInCart.length > 0 &&(
                     <div className={CartCss.cart}>
                         <div className={CartCss.cart__leftBlock}>
@@ -45,8 +40,7 @@ const Cart = () => {
                         </div>
                     </div>)}
                 </div>
-            </section>)
-            : <EmptyCart/>}
+            </section>)}
         </>
     )
 }

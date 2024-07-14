@@ -12,7 +12,7 @@ const NavBar:React.FC<NavBarProp> = ({linksArray, header}) => {
         <nav className={NavBarCss.nav}>    
             {linksArray.map((link, index)=>(
                 <div key={index}>
-                    <Link to={`/${link.toLocaleLowerCase()}`}>
+                    <Link to={link.toLocaleLowerCase() === 'home' ? '/' :`/${link.toLocaleLowerCase()}`}>
                         <span className={NavBarCss.first}>{link}</span>
                     </Link>
                     <img src={Divider} alt="/" />
