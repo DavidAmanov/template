@@ -1,12 +1,12 @@
 import DeliveryCss from './DeliveryCss.module.css'
 import Map from '../../Map/Map'
-import Slash from '../../../img/ico/slash__block.png'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../../../context/store'
 import { resetAddress, setAddress, setDeliveryMethod } from '../../../context/orderSice'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { Address } from '../../../types/types'
+import Title from '../Title/Title'
 
 const Delivery = () => {
     const [methodDelivery, setMethodDel] = useState('PickUp')
@@ -26,11 +26,7 @@ const Delivery = () => {
 
     return(<>
         <div className={`${DeliveryCss.delivery} ${DeliveryCss.block}`}>
-            <div className={DeliveryCss.name}>
-                <span>2</span>
-                <img src={Slash} alt="slash" />
-                <span>Delivery</span>
-            </div>
+            <Title title='Delivery' number={2}/>
             <div className={DeliveryCss.block__wrapper}>
                 <div className={DeliveryCss.delivery__method}>
                     <div className={DeliveryCss.method}>

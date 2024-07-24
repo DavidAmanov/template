@@ -1,11 +1,11 @@
 import RecipientDetailsCss from './RecipientDetailsCss.module.css'
-import Slash from '../../../img/ico/slash__block.png'
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../../context/store';
 import { resetRecipient, setRecipient } from '../../../context/orderSice';
 import { useEffect } from 'react';
 import { Recipient } from '../../../types/types';
+import Title from '../Title/Title';
 
 const RecipientDetails = () => {
     const {register, handleSubmit} = useForm<Recipient>();
@@ -23,12 +23,8 @@ const RecipientDetails = () => {
 
     return(<>
         <div className={`${RecipientDetailsCss.block} ${RecipientDetailsCss.Recipient}`}>
-            <div className={RecipientDetailsCss.name}>
-                <span>4</span>
-                <img src={Slash} alt="slash" />
-                <span>Recipient details</span>
-            </div>
-            <div className={`${RecipientDetailsCss.block__wrapper} ${RecipientDetailsCss.block__wrapper_padding}`}>
+            <Title title='Recipient details' number={4} />
+            <div className={RecipientDetailsCss.block__wrapper}>
                 <div>Enter the details of the order recipient</div>
                 <form className={RecipientDetailsCss.FormWrapper} onSubmit={handleSubmit(addRecipient)}>
                     <div className={RecipientDetailsCss.Recipient__details}>

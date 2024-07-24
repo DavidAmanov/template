@@ -72,8 +72,6 @@ const Map: React.FC<MapProp> = ({orderPage}) =>{
               <div className={MapCss.delivery__address}>
                 <span className={MapCss.delivery__line}>MerchShop</span>
                 <span className={MapCss.delivery__line}>Somewhere in Tokyo</span>
-              </div>
-              <div className={MapCss.delivery__time}>
                 <span className={MapCss.delivery__line}>Phone: +1 111 111-11-11</span>
                 <span className={MapCss.delivery__line}>Mon-Fri: 08:00-20:00, Sat-Sun: Closed.</span>
               </div>

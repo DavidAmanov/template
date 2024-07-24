@@ -16,7 +16,7 @@ section{
 
 .order__left{
     width: 100%;
-    height: auto;
+    display: grid;
 }
 
 .order__right{

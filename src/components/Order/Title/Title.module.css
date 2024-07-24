@@ -1,0 +1,12 @@
+.name {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    width: 100%;
+    height: 56px;
+    padding: 0 16px;
+    background-color: var(--color-name-order-block);
+    color: var(--color-h1-cart);
+    font-size: calc(1rem + 6px);
+    Line-height: 24px;
+}

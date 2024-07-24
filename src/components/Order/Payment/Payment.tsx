@@ -7,6 +7,7 @@ import { resetPaymentMethod, setPaymentMethod } from '../../../context/orderSice
 import { Payments } from '../../../types/types';
 import { fetchPaymentMethods } from '../../../context/paymentSlice';
 import { Link } from 'react-router-dom';
+import Title from '../Title/Title';
 
 const Payment = () => {
     const [paymentMethods, setPaymentMethods] = useState<Payments[]>([]);
@@ -29,15 +30,11 @@ const Payment = () => {
     };
 
     return (
-        <div className={`${PaymentCss.payment} ${PaymentCss.block}`}>
-            <div className={PaymentCss.name}>
-                <span>3</span>
-                <img src={Slash} alt="slash" />
-                <span>Payment</span>
-            </div>
-            <div className={`${PaymentCss.block__wrapper} ${PaymentCss.block__wrapper_padding} ${PaymentCss.block__wrapper_hidden}`}>
-                <div id="online-payment" className={`${PaymentCss.payment__bottom} ${PaymentCss.payment__bottom_online} ${PaymentCss.payment__bottom_hidden}`}>
-                    <div className={PaymentCss.payment__text}>
+        <div className= {PaymentCss.block}>
+            <Title title='Payment' number={3}/>
+            <div className={PaymentCss.block__wrapper}>
+                <div id="online-payment">
+                    <div>
                         Select a payment method online or link your card to <Link to='/profile' className={PaymentCss.PlaceOrderLink}>personal account</Link>
                     </div>
                     <div className={PaymentCss.payment__choose}>
