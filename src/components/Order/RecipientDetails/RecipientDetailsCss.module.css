@@ -1,116 +1,117 @@
 .block__wrapper {
-    border-bottom: 1px solid var(--color-card-bottom);
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-
-
-.submit__button{
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 24px;
-    background-color: var(--color-status);
-    font-size: 24px;
+.submit__button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 24px;
+  background-color: var(--color-status);
+  font-size: 24px;
 }
 
 .block {
-    padding-bottom: 40px;
+  padding-bottom: 40px;
 }
 
-.Recipient__initials, .Recipient__contacts {
-    display: flex;
-    align-items: center;
-    gap: 32px;
+.Recipient__initials,
+.Recipient__contacts {
+  display: flex;
+  align-items: center;
+  gap: 32px;
 }
 
 .Recipient__field {
-    width: 351px;
-    height: 48px;
+  width: 351px;
+  height: 48px;
 }
 
-.Recipient__input, .textarea__comment {
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-card-bottom);
-    border-radius: 24px;
-    color: var(--color-white);
-    padding-left: 20px;
+.Recipient__input,
+.textarea__comment {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-card-bottom);
+  border-radius: 24px;
+  color: var(--color-white);
+  padding-left: 20px;
 }
 
 .textarea {
-    max-width: 736px;
-    height: 96px;
+  max-width: 736px;
+  height: 96px;
 }
 
 .submitButtonField {
-    max-width: 736px;
-    height: 48px;
+  max-width: 736px;
+  height: 48px;
 }
 
 .textarea__comment {
-    width: 100%;
-    padding-top: 12px;
+  width: 100%;
+  padding-top: 12px;
 }
 
 /* buttons css */
 .button {
-    border: none;
-    background: none;
-    cursor: pointer;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 .button_style {
-    border: 1px solid var(--color-card-heading);
-    border-radius: 32px;
-    padding: 12px 24px;
-    background-color: var(--color-card-heading);
-    color: var(--color-white);
-    transition: 0.5s;
+  border: 1px solid var(--color-card-heading);
+  border-radius: 32px;
+  padding: 12px 24px;
+  background-color: var(--color-card-heading);
+  color: var(--color-white);
+  transition: 0.5s;
 }
 
 .button_style:hover {
-    box-shadow: 0 0 8px var(--color-card-heading);
+  box-shadow: 0 0 8px var(--color-card-heading);
 }
 
 .button_style:active {
-    box-shadow: 0 0 32px var(--color-active-btn);
-    background-color: var(--color-active-btn);
-    border: 1px solid var(--color-active-btn);
+  box-shadow: 0 0 32px var(--color-active-btn);
+  background-color: var(--color-active-btn);
+  border: 1px solid var(--color-active-btn);
 }
 
 .button_size {
-    width: 100%;
+  width: 100%;
 }
 
 .FormWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    width: 100%;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+  gap: 15px;
 }
 
 @media (min-width: 320px) and (max-width: 500px) {
-    .Recipient__initials, .Recipient__contacts{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 15px;
-    }
-    .Recipient__field {
-        width: 100%;
-        height: 48px;
-    }
-    .textarea {
-        width: 315px;
-        height: 96px;
-    }
-    
-    .submitButtonField {
-        width: 100%;
-        height: 48px;
-    }
+  .Recipient__initials,
+  .Recipient__contacts {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+  }
+  .Recipient__field {
+    width: 100%;
+    height: 48px;
+  }
+  .textarea {
+    width: 100%;
+    height: 96px;
+  }
+
+  .submitButtonField {
+    width: 100%;
+    height: 48px;
+  }
 }
