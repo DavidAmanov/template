@@ -31,9 +31,7 @@ const Delivery = () => {
                 <img src={Slash} alt="slash" />
                 <span>Delivery</span>
             </div>
-            <div className={`${DeliveryCss.block__wrapper} 
-                ${DeliveryCss.block__wrapper_padding} 
-                ${DeliveryCss.block__wrapper_hidden}`}>
+            <div className={DeliveryCss.block__wrapper}>
                 <div className={DeliveryCss.delivery__method}>
                     <div className={DeliveryCss.method}>
                         <button onClick={()=>setMethodDel("PickUp")}>
@@ -47,12 +45,8 @@ const Delivery = () => {
                     </div>
                 </div>
                 {methodDelivery==='PickUp' && (
-                    <div id="pickup" className={`${DeliveryCss.delivery__bottom} 
-                        ${DeliveryCss.delivery__bottom_pickup} 
-                        ${DeliveryCss.delivery__bottom_adaptive}`}>
-                        <div className={DeliveryCss.delivery__right}>
-                            <Map orderPage={true}/>
-                        </div>
+                    <div id="pickup" className={DeliveryCss.delivery__bottom}>
+                        <Map orderPage={true}/>
                     </div>)}
                 {methodDelivery === "Courier" && (
                     <form onSubmit={handleSubmit(addAddress)} className={DeliveryCss.address__form}>
@@ -65,7 +59,6 @@ const Delivery = () => {
                     </form>
                 )}
             </div>
-
         </div>
     </>)
 }
