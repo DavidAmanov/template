@@ -27,7 +27,12 @@ const Profile = () => {
       }
     }
   };
-
+  const fetchData = async () => {
+    await dispatch(fetchOrderList());
+    await dispatch(fetchProductsInCart());
+    await dispatch(fetchFavouriteProducts());
+    localStorage.setItem("loginTime", new Date().getTime().toString());
+  };
   useEffect(() => {
     checkAndLogOut();
     const urlParams = new URLSearchParams(window.location.search);
@@ -37,11 +42,7 @@ const Profile = () => {
       dispatch(
         setToken({ accessToken: accessToken, refreshToken: refreshToken })
       );
-      dispatch(fetchUserData());
-      dispatch(fetchOrderList());
-      dispatch(fetchProductsInCart());
-      dispatch(fetchFavouriteProducts());
-      localStorage.setItem("loginTime", new Date().getTime().toString());
+      dispatch(fetchUserData()).then(() => fetchData());
     }
   }, []);
 

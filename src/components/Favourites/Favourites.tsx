@@ -6,16 +6,15 @@ import NavBar from "../NavBar/NavBar";
 import { CartProductType } from "../../types/types";
 
 interface FavProp {
-  isEmpty: boolean;
-  favouriteProducts: CartProductType[];
+  favouriteProducts?: CartProductType[];
 }
 
-const Favourites: React.FC<FavProp> = ({ isEmpty, favouriteProducts }) => {
+const Favourites: React.FC<FavProp> = ({ favouriteProducts }) => {
   const linksArray = ["Home", "Favourites"];
   const header = "Favourites";
   return (
     <>
-      {isEmpty ? (
+      {!favouriteProducts ? (
         <EmptyFavourites />
       ) : (
         <section className={FavouritesCss.section}>
