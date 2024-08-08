@@ -1,110 +1,110 @@
 .block__wrapper {
-    border-bottom: 1px solid var(--color-card-bottom);
-    min-height: 45vh;
-    padding-bottom: 24px;
+  border-bottom: 1px solid var(--color-card-bottom);
+  min-height: 45vh;
+  padding-bottom: 24px;
 }
 
 .delivery__method {
-    display: flex;
-    height: 5vh;
-    margin-bottom: 1vh;
+  display: flex;
+  height: 5vh;
+  margin-bottom: 1vh;
 }
 
 .method {
-    flex-grow: 1;
-    flex-shrink: 1;
-    min-width: 350px;
-    text-align: center;
-    padding: 20px;
-    border-bottom: 1px solid var(--color-card-bottom);
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 350px;
+  text-align: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--color-card-bottom);
 }
 
 .method button {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 /* delivery block css */
 
 .delivery {
-    border-bottom: 1px solid var(--color-card-bottom);
+  border-bottom: 1px solid var(--color-card-bottom);
 }
 
 .delivery__schedule {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    border-left: 3px solid var(--color-status);
-    padding-left: 32px;
+  font-size: 16px;
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-left: 3px solid var(--color-status);
+  padding-left: 32px;
 }
 
 .delivery__bottom {
-    display: flex;
-    min-height: 40vh;
-    gap: 32px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  min-height: 40vh;
 }
 
-.address__form{
-    width: 67%;
-    display: grid;
-    gap: 2vh;
+.address__form {
+  width: 67%;
+  display: grid;
+  gap: 2vh;
 }
 
 .town {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .town__info {
-    max-width: 480px;
-    height: 48px;
-    position: relative;
+  max-width: 480px;
+  height: 48px;
+  position: relative;
 }
 
 .town__input {
-    width: 100%;
-    height: 100%;
-    min-height: 5vh;
-    border-radius: 24px;
-    background-color: var(--color-card-bottom);
-    color: var(--color-white);
-    padding: 4px 48px;
+  width: 100%;
+  height: 100%;
+  min-height: 5vh;
+  border-radius: 24px;
+  background-color: var(--color-card-bottom);
+  color: var(--color-white);
+  padding: 4px 48px;
 }
 
-.submit__button{
-    border: none;
-    border-radius: 24px;
-    height: 5vh;
-    background-color: var(--color-status);
-    font-size: 24px;
+.submit__button {
+  border: none;
+  border-radius: 24px;
+  height: 5vh;
+  background-color: var(--color-status);
+  font-size: 24px;
 }
 
 .town__search {
-    position: absolute;
-    top: 12px;
-    left: 16px;
+  position: absolute;
+  top: 12px;
+  left: 16px;
 }
-
 
 @media (min-width: 320px) and (max-width: 500px) {
-    .delivery__method {
-        display: flex;
-        justify-content: center;
-        width: 90%;
-    }
-    .method{
-        min-width: 150px;
-    }
-    .delivery__bottom {
-        margin-top: 24px;
-    }
-    .address__form{
-        padding-top: 24px;
-        width: 100%;
-        display: grid;
-        gap: 2vh;
-    }
+  .delivery__method {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+  }
+  .method {
+    min-width: 150px;
+  }
+  .delivery__bottom {
+    margin-top: 24px;
+  }
+  .address__form {
+    padding-top: 24px;
+    width: 100%;
+    display: grid;
+    gap: 2vh;
+  }
 }
-
