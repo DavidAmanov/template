@@ -3,9 +3,6 @@
   min-height: 70vh;
   padding-top: 24px;
   padding-bottom: 214px;
-  opacity: 0;
-  animation: appear 1s forwards;
-  will-change: opacity;
 }
 
 .section__wrapper {
@@ -61,11 +58,5 @@
     display: grid;
     grid-template-columns: 100%;
     gap: 15px;
-  }
-}
-
-@keyframes appear {
-  to {
-    opacity: 1;
   }
 }

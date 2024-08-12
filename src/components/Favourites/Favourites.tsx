@@ -1,9 +1,10 @@
 import React from "react";
 import FavouritesCss from "./Favourites.module.css";
 import FavouriteProduct from "../FavouriteProduct/FavouriteProduct";
-import EmptyFavourites from "../EmptyFavourites/EmptyFavourites";
 import NavBar from "../NavBar/NavBar";
 import { CartProductType } from "../../types/types";
+import EmptyCartOrFavourites from "../EmptyCartOrFavourites/EmptyCartOrFavourites";
+import Heart from "../../img/heart_block.png";
 
 interface FavProp {
   favouriteProducts?: CartProductType[];
@@ -12,10 +13,11 @@ interface FavProp {
 const Favourites: React.FC<FavProp> = ({ favouriteProducts }) => {
   const linksArray = ["Home", "Favourites"];
   const header = "Favourites";
+  console.log("big component favourites");
   return (
     <>
       {!favouriteProducts ? (
-        <EmptyFavourites />
+        <EmptyCartOrFavourites img={Heart} />
       ) : (
         <section className={FavouritesCss.section}>
           <div className={FavouritesCss.section__wrapper}>

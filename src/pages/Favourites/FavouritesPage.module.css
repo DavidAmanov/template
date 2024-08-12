@@ -1,0 +1,11 @@
+.main {
+  opacity: 0;
+  animation: appear 1s both;
+  will-change: opacity;
+}
+
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}

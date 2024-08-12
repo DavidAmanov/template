@@ -1,7 +1,5 @@
 .favourites {
   background-color: var(--color-bg2);
-  opacity: 0;
-  animation: appear 1s both;
 }
 
 .favourites__wrapper {
@@ -141,11 +139,5 @@
 
   .button {
     width: 100%;
-  }
-}
-
-@keyframes appear {
-  to {
-    opacity: 1;
   }
 }
