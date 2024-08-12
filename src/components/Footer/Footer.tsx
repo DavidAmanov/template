@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <>
-      <footer className={FooterCss.footerTop}>
-        <div className={FooterCss.footerTop__wrapper}>
+    <footer className={FooterCss.footer}>
+      <section className={FooterCss.footer__section__one}>
+        <div className={FooterCss.footer__wrapper}>
           <Link to="/">
             <img className={FooterCss.footer__logo} src={logo} alt="Logo" />
           </Link>
@@ -39,8 +39,8 @@ const Footer = () => {
                     <a className={FooterCss.social} href="#"><img src={youtube} alt="youtube" /></a> */}
           </div>
         </div>
-      </footer>
-      <footer className={FooterCss.footerBottom}>
+      </section>
+      <section className={FooterCss.footer__section__two}>
         <div className={FooterCss.footerBottom__wrapper}>
           <div className={FooterCss.footerBottom__copyRight}>
             &copy;&nbsp;2024&nbsp;MerchShop
@@ -64,8 +64,8 @@ const Footer = () => {
             </a>
           </div>
         </div>
-      </footer>
-    </>
+      </section>
+    </footer>
   );
 };
 
