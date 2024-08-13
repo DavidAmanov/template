@@ -4,7 +4,7 @@ import { Product } from "../../types/types";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../context/store";
 import { removeProductFromFavourite } from "../../context/favouriteSlice";
-import ButtonRed from "../Button/ButtonRed";
+import ButtonRed from "../Button/SquareButton/ButtonSquare";
 import { addProduct } from "../../context/cartSlice";
 import { useState } from "react";
 
