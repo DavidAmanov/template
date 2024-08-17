@@ -4,11 +4,11 @@ import { useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../../context/store";
 import { useEffect, useState } from "react";
 import { logOut } from "../../context/userSlice";
-import ButtonRed from "../Button/SquareButton/ButtonSquare";
 import { useSelector } from "react-redux";
 import { fetchOrderList, refreshOrderList } from "../../context/orderListSlice";
 import { refreshCartState } from "../../context/cartSlice";
 import { refreshFavouritesState } from "../../context/favouriteSlice";
+import ButtonSquare from "../Button/SquareButton/ButtonSquare";
 
 const UserProfile = () => {
   const [text, setText] = useState("Log in");
@@ -48,7 +48,7 @@ const UserProfile = () => {
             {user.email ? user.email : "Pls authoraize to see your email"}
           </span>
         </div>
-        <ButtonRed
+        <ButtonSquare
           text={text}
           onClick={text === "Log in" ? handleLogIn : handleLogOut}
         />

@@ -1,7 +1,7 @@
 import React from "react";
 import ButtonQuantityModule from "./ButtonQuantity.module.css";
-import Remove from "../../img/ico/Remove Small.png";
-import Add from "../../img/ico/Add Small.png";
+import Remove from "../../../img/ico/Remove Small.png";
+import Add from "../../../img/ico/Add Small.png";
 
 interface ButtonProps {
   quantity: number;

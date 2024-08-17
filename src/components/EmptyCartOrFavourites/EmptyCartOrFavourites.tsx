@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import EmptyModule from "./EmptyCartOrFavourites.module.css";
+import ButtonOval from "../Button/OvalButton/ButtonOval";
 
 interface EmptyProp {
   img: string;
@@ -37,22 +38,10 @@ const EmptyCartOrFavourites: React.FC<EmptyProp> = ({ img }) => {
             </div>
             <div className={EmptyModule.buttons}>
               <Link to="/catalog">
-                <button
-                  className={`${EmptyModule.button} 
-                                  ${EmptyModule.button_style} 
-                                  ${EmptyModule.button_hover}`}
-                >
-                  Go to catalog
-                </button>
+                <ButtonOval text="Go to catalog" />
               </Link>
               <Link to="/">
-                <button
-                  className={`${EmptyModule.button} 
-                                  ${EmptyModule.button_style} 
-                                  ${EmptyModule.button_hover}`}
-                >
-                  Home page
-                </button>
+                <ButtonOval text="Home page" />
               </Link>
             </div>
           </div>

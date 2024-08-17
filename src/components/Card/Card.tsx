@@ -9,9 +9,9 @@ import { useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../../context/store";
 import { addProductToFavourite } from "../../context/favouriteSlice";
 import { addProduct } from "../../context/cartSlice";
-import ButtonRed from "../Button/SquareButton/ButtonSquare";
 import { useSelector } from "react-redux";
 import Heart from "../../img/Heart.svg";
+import ButtonSquare from "../Button/SquareButton/ButtonSquare";
 
 interface CardProps {
   product: Product;
@@ -78,7 +78,7 @@ const Card: React.FC<CardProps> = ({ product, sliderFlag }) => {
             <div className={CardCss.article}>L M S</div>
           </div>
           <div className={CardCss.price}>{product.price}</div>
-          <ButtonRed onClick={addToCart} text={textToButton} />
+          <ButtonSquare onClick={addToCart} text={textToButton} />
         </div>
       )}
     </article>

@@ -2,13 +2,14 @@
 import React, { useState } from "react";
 import { Product } from "../../types/types";
 import ProductCss from "./Product.module.css";
-import ButtonRed from "../Button/SquareButton/ButtonSquare";
-import ButtonGray from "../Button/QuantityButton/ButtonQuantity";
 import { AppDispatch, RootState } from "../../context/store";
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../../context/cartSlice";
 import { addProductToFavourite } from "../../context/favouriteSlice";
-import ButtonFavourite from "../Button/IconButton/ButtonIcon";
+import ButtonIcon from "../Button/IconButton/ButtonIcon";
+import Heart from "../../img/heart_block.png";
+import ButtonSquare from "../Button/SquareButton/ButtonSquare";
+import ButtonQuantity from "../Button/QuantityButton/ButtonQuantity";
 
 interface ProductProps {
   product: Product;
@@ -56,7 +57,7 @@ const ProductComp: React.FC<ProductProps> = ({ product }) => {
         <div className={ProductCss.description__head}>
           <div>
             <h2>{product.name}</h2>
-            <ButtonFavourite onClick={addProductToFav} />
+            <ButtonIcon onClick={addProductToFav} path={Heart} />
           </div>
           <span>Available</span>
         </div>
@@ -69,8 +70,8 @@ const ProductComp: React.FC<ProductProps> = ({ product }) => {
           <span>{product.price}</span>
         </div>
         <div className={ProductCss.btn__container}>
-          <ButtonRed onClick={addProductToCart} text={textToButton} />
-          <ButtonGray quantity={count} onClick1={minus} onClick2={plus} />
+          <ButtonSquare onClick={addProductToCart} text={textToButton} />
+          <ButtonQuantity quantity={count} onClick1={minus} onClick2={plus} />
         </div>
       </section>
     </div>

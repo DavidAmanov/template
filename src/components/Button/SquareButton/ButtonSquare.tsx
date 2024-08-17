@@ -1,11 +1,11 @@
-import ButtonSquareModule from "./ButtonRed.module.css";
+import ButtonSquareModule from "./ButtonSquare.module.css";
 
-interface ButtonRedProp {
+interface ButtonProp {
   onClick: () => void;
   text: string;
 }
 
-const ButtonSquare: React.FC<ButtonRedProp> = ({ onClick, text }) => {
+const ButtonSquare: React.FC<ButtonProp> = ({ onClick, text }) => {
   return (
     <button
       className={`${ButtonSquareModule.button} ${ButtonSquareModule.button_cart}`}

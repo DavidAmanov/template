@@ -10,6 +10,7 @@ import {
   counterAmount,
   removeProduct,
 } from "../../context/cartSlice";
+import ButtonIcon from "../Button/IconButton/ButtonIcon";
 
 interface ProductProps {
   product: Product;
@@ -72,13 +73,14 @@ const CartProduct: React.FC<ProductProps> = ({
           )}
           <span>Price: {quantity * product.price}</span>
           {orderPage && <span>Quantity: {quantity}</span>}
-          <button
+          <ButtonIcon path={Trash} onClick={removeProductFromCart} />
+          {/* <button
             onClick={removeProductFromCart}
             className={`${CartProductCss.button} 
                     ${CartProductCss.button_cursor}`}
           >
             <img src={Trash} alt="Trash" />
-          </button>
+          </button> */}
         </div>
       </div>
     </>

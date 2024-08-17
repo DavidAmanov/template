@@ -4,9 +4,9 @@ import { Product } from "../../types/types";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../context/store";
 import { removeProductFromFavourite } from "../../context/favouriteSlice";
-import ButtonRed from "../Button/SquareButton/ButtonSquare";
 import { addProduct } from "../../context/cartSlice";
 import { useState } from "react";
+import ButtonSquare from "../Button/SquareButton/ButtonSquare";
 
 interface FavouriteProductProp {
   product: Product;
@@ -49,7 +49,7 @@ const FavouriteProduct: React.FC<FavouriteProductProp> = ({ product }) => {
           </span>
         </div>
         <div className={FavouriteProductCss.button__div}>
-          <ButtonRed onClick={addToCart} text={textToButton} />
+          <ButtonSquare onClick={addToCart} text={textToButton} />
           <button onClick={handleRemove} className={FavouriteProductCss.button}>
             <img src={Trash} alt="Trash" />
           </button>
